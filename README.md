@@ -1,10 +1,10 @@
 # Electromagnetismo II semestre
 
-Profesor: Extremera Salinas
+Profesor: Alfonso Extremera Salinas
 
-Despacho: N133
+Despacho: N133 Dpt-Electromagnetismo
 
-Correo:
+Correo: asalinas@ugr.es
 
 ## Contenidos
 * 
