@@ -1,4 +1,4 @@
-# Electromagnetismo II semestre
+# Electromagnetismo II cuatrimestre
 
 Profesor: Alfonso Extremera Salinas
 
