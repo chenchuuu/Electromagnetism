@@ -1,0 +1,234 @@
+\documentclass[12pt,a4paper]{report}
+
+% --- Paquetes de Idioma y Codificación ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+
+% --- Diseño de Página ---
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=3cm, right=3cm}
+
+% --- Matemáticas y Símbolos ---
+\usepackage{amsmath, amssymb, amsthm}
+
+% --- Colores y Cajas ---
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+
+% Caption
+
+\usepackage{caption}
+
+% Gráficos
+
+\usepackage{graphicx}
+
+% Espaciadora
+
+\newcommand{\esp}{\vspace{0.5cm}}
+
+% Bibliografía
+
+\usepackage[style=apa, backend=biber]{biblatex} % Estilo APA
+\addbibresource{biblio.bib} % Nombre de tu archivo .bib
+
+% Configuración de cajas personalizadas
+\newtcolorbox{importante}{
+	colback=red!5!white,
+	colframe=red!75!black,
+	title=Importante,
+	fonttitle=\bfseries
+}
+
+\newtcolorbox{nota}{
+	colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Nota,
+	fonttitle=\bfseries
+}
+
+% Definición de la caja de bibliografía
+\newtcolorbox{bibliografia}{
+	colback=gray!5!white,
+	colframe=gray!75!black,
+	title=Bibliografías útiles,
+	fonttitle=\bfseries,
+	breakable
+}
+
+% Socrative para óptica 2
+
+\newtcolorbox{Socrative}{
+	colback=orange!5!white,
+	colframe=orange!75!black,
+	title=Socrative,
+	fonttitle=\bfseries,
+	breakable
+}
+
+% Float
+
+\usepackage{float}
+
+% --- Hipervínculos ---
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+
+% --- Datos del Documento ---
+\title{Electromagnetismo}
+\author{Chengyu Jin}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\tableofcontents
+	\newpage
+	
+	\chapter{Desarrollo multipolar eléctrico}
+	
+	\noindent \textbf{Bibliografía principal}: sección 3.4 Griffiths
+	
+	\esp
+	
+	\noindent Momentos multipolar puntuales (desplazado una pequeña distancia)
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/multipolos.png}
+	\end{figure}
+	
+	\section{Potencial a grandes distancias}
+	
+	Cogemos una distribución de cargas en \textbf{condición de electroestática}, entonces el potencial por la ley de Coulomb es
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.4\textwidth]{IMG/distri.png}
+	\end{figure}
+	
+	\begin{equation}
+		V(\vec{r}) = \frac{1}{4\pi\epsilon_0} \int_{V'} \frac{\rho(\vec{r'})}{|\vec{r}-\vec{r'}|} d\tau '
+		\label{eq:coulomb}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Vamos a desarrollar el módulo $\vec{\mathfrak{r}}$ 
+	
+	\begin{equation*}
+		\mathfrak{r} = [(\vec{r}-\vec{r'})\cdot (\vec{r}-\vec{r'})]^{1/2} = (r^2+ r'^2-2\vec{r}\cdot\vec{r'})^{1/2} = r\left(1+ \left(\frac{r'}{r}\right)^2-2\left(\frac{r'}{r}\right)\cos\alpha '\right)^{1/2}
+	\end{equation*}
+
+	\esp
+
+	A grandes distancias, esto es que $r >\ > r'$, y llamando $\varepsilon=(r/r')^2-2r'/r\cos\alpha '$ podemos hacer un desarrollo de McLaurin 
+	
+	\begin{equation*}
+		\mathfrak{r} = r(1+\epsilon)^{1/2} \implies \frac{1}{\mathfrak{r}} = \frac{1}{r(1+\epsilon)^{1/2}} = \frac{1}{r} + \frac{-1/2}{r(1+\epsilon)^{3/2}}\Big|_{\epsilon=0}\epsilon + \frac{1}{2!}\frac{(-1/2)(-3/2)}{r(1+\epsilon)^{5/2}}\Big|_{\epsilon=0}\epsilon^2+\dots = 
+	\end{equation*}
+	
+	deshaciendo el cambio de $\epsilon$ obtenemos la siguiente serie, donde $P_n(\cos\alpha ')$ son \textbf{polinomios de Legendre}
+	
+	\begin{equation}
+		\frac{1}{\mathfrak{r}} = \frac{1}{r}\sum_{n=0}^\infty \left(\frac{r'}{r}\right)^nP_n(\cos\alpha ')
+	\end{equation}
+
+	\noindent sustituyendo esto en la eq (\ref{eq:coulomb}) obtenemos el \textbf{potencial a grandes distancias} o la expansión multipolar del potencial
+	
+	\begin{equation}
+		\frac{1}{4\pi\epsilon} \sum_{n=0}^\infty \frac{1}{r^{n+1}} \int_{V'} (r')^n P_n(\cos\alpha ') \rho(\vec{r'}) d\tau '
+	\end{equation}
+	
+	\noindent desarrollando la suma podremos obtener la contribución monopolar y dipolar
+	
+	\begin{equation}
+		\frac{1}{4\pi\epsilon} \left[\frac{1}{r}\int_{V'} \rho(\vec{r'})d\tau ' + \frac{1}{r^2}\int_{V'} r'\cos\alpha '\rho(\vec{r'})d\tau ' + \dots \right]
+	\end{equation}
+
+	\esp
+
+	\noindent podemos identificar el término monopolar 
+	
+	\begin{equation}
+		\int_{V'} \rho(\vec{r'})d\tau '
+		\label{eq:monopolar}
+	\end{equation}
+	
+	\noindent y el término dipolar
+	
+	\begin{equation}
+		\vec{P} = \int_{V'} r'\cos\alpha '\rho(\vec{r'})d\tau '
+		\label{eq:dipolar}
+	\end{equation}
+
+	\esp
+
+	\begin{nota}
+	Las mayorías de las moléculas son neutras, esto implica que la eq (\ref{eq:monopolar}) vale 0, entonces con la presencia de un campo eléctrico no habrá momento monopolar, pero sí puede haber momento dipolar, por ejemplo, la molécula del agua tiene el átomo de oxígeno ligeramente positivo mientras que los átomos de hidrógeno ligeramente negativas.
+	\end{nota}
+
+	\esp
+	
+	\noindent tomando $\vec{r}\cdot\vec{r'} = rr'\cos\alpha '=r\hat{r}\cdot\vec{r'}$ y sustituyendo en eq (\ref{eq:dipolar}) tenemos
+	
+	\begin{equation}
+		\vec{P} = \frac{\vec{r}}{r} \cdot \int_{V'} \vec{r'} '\rho(\vec{r'})d\tau ' = \hat{r} \cdot \int_{V'} \vec{r'} '\rho(\vec{r'})d\tau '
+	\end{equation}
+	
+	\esp
+	
+	Esto es el momento dipolar de la distribución de carga según mi \textbf{origen de coordenada}. Entonces cuando calculo el momento dipolar tengo que especificar el origen de coordenada.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/EjDipolarcoord.png}
+	\end{figure}
+	
+	\esp
+	
+	Puedo definir dos orígenes de coordenadas, uno centrado en la partícula y otro situado una distancia d debajo de la partícula. Ambos tienen un momento monopolar $q$, pero en la primera coordenada el momento dipolar es nulo y en el segundo origen de coordenada es no nulo.
+	
+	\esp
+	
+	\begin{importante}
+		Si el momento monopolar es nulo, entoncces el momento dipolar es independiente del origen de coordenada
+	\end{importante}
+
+	\esp
+
+	\noindent Calcularemos el momento dipolar del ejemplo 3.10 con la definición
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/Ej3_10.png}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.4\textwidth]{IMG/ej3-10dibujo.png}
+	\end{figure}
+	
+	\begin{equation*}
+		\vec{P} = \int_{V'} \left( \frac{d}{2} q \delta(\vec{r'}-(d/2))\hat{z} + \frac{d}{2}(-q\delta(\vec{r'}-(-d/2)))(-\hat{z}) d\tau ' \right) = qd\hat{z}
+	\end{equation*}
+
+	\esp
+	
+	\noindent entonces podemos definir el momento dipolar para una colección de cargas puntuales es 
+
+	
+	\begin{equation}
+		\vec{P} = \sum_{i=1}^n q_i \vec{r'}_i
+	\end{equation}
+	
+
+	% \printbibliography[title={Bibliografía}]
+\end{document}
