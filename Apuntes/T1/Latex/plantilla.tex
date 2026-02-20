@@ -158,19 +158,19 @@
 	\noindent podemos identificar el término monopolar 
 	
 	\begin{equation}
-		\int_{V'} \rho(\vec{r'})d\tau '
+		\frac{1}{4\pi\epsilon_0 r} \int_{V'} \rho(\vec{r'})d\tau '
 		\label{eq:monopolar}
 	\end{equation}
 	
 	\noindent y el término dipolar
 	
 	\begin{equation}
-		\vec{P} = \int_{V'} r'\cos\alpha '\rho(\vec{r'})d\tau '
+		\frac{1}{4\pi\epsilon_0 r^2} \int_{V'} r'\cos\alpha '\rho(\vec{r'})d\tau '
 		\label{eq:dipolar}
 	\end{equation}
 
 	\esp
-
+	
 	\begin{nota}
 	Las mayorías de las moléculas son neutras, esto implica que la eq (\ref{eq:monopolar}) vale 0, entonces con la presencia de un campo eléctrico no habrá momento monopolar, pero sí puede haber momento dipolar, por ejemplo, la molécula del agua tiene el átomo de oxígeno ligeramente positivo mientras que los átomos de hidrógeno ligeramente negativas.
 	\end{nota}
@@ -180,12 +180,20 @@
 	\noindent tomando $\vec{r}\cdot\vec{r'} = rr'\cos\alpha '=r\hat{r}\cdot\vec{r'}$ y sustituyendo en eq (\ref{eq:dipolar}) tenemos
 	
 	\begin{equation}
-		\vec{P} = \frac{\vec{r}}{r} \cdot \int_{V'} \vec{r'} '\rho(\vec{r'})d\tau ' = \hat{r} \cdot \int_{V'} \vec{r'} '\rho(\vec{r'})d\tau '
+		\frac{1}{4\pi\epsilon_0 r^2} \frac{\vec{r}}{r} \cdot \int_{V'} \vec{r'} '\rho(\vec{r'})d\tau ' = \frac{\hat{r}}{4\pi\epsilon_0 r^2} \cdot \int_{V'} \vec{r'} '\rho(\vec{r'})d\tau '
 	\end{equation}
 	
 	\esp
 	
-	Esto es el momento dipolar de la distribución de carga según mi \textbf{origen de coordenada}. Entonces cuando calculo el momento dipolar tengo que especificar el origen de coordenada.
+	\noindent identificando, podemos definir el \textbf{momento dipolar} como
+	
+	\begin{equation}
+		\vec{P} = \int_{V'} \vec{r'} '\rho(\vec{r'})d\tau '
+	\end{equation}
+	
+	\esp
+	
+	Esto es el momento dipolar de la distribución de carga según mi \textbf{origen de coordenada}. Entonces cuando calculo el momento dipolar tengo que especificar el origen de coordenada. Para ilustrarlo, vamos a poner un ejemplo
 	
 	\begin{figure}[H]
 		\centering
@@ -194,12 +202,12 @@
 	
 	\esp
 	
-	Puedo definir dos orígenes de coordenadas, uno centrado en la partícula y otro situado una distancia d debajo de la partícula. Ambos tienen un momento monopolar $q$, pero en la primera coordenada el momento dipolar es nulo y en el segundo origen de coordenada es no nulo.
+	Puedo definir dos orígenes de coordenadas, uno centrado en la partícula puntual y otro situado una distancia d debajo de la partícula. Ambos tienen un momento monopolar $q$ (se trata de un escalar, es independiente de mi sistema de coordenadas), pero en la primera coordenada el momento dipolar es nulo y en el segundo origen de coordenada es no nulo.
 	
 	\esp
 	
 	\begin{importante}
-		Si el momento monopolar es nulo, entoncces el momento dipolar es independiente del origen de coordenada
+		Si el momento monopolar es nulo, entonces el momento dipolar es independiente del origen de coordenada
 	\end{importante}
 
 	\esp
