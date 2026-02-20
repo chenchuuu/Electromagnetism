@@ -6,8 +6,10 @@ Despacho: N133 Dpt-Electromagnetismo
 
 Correo: asalinas@ugr.es
 
-## Contenidos
-* 
+## Contenidos (ver guía docente)
+* T1. Desarrollo multipolar
+* T2. Campo electromagnético y materia
+* T3. Ecuaciones de Maxwell: ondas electromagnéticas
 ## Evaluación
 
 Convocatoria ordinaria:
