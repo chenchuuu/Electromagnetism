@@ -172,7 +172,7 @@
 	\esp
 	
 	\begin{nota}
-	Las mayorías de las moléculas son neutras, esto implica que la eq (\ref{eq:monopolar}) vale 0, entonces con la presencia de un campo eléctrico no habrá momento monopolar, pero sí puede haber momento dipolar, por ejemplo, la molécula del agua tiene el átomo de oxígeno ligeramente positivo mientras que los átomos de hidrógeno ligeramente negativas.
+	La mayoría de las moléculas son neutras, esto implica que la eq (\ref{eq:monopolar}) vale 0, ($Q=0$) , entonces con la presencia de un campo eléctrico no habrá momento monopolar, pero sí puede haber momento dipolar, por ejemplo, la molécula del agua tiene el átomo de oxígeno ligeramente positivo mientras que los átomos de hidrógeno ligeramente negativas, la molécula mantiene su neutralidad, pero no hay neutralidad en cada punto de la molécula.
 	\end{nota}
 
 	\esp
@@ -193,7 +193,15 @@
 	
 	\esp
 	
+	\begin{nota}
+		Para un $r$ muy grande, el término dominante es el momento monopolar, que es lo que esperábamos de la aproximación del potencial a grandes distancias desde la carga. Para una carga en el origen de coordenadas, el potencial es exactamente el producido por el momento monopolar, no es meramente una aproximación para un r muy grande; en este caso, todos los términos multipolares superiores se anulan. Si la carga total es nula, entonces el término dominante es debido al momento dipolar (a no ser que se anule).
+	\end{nota}
+	
+	\esp
+	
 	Esto es el momento dipolar de la distribución de carga según mi \textbf{origen de coordenada}. Entonces cuando calculo el momento dipolar tengo que especificar el origen de coordenada. Para ilustrarlo, vamos a poner un ejemplo
+	
+	\noindent \textbf{Ejemplo}. \label{ej:sistcoord}
 	
 	\begin{figure}[H]
 		\centering
@@ -202,17 +210,50 @@
 	
 	\esp
 	
-	Puedo definir dos orígenes de coordenadas, uno centrado en la partícula puntual y otro situado una distancia d debajo de la partícula. Ambos tienen un momento monopolar $q$ (se trata de un escalar, es independiente de mi sistema de coordenadas), pero en la primera coordenada el momento dipolar es nulo y en el segundo origen de coordenada es no nulo.
+	Puedo definir dos orígenes de coordenadas, uno centrado en la partícula puntual y otro situado una distancia d debajo de la partícula. Ambos tienen un momento monopolar $q$ (se trata de un escalar, es independiente de mi sistema de coordenadas), pero en la primer caso el momento dipolar es nulo y en el segundo es no nulo (vale $\vec{P}=qd\hat{z}$). En este caso $\vec{d}=d\hat{z}$ es la cantidad cambiado de signo desplazado del sistema de coordenadas. Mírese la demostración siguiente si tiene duda.
 	
 	\esp
 	
 	\begin{importante}
-		Si el momento monopolar es nulo, entonces el momento dipolar es independiente del origen de coordenada
+		Si el momento monopolar es nulo, entonces el momento dipolar es independiente del origen de coordenadas
 	\end{importante}
+	
+	\esp
+	
+	\noindent \textbf{Demostración.}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.4\textwidth]{IMG/dipolardesplazao.png}
+	\end{figure}
+	
+	\esp
+	
+	\noindent Supongamos un momento dipolar dado por 
+	
+	\begin{equation*}
+		\vec{P} = \int_{V'} \vec{r'} '\rho(\vec{r'})d\tau '
+	\end{equation*}
 
 	\esp
+	
+	\noindent y desplazamos nuestro sistema de coordenadas un cantidad de $\vec{a}$, calculamos nuevamente nuestro momento dipolar
+	
+	\begin{equation*}
+		\vec{P'} = \int_{V'} (\vec{r'}-\vec{a}) \rho(\vec{r'})d\tau ' = \vec{P} - \vec{a}\int_{V'} \rho(\vec{r'})d\tau ' = \vec{P} - \vec{a}Q
+	\end{equation*}
+	
+	\noindent si el momento monopolar es nulo entonces $\vec{P'} = \vec{P}$
+	
+	\esp
+	
+	\begin{nota}
+		Supuestamente, para momentos cuadrupolares, hexapolares, etc. Necesitariamos que los momentos inferiores: monopolar y dipolar para el caso del cuadrupolar, sean nulos 
+	\end{nota}
+	
+	\esp
 
-	\noindent Calcularemos el momento dipolar del ejemplo 3.10 con la definición
+	\noindent Calcularemos el momento dipolar del ejemplo 3.10 con la definición.
 
 	\begin{figure}[H]
 		\centering
@@ -230,12 +271,65 @@
 
 	\esp
 	
+	El vector $\vec{d}=d\hat{z}$ es el vector que va desde la carga negativa hasta la positiva.
+	
+	\esp
+	
 	\noindent entonces podemos definir el momento dipolar para una colección de cargas puntuales es 
 
 	
 	\begin{equation}
 		\vec{P} = \sum_{i=1}^n q_i \vec{r'}_i
 	\end{equation}
+	
+	\esp
+	
+	El momento monopolar es un escalar (tensor de rango 0), el dipolar es un vector (tensor de rango 1), el cuadrupolar es una matriz (tensor de rango 2), y así sucesivamente.
+	
+	\esp Para que el potencial de una carga puntual sea exactamente debida al momento monopolar, necesitamos que coincida con el origen de coordenadas, ya que por lo contrario tendríamos un término dipolar. (Mírese el ejemplo \ref{ej:sistcoord}).
+	
+	\esp
+	
+	Supongamos que el momento monopolar es nulo (esto lo cumple la mayoría de las moléculas), si queremos que $V_{dip}$ sea una mejor aproximación del potencial, nos tendríamos que ir más lejos (hacer que r sea más grande) para que los términos superiores decaigan más rápido. Pero para un r fija, podemos reducir $\vec{d}$ para también conseguir una mejor aproximación. Para construir un \textbf{dipolo perfecto} (o dipolo matemático), esto es que nuestro potencial sea exactamente $V_{dip}$, tendríamos que hacer tender $\vec{d}$ a cero. Desafortunadamente, haciendo esto, también perderíamos el término dipolar, a no ser que hagas tender $q$ a infinito simultáneamente. Es así como tenemos dos dipolos, el \textbf{dipolo físico} (existe una separación finita entre las cargas) y el \textbf{dipolo perfecto/ideal} (es un punto).
+	
+	\esp
+	
+	\section{Campo eléctrico de un dipolo}
+	
+	Hasta ahora solo hemos trabajado con potenciales. Si queremos calcular el campo eléctrico de un dipolo (perfecto), simplemente tendríamos que hacer $\vec{E}=-\nabla V$. Si suponemos que $\vec{P}=P\hat{z}$ (ejemplo 3.10) entonces tenemos este potencial en función de $r$ y $\theta$
+	
+	\begin{equation}
+		V_{dip}(r, \theta) = \frac{\hat{r} \cdot \vec{p}}{4\pi \epsilon_0 r^2}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Aplicando el menos gradiente tendríamos
+	
+	\esp
+	
+	\begin{equation*}
+		E_r = -\frac{\partial V}{\partial r} = \frac{2p \cos \theta}{4\pi \epsilon_0 r^3},
+	\end{equation*}
+	
+	\begin{equation*}
+		E_{\theta} = -\frac{1}{r} \frac{\partial V}{\partial \theta} = \frac{p \sin \theta}{4\pi \epsilon_0 r^3},
+	\end{equation*}
+	
+	\begin{equation*}
+		E_{\phi} = -\frac{1}{r \sin \theta} \frac{\partial V}{\partial \phi} = 0.
+	\end{equation*}
+	
+	\esp
+	
+	\noindent Entonces
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{E}_{\text{dip}}(r, \theta) = \frac{p}{4\pi \epsilon_0 r^3} (2 \cos \theta \mathbf{\hat{r}} + \sin \theta \boldsymbol{\hat{\theta}})
+	\end{equation}
+	
 	
 
 	% \printbibliography[title={Bibliografía}]
