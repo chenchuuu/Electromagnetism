@@ -1,0 +1,328 @@
+\documentclass[12pt,a4paper]{report}
+
+% --- Paquetes de Idioma y Codificación ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+
+% --- Diseño de Página ---
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=3cm, right=3cm}
+
+% --- Matemáticas y Símbolos ---
+\usepackage{amsmath, amssymb, amsthm}
+
+% --- Colores y Cajas ---
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+
+% Caption
+
+\usepackage{caption}
+
+% Gráficos
+
+\usepackage{graphicx}
+
+% Espaciadora
+
+\newcommand{\esp}{\vspace{0.5cm}}
+
+% promedio
+
+\newcommand{\prom}[1]{\left\langle #1 \right\rangle}
+
+% ket
+
+\newcommand{\ket}[1]{| #1 \rangle}
+
+% bra
+
+\newcommand{\bra}[1]{\langle #1 |}
+
+% braket
+
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+
+% Bibliografía
+
+\usepackage[style=apa, backend=biber]{biblatex} % Estilo APA
+\addbibresource{biblio.bib} % Nombre de tu archivo .bib
+
+% Configuración de cajas personalizadas
+\newtcolorbox{importante}{
+	colback=red!5!white,
+	colframe=red!75!black,
+	title=Importante,
+	fonttitle=\bfseries
+}
+
+\newtcolorbox{nota}{
+	colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Nota,
+	fonttitle=\bfseries
+}
+
+% Definición de la caja de bibliografía
+\newtcolorbox{bibliografia}{
+	colback=gray!5!white,
+	colframe=gray!75!black,
+	title=Bibliografías útiles,
+	fonttitle=\bfseries,
+	breakable
+}
+
+% Socrative para óptica 2
+
+\newtcolorbox{Socrative}{
+	colback=orange!5!white,
+	colframe=orange!75!black,
+	title=Socrative,
+	fonttitle=\bfseries,
+	breakable
+}
+
+% Float
+
+\usepackage{float}
+
+% --- Hipervínculos ---
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+
+% --- Datos del Documento ---
+\title{Electromagnetismo}
+\author{Chengyu Jin}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\tableofcontents
+	\newpage
+	
+	\chapter{Campo eléctrico (electroestática $\partial \vec{E}/ \partial t = 0$) en la materia}
+	
+	\esp
+	
+	\noindent \textbf{Bibliografía principal}: sección 4 Griffths
+	
+	\section{Polarización}
+
+	Vamos a estudiar la interacción de campos eléctricos en la materia. Hay mucha variedad de materia que responde de formas distintas, sin embargo, casi todos los objetos diario pertenece, al menos como \textbf{buena aproximación}, a uno de \textbf{dos grandes grupos}:
+	
+	\begin{enumerate}
+		\item \textbf{Conductores}: estas sustancias contienen una cantidad "ilimitada" de cargas que se mueven libremente en la materia. En la práctica, solo unos cuántos electrones por átomo son libres, esto es que no están asociados a ningún núcleo. Las cargas recorren distancias macroscópicas.
+		\item \textbf{Dieléctricos}: estas sustancias tienen todas sus cargas ligadas a átomos o moléculas. Están con la correa muy corta, y lo único que pueden hacer es moverse un poco dentro del átomo o la molécula, esto es que las cargas recorren distancias microscópicas.
+	\end{enumerate}
+	
+	\esp
+	
+	\begin{nota}
+		Los conductores en la situación no estática es interesante
+	\end{nota}
+	
+	\esp
+	
+	\noindent Tenemos dos tipos de dieléctricos:
+	
+	\begin{enumerate}
+		\item Polares: tiene momento dipolar \textbf{permanente}
+		\item No polares: \textbf{no} tiene momento dipolar \textbf{permanente}
+	\end{enumerate}
+
+	\esp
+	
+	Aunque un átomo sea eléctricamente neutro en su conjunto, posee una estructura interna compuesta por un núcleo con carga positiva rodeado por una nube de electrones cargada negativamente. Al someter al átomo a un campo eléctrico externo $\vec{E}$, estas dos regiones de carga experimentan fuerzas opuestas: el núcleo es empujado en la dirección del campo, mientras que los electrones son desplazados en sentido contrario.En situaciones donde el campo aplicado es extremadamente intenso, el átomo puede llegar a separarse por completo en un proceso conocido como ionización, convirtiendo la sustancia en un conductor. No obstante, bajo la influencia de campos menos extremos, el sistema alcanza rápidamente un estado de equilibrio. Este balance se establece porque, al no coincidir ya el centro de la nube electrónica con el núcleo, surge una fuerza de atracción mutua entre las cargas positivas y negativas que intenta mantener unido al átomo.De este modo, las dos fuerzas contrapuestas —el campo $\vec{E}$ intentando separar las cargas y la atracción mutua intentando reunirlas— encuentran un punto de balance que deja al átomo en un estado \textbf{polarizado}.
+
+	\esp
+	
+	El \textbf{momento dipolar inducido} es aproximadamente proporcional al campo eléctrico externo.
+	
+	\begin{equation}
+		\vec{p}=\alpha \vec{E}
+	\end{equation}
+
+	\esp
+	
+	donde la constante $\alpha$ es la polarizabilidad, cuyo valor depende de la estructura de la materia y el momento dipolar tiene la misma dirección que el campo eléctrico externo. A veces no es tan simple y la polarizabilidad no es una constante sino un tensor y el momento dipolar podría no tener la misma dirección que el campo eléctrico externo.
+
+	\begin{importante}
+		Recordemos que la mayoría de las moléculas son neutras, entonces el término dominante es el momento dipolar, por lo que podemos despreciar los términos multipolares superiores como buena aproximación
+	\end{importante}
+
+	\esp
+	
+	¿Qué les ocurren a las moléculas con momento dipolar (permanente o inducido) en la presencia de una campo eléctrico externo? 
+	
+	\esp
+	
+	Si el campo es \textbf{uniforme}, la \textit{fuerza} en el extremo positivo, $\vec{F}_+ = q\vec{E}$, cancela exactamente la fuerza en el extremo negativo, $\vec{F}_- = -q\vec{E}$ (Fig. 4.5). Sin embargo, habrá un \textbf{torque}:
+	
+	\esp
+	
+	\begin{align*}
+		\vec{N} &= (\vec{r}_+ \times \vec{F}_+) + (\vec{r}_- \times \vec{F}_-) \\
+		&= [(\vec{d}/2) \times (q\vec{E})] + [(-\vec{d}/2) \times (-q\vec{E})] = q\vec{d} \times \vec{E}.
+	\end{align*}
+	
+	\esp
+	
+	\noindent Por lo tanto, un dipolo $\vec{p} = q\vec{d}$ en un campo uniforme $\vec{E}$ experimenta un torque:
+	
+	\esp
+	
+	\begin{equation}
+		\vec{N} = \vec{p} \times \vec{E}
+	\end{equation}
+
+	\esp
+
+	Observe que $\vec{N}$ tiene una dirección tal que alinea a $\vec{p}$ de forma \textit{paralela} a $\vec{E}$; una molécula polar que tenga libertad para rotar girará hasta que apunte en la dirección del campo aplicado.
+	
+	\esp	
+	
+	Si el campo es \textbf{no uniforme}, de modo que $\vec{F}_+$ no compensa exactamente a $\vec{F}_-$, habrá una \textit{fuerza} neta sobre el dipolo, además del torque. Por supuesto, $\vec{E}$ debe cambiar de manera bastante abrupta para que haya una variación significativa en el espacio de una molécula, por lo que esto no suele ser una consideración principal al discutir el comportamiento de los dieléctricos. No obstante, la fórmula para la fuerza sobre un dipolo en un campo no uniforme es de cierto interés:
+	
+	\esp
+	
+	\begin{equation*}
+		\vec{F} = \vec{F}_+ + \vec{F}_- = q(\vec{E}_+ - \vec{E}_-) = q(\Delta \vec{E}),
+	\end{equation*}
+	
+	\esp
+	
+	donde $\Delta \vec{E}$ representa la diferencia entre el campo en el extremo positivo y el campo en el extremo negativo. Asumiendo que el dipolo es muy corto, podemos usar la para aproximar el pequeño cambio en $E_x$:
+	
+	\begin{equation*}
+		\Delta E_x \equiv (\nabla E_x) \cdot \vec{d},
+	\end{equation*}
+	
+	\noindent con fórmulas correspondientes para $E_y$ y $E_z$. De manera más compacta:
+	
+	\begin{equation*}
+		\Delta \vec{E} = (\vec{d} \cdot \nabla) \vec{E},
+	\end{equation*}
+	
+	\noindent y por lo tanto:
+	
+	\begin{equation}
+		\vec{F} = (\vec{p} \cdot \nabla) \vec{E}
+	\end{equation}
+	
+	Para un dipolo "perfecto" de longitud infinitesimal, la da el torque \textit{respecto al centro del dipolo} incluso en un campo no uniforme; respecto a cualquier \textit{otro} punto $\vec{N} = (\vec{p} \times \vec{E}) + (\vec{r} \times \vec{F})$.
+	
+	\esp
+	
+	\noindent Hasta ahora hemos considerado el efecto de un campo eléctrico externo sobre un átomo o molécula individual. Ahora estamos en condiciones de responder (cualitativamente) a la pregunta original: ¿Qué sucede con una \textbf{pieza de material dieléctrico} cuando se coloca en un campo eléctrico? Si la sustancia consiste en \textbf{átomos neutros} (o moléculas no polares), el campo \textbf{inducirá} en cada uno un pequeño momento dipolar, apuntando en la misma dirección que el campo. Si el material está compuesto por moléculas polares, cada dipolo permanente experimentará un torque, tendiendo a alinearlo a lo largo de la dirección del campo. (Los movimientos térmicos aleatorios compiten con este proceso, por lo que la alineación nunca es completa, especialmente a temperaturas más altas, y desaparece casi de inmediato cuando se retira el campo).
+	
+	\esp
+	
+	Observe que estos dos mecanismos producen el mismo resultado básico: \textit{muchos dipolos pequeños apuntando en la dirección del campo}—el material se vuelve \textbf{polarizado}. Una medida conveniente de este efecto es:
+	
+	\begin{equation*}
+		\vec{P} \equiv \text{momento dipolar por unidad de volumen},
+	\end{equation*}
+	
+	\noindent la cual se denomina \textbf{polarización}. De ahora en adelante no nos preocuparemos mucho por \textit{cómo} llegó la polarización allí. En realidad, los dos mecanismos que describí no son tan claros como intenté pretender. Incluso en las moléculas polares habrá algo de polarización por desplazamiento (aunque generalmente es mucho más fácil rotar una molécula que estirarla, por lo que el segundo mecanismo domina). Incluso es posible en algunos materiales ''congela'' la polarización, de modo que persista después de que se retire el campo. Pero olvidémonos por un momento de la \textit{causa} de la polarización y estudiemos el campo que produce un trozo de material polarizado por \textit{sí mismo}. Luego lo juntaremos todo: el campo original, que fue el \textit{responsable} de $\vec{P}$, más el nuevo campo, que es \textit{debido} a $\vec{P}$.
+	
+	\subsection{Campo eléctrico de un objeto polarizado}
+	
+	Supongamos que tenemos una pieza de material polarizado; es decir, un objeto que contiene una gran cantidad de dipolos microscópicos alineados. El momento dipolar por unidad de volumen $\vec{P}$ está dado. \textit{Pregunta}: ¿Cuál es el campo producido por este objeto (no el campo que pudo haber causado la polarización, sino el campo que la polarización \textit{en sí misma} causa)? Bueno, sabemos cómo es el campo de un dipolo individual, así que ¿por qué no dividir el material en dipolos infinitesimales e integrar para obtener el total? Como de costumbre, es más fácil trabajar con el potencial. Para un solo dipolo $\vec{p}$,
+	
+	\esp
+	
+	\begin{equation}
+		V(\vec{r}) = \frac{1}{4\pi\epsilon_0} \frac{\vec{p} \cdot \hat{\mathfrak{r}}}{\mathfrak{r}^2}
+	\end{equation}
+	
+	\esp
+	
+	donde $\mathfrak{r}$ es el vector desde el dipolo hasta el punto en el que estamos evaluando el potencial. En el contexto actual, tenemos un momento dipolar $\vec{p} = \vec{P} \, d\tau'$ en cada elemento de volumen $d\tau'$, por lo que el potencial total es
+	
+	\begin{equation}
+		V(\vec{r}) = \frac{1}{4\pi\epsilon_0} \int_{\mathcal{V}} \frac{\vec{P}(\vec{r}') \cdot \hat{\mathfrak{r}}}{\mathfrak{r}^2} \, d\tau'
+	\end{equation}
+	
+	\esp
+	
+	\noindent Eso lo \textit{resuelve}, en principio. Pero un pequeño artificio convierte esta integral en una forma mucho más esclarecedora. Observando que
+	
+	\esp
+	
+	\begin{equation*}
+		\nabla' \left( \frac{1}{\mathfrak{r}} \right) = \frac{\hat{\mathfrak{r}}}{\mathfrak{r}^2}
+	\end{equation*}
+	
+	\esp
+	
+	\noindent donde la diferenciación es con respecto a las coordenadas de la \textit{fuente} ($\vec{r}'$), tenemos
+	
+	\esp
+	
+	\begin{equation*}
+		V = \frac{1}{4\pi\epsilon_0} \int_{\mathcal{V}} \vec{P} \cdot \nabla' \left( \frac{1}{\mathfrak{r}} \right) \, d\tau'.
+	\end{equation*}
+	
+	\esp
+	
+	\noindent Utilizando $\nabla \cdot (\vec{A} \vec{B}) = \nabla (\vec{A}) \cdot \vec{B} + \vec{A} \cdot \nabla(\vec{B})$, se obtiene
+	
+	\esp
+	
+	\begin{equation*}
+		V = \frac{1}{4\pi\epsilon_0} \left[ \int_{\mathcal{V}} \nabla' \cdot \left( \frac{\vec{P}}{\mathfrak{r}} \right) \, d\tau' - \int_{\mathcal{V}} \frac{1}{\mathfrak{r}} (\nabla' \cdot \vec{P}) \, d\tau' \right],
+	\end{equation*}
+	
+	\esp
+	
+	\noindent o, invocando el teorema de la divergencia,
+	
+	\esp
+	
+	\begin{equation}
+		V = \frac{1}{4\pi\epsilon_0} \oint_{\mathcal{S}} \frac{1}{\mathfrak{r}} \vec{P} \cdot d\vec{S}' - \frac{1}{4\pi\epsilon_0} \int_{\mathcal{V}} \frac{1}{\mathfrak{r}} (\nabla' \cdot \vec{P}) \, d\tau'
+		\label{eq:god}
+	\end{equation}
+	
+	\esp
+	
+	\noindent El primer término se parece al potencial de una carga superficial
+	
+	\esp
+	
+	\begin{equation}
+		\sigma_b \equiv \vec{P} \cdot \hat{n}
+	\end{equation}
+	
+	\esp
+	
+	\noindent (donde $\mathbf{\hat{n}}$ es el vector unitario normal), mientras que el segundo término se parece al potencial de una carga volumétrica
+	
+	\esp
+	
+	\begin{equation}
+		\rho_b \equiv -\nabla \cdot \vec{P}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Con estas definiciones, la eq (\ref{eq:god}) se convierte en
+	
+	\begin{equation}
+		V(\vec{r}) = \frac{1}{4\pi\epsilon_0} \oint_{\mathcal{S}} \frac{\sigma_b}{\mathfrak{r}} \, d\mathbf{s}' + \frac{1}{4\pi\epsilon_0} \int_{\mathcal{V}} \frac{\rho_b}{\mathfrak{r}} \, d\tau'
+	\end{equation}
+	
+	\esp
+	
+	\noindent Lo que esto significa es que el potencial (y, por tanto, también el campo) de un objeto polarizado es el mismo que el producido por una densidad de carga volumétrica $\rho_b = -\nabla \cdot \vec{P}$ más una densidad de carga superficial $\sigma_b = \vec{P} \cdot \hat{n}$. En lugar de integrar las contribuciones de todos los dipolos infinitesimales podríamos encontrar primero esas \textbf{cargas ligadas} y luego calcular los campos que \textit{ellas} producen, de la misma manera que calculamos el campo de cualquier otra carga volumétrica y superficial (por ejemplo, usando la ley de Gauss).
+
+	\printbibliography[title={Bibliografía}]
+\end{document}
