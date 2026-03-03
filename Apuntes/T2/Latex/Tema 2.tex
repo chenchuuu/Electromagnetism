@@ -422,5 +422,201 @@
 	
 	cuya resolución de la integral tiene consideraciones física muy interesantes, pues esta expresión se ha usado para $\vec{r}$ muy alejadas, pero estamos considerando donde las interacciones son muy cercanas a la molécula.
 
+	\section{Vector desplazamiento eléctrico $\vec{D}$}
+	
+	En la sección anterior encontramos que el efecto de la polarización es producir acumulaciones de carga (ligada), $\rho_b = -\nabla \cdot \mathbf{P}$ dentro del dieléctrico y $\sigma_b = \mathbf{P} \cdot \hat{\mathbf{n}}$ en la superficie. El campo debido a la polarización del medio es simplemente el campo de esta carga ligada. Ahora estamos listos para unirlo todo: el campo atribuible a la carga ligada más el campo debido a todo lo demás (que, a falta de un término mejor, llamamos \textbf{carga libre}, $\rho_f$). La carga libre puede consistir en electrones en un conductor o iones incrustados en el material dieléctrico o lo que sea; cualquier carga, en otras palabras, que \textit{no} sea resultado de la polarización. Dentro del dieléctrico, la densidad de carga total puede escribirse como:
+	
+	\esp
+	
+	\begin{equation}
+		\rho = \rho_b + \rho_f
+	\end{equation}
+	
+	\esp
+	
+	\noindent y la ley de Gauss dice
+	
+	\esp
+	
+	\begin{equation}
+		\epsilon_0 \nabla \cdot \mathbf{E} = \rho = \rho_b + \rho_f = -\nabla \cdot \mathbf{P} + \rho_f
+	\end{equation}
+	
+	\esp
+	
+	\noindent donde $\mathbf{E}$ es ahora el campo \textit{total}, no solo la porción generada por la polarización.
+	
+	\esp
+	
+	\noindent Es conveniente combinar los dos términos de divergencia:
+	
+	\esp
+	
+	\begin{equation}
+		\nabla \cdot (\epsilon_0 \mathbf{E} + \mathbf{P}) = \rho_f
+	\end{equation}
+	
+	\esp
+	
+	\noindent La expresión entre paréntesis, designada por la letra \textbf{D},
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{D} \equiv \epsilon_0 \mathbf{E} + \mathbf{P}
+	\end{equation}
+	
+	\esp
+	
+	\noindent es conocida como el \textbf{desplazamiento eléctrico}. En términos de \textbf{D}, la ley de Gauss se lee
+	
+	\esp
+	
+	\begin{equation}
+		\nabla \cdot \mathbf{D} = \rho_f
+	\end{equation}
+	
+	\esp
+	
+	\begin{nota}
+		La fuentes de $\vec{D}$ son las cargas libres
+	\end{nota}
+	
+	\esp
+	
+	\noindent o, en forma integral,
+	
+	\esp
+	
+	\begin{equation}
+		\oint \mathbf{D} \cdot d\mathbf{a} = Q_{f_{enc}}
+		\label{eq:gaussD}
+	\end{equation}
+	
+	\esp
+	
+	donde $Q_{f_{enc}}$ denota la carga libre total encerrada en el volumen. Esta es una forma particularmente útil de expresar la ley de Gauss en el contexto de los dieléctricos, porque hace referencia \textbf{solo a las cargas libres}, y la carga libre es lo que nosotros controlamos. La carga ligada simplemente acompaña el proceso: cuando colocamos la carga libre en su lugar, se produce automáticamente una cierta polarización, mediante los mecanismos de la sección Polarización, y esta polarización produce la carga ligada. En un problema típico, por lo tanto, conocemos $\rho_f$, pero no conocemos (inicialmente) $\rho_b$; la Ec. (\ref{eq:gaussD}) nos permite trabajar directamente con la información disponible. En particular, siempre que esté presente la simetría necesaria, podemos calcular inmediatamente \textbf{D} mediante los métodos estándar de la ley de Gauss.
+	
+	\esp
+	
+	\begin{nota}
+		El vector desplazamiento solo tiene definido la parte escalar de $\vec{D}$, no sabemos nada del rotacional y hay que tener cuidado en cómo puede incluir este.
+	\end{nota}
+	
+	\esp
+	
+	Si $\vec{D}$ tiene fuentes vectoriales, tendríamos rotacional de $\vec{D}$. (Lo puedo probar, recordemos que estamos en electroestática).
+	
+	\esp
+	
+	\noindent \textbf{Comportamiento de $\vec{D}$ cuando paso de un medio a otro}:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/dosmediosD.png}
+	\end{figure}
+	
+	\esp
+	
+	\noindent Aplicando la ley de Gauss tenemos
+	
+	\esp
+	
+	\begin{equation*}
+		\underset{\varepsilon \rightarrow 0}{lim} \oint \vec{D}\cdot d\vec{S} = \vec{D}_1 \cdot \hat{n} - \vec{D}_2 \cdot \hat{n} = \sigma_f \implies (\vec{D}_1-\vec{D}_2) \cdot \hat{n} = \sigma_f
+	\end{equation*}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/dosmediosD2.png}
+	\end{figure}
+	
+	\esp
+	
+	\begin{equation}
+		\underset{\varepsilon \rightarrow 0}{lim} \oint \vec{D}\cdot d\vec{l} = (D_\parallel)_1 - (D_\parallel)_2 = (P_\parallel)_1 - (P_\parallel)_2
+	\end{equation}
+	
+
+	\esp
+	
+	Estudiaremos las fuentes vectoriales de $\vec{D}$ si (no se) de calcular el propio $\vec{D}$.
+	
+	\esp
+	
+	\noindent \textbf{E.4.4} ¿Por qué no se puede calcular $\vec{E}$?
+	
+	\esp
+	
+	\noindent \textbf{Problema 4.15} Una corteza esférica gruesa (radio interior $a$, radio exterior $b$) está hecha de material dieléctrico con una polarización "congelada".
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/ejemplo415.png}
+	\end{figure}
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{P}(\mathbf{r}) = \frac{k}{r} \hat{\mathbf{r}},
+	\end{equation}
+	
+	\esp
+	
+	donde $k$ es una constante y $r$ es la distancia desde el centro (Fig. 4.18). (No hay carga \textit{libre} en el problema). Encuentre el campo eléctrico en las tres regiones mediante dos métodos diferentes:
+	
+	\esp
+	
+	(a) Localice toda la carga ligada y use la ley de Gauss (Ec. 2.13) para calcular el campo que produce.
+	
+	\esp
+	
+	\noindent \textbf{Sol:}
+	
+	\esp
+	
+	$\rho_b = -\nabla \cdot \mathbf{P} = -\frac{1}{r^2} \frac{\partial}{\partial r} \left( r^2 \frac{k}{r} \right) = -\frac{k}{r^2}$; \quad $\sigma_b = \mathbf{P} \cdot \hat{\mathbf{n}} = \begin{cases} +\mathbf{P} \cdot \hat{\mathbf{r}} = k/b & (\text{en } r = b), \\ -\mathbf{P} \cdot \hat{\mathbf{r}} = -k/a & (\text{en } r = a). \end{cases}$
+	
+	\esp
+	
+	Ley de Gauss $\Rightarrow \mathbf{E} = \frac{1}{4\pi\epsilon_0} \frac{Q_{enc}}{r^2} \hat{\mathbf{r}}$. Para $r < a$, $Q_{enc} = 0$, por lo tanto $\mathbf{E} = \mathbf{0}$. Para $r > b$, $Q_{enc} = 0$ (Prob. 4.14), por lo tanto $\mathbf{E} = \mathbf{0}$.
+	
+	\esp
+	
+	Para $a < r < b$, $Q_{enc} = \left( \frac{-k}{a} \right) (4\pi a^2) + \int_{a}^{r} \left( \frac{-k}{\bar{r}^2} \right) 4\pi\bar{r}^2 d\bar{r} = -4\pi ka - 4\pi k(r - a) = -4\pi kr$; por lo tanto $\boxed{\mathbf{E} = -(k/\epsilon_0 r) \hat{\mathbf{r}}.}$
+	
+	\esp
+	
+	(b) Use la Ec. 4.23 para encontrar \textbf{D}, y luego obtenga \textbf{E} de la Ec. 4.21. [Observe que el segundo método es mucho más rápido y evita cualquier referencia explícita a las cargas ligadas].
+	
+	\esp
+	
+	\noindent \textbf{Sol:}
+	
+	\esp
+	
+	$\oint \mathbf{D} \cdot d\mathbf{a} = Q_{f_{enc}} = 0 \Rightarrow \mathbf{D} = \mathbf{0}$ en todas partes.
+	
+	\esp
+	
+	Como $\mathbf{D} = \epsilon_0 \mathbf{E} + \mathbf{P} = \mathbf{0} \Rightarrow \mathbf{E} = (-1/\epsilon_0)\mathbf{P}$, por lo tanto:
+	
+	\esp
+	
+	$\boxed{\mathbf{E} = \mathbf{0}}$ (para $r < a$ y $r > b$); 
+	
+	\esp
+	
+	$\boxed{\mathbf{E} = -(k/\epsilon_0 r) \hat{\mathbf{r}}}$ (para $a < r < b$).
+	
+	
+	\esp
+	
+	\noindent \rule{5cm}{0.4pt} \\ \footnotesize $^6$La polarización cae abruptamente a cero fuera del material, por lo que su derivada es una función delta (ver Prob. 1.46). La carga ligada superficial es precisamente este término; en este sentido, en realidad está \textit{incluida} en $\rho_b$, pero normalmente preferimos tratarla por separado como $\sigma_b$.
+
 	\printbibliography[title={Bibliografía}]
 \end{document}
