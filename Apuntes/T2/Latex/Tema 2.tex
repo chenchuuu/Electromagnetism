@@ -479,7 +479,7 @@
 	\esp
 	
 	\begin{nota}
-		La fuentes de $\vec{D}$ son las cargas libres
+		La fuentes de $\vec{D}$ son las cargas libres (escalares), puede tener fuentes vectoriales
 	\end{nota}
 	
 	\esp
@@ -505,7 +505,7 @@
 	
 	\esp
 	
-	Si $\vec{D}$ tiene fuentes vectoriales, tendríamos rotacional de $\vec{D}$. (Lo puedo probar, recordemos que estamos en electroestática).
+	Si $\vec{P}$ tiene fuentes vectoriales, tendríamos rotacional de $\vec{D}$. (Lo puedo probar, recordemos que estamos en electroestática). $\nabla \times \vec{D} = \nabla \times( \epsilon_0 \vec{E} + \vec{P})$, por electroestática, el rotacional del campo eléctrico es nulo, $ \nabla \times \vec{D} = \nabla \times \vec{P}$. Entonces puedo calcular $\nabla \times \vec{P}$ para ver si tengo fuentes vectoriales.
 	
 	\esp
 	
@@ -535,6 +535,12 @@
 	
 	\esp
 	
+	\begin{nota}
+		Recordemos que hemos visto que electroestática $\nabla \times \vec{D} = \nabla \times \vec{P}$
+	\end{nota}
+	
+	\esp
+	
 	\begin{equation}
 		\underset{\varepsilon \rightarrow 0}{lim} \oint \vec{D}\cdot d\vec{l} = (D_\parallel)_1 - (D_\parallel)_2 = (P_\parallel)_1 - (P_\parallel)_2
 	\end{equation}
@@ -542,7 +548,7 @@
 
 	\esp
 	
-	Estudiaremos las fuentes vectoriales de $\vec{D}$ si (no se) de calcular el propio $\vec{D}$.
+	\noindent Estudiaremos las fuentes vectoriales de $\vec{D}$ si (no se) de calcular el propio $\vec{D}$.
 	
 	\esp
 	
@@ -550,7 +556,7 @@
 	
 	\esp
 	
-	\noindent \textbf{Problema 4.15} Una corteza esférica gruesa (radio interior $a$, radio exterior $b$) está hecha de material dieléctrico con una polarización "congelada".
+	\noindent \textbf{Problema 4.15} Una corteza esférica gruesa (radio interior $a$, radio exterior $b$) está hecha de material dieléctrico con una polarización ''congelad''.
 	
 	\esp
 	
@@ -583,6 +589,28 @@
 	
 	\esp
 	
+	\begin{nota}
+		Recordemos que $\vec{P}$ apunta desde la carga negativa hasta la positiva. Entonces resulta lógico que la densidad superficial en el superficie correspondiente a $r=a$ sea negativa, pues allí se concentra la cola negativa de los dipolos, mientras que para $r=b$ es positiva porque se concentra allí la cola positiva de los dipolos.
+	\end{nota}
+	
+	\esp
+	
+	\begin{nota}
+		Como solo tenemos dipolos, la carga total se tiene que anular, esto es una forma de comprobar de que hemos hecho bien las cosas. 
+		
+		\begin{equation*}
+			\int_{V'} \rho dV = \int_{V'} \rho_b dV + \int_{S'} \sigma_b dV = -k4\pi(b-a) + k4\pi b - k4\pi a = 0
+		\end{equation*}
+	\end{nota}
+	
+	\esp
+	
+	\begin{nota}
+		Recordemos que en electroestática el rotacional del campo eléctrico es nulo, entonces solo tenemos fuentes escalares, por tanto puedo determinar el campo eléctrico (si la simetría lo permite, se puede aplicar siempre, pero no siempre puedo hallar el campo) únicamente por sus fuentes escalares, teorema de Gauss.
+	\end{nota}
+	
+	\esp
+	
 	Ley de Gauss $\Rightarrow \mathbf{E} = \frac{1}{4\pi\epsilon_0} \frac{Q_{enc}}{r^2} \hat{\mathbf{r}}$. Para $r < a$, $Q_{enc} = 0$, por lo tanto $\mathbf{E} = \mathbf{0}$. Para $r > b$, $Q_{enc} = 0$ (Prob. 4.14), por lo tanto $\mathbf{E} = \mathbf{0}$.
 	
 	\esp
@@ -596,6 +624,12 @@
 	\esp
 	
 	\noindent \textbf{Sol:}
+	
+	\esp
+	
+	\begin{nota}
+		Vamos a ver si tiene fuentes vectoriales $\nabla \times \vec{P} = 0$, entonces puedo calcular $\vec{D}$ únicamente por sus fuentes escalares.
+	\end{nota}
 	
 	\esp
 	
@@ -617,6 +651,7 @@
 	\esp
 	
 	\noindent \rule{5cm}{0.4pt} \\ \footnotesize $^6$La polarización cae abruptamente a cero fuera del material, por lo que su derivada es una función delta (ver Prob. 1.46). La carga ligada superficial es precisamente este término; en este sentido, en realidad está \textit{incluida} en $\rho_b$, pero normalmente preferimos tratarla por separado como $\sigma_b$.
+	
 
 	\printbibliography[title={Bibliografía}]
 \end{document}
