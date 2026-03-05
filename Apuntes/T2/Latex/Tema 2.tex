@@ -505,11 +505,77 @@
 	
 	\esp
 	
-	Si $\vec{P}$ tiene fuentes vectoriales, tendríamos rotacional de $\vec{D}$. (Lo puedo probar, recordemos que estamos en electroestática). $\nabla \times \vec{D} = \nabla \times( \epsilon_0 \vec{E} + \vec{P})$, por electroestática, el rotacional del campo eléctrico es nulo, $ \nabla \times \vec{D} = \nabla \times \vec{P}$. Entonces puedo calcular $\nabla \times \vec{P}$ para ver si tengo fuentes vectoriales.
+	La ecuación 4.22 se parece mucho a la ley de Gauss, solo que la densidad de carga total $\rho$ se reemplaza por la densidad de carga libre $\rho_f$, y $\mathbf{D}$ se sustituye por $\epsilon_0\mathbf{E}$. Por esta razón, podrías sentirte tentado a concluir que $\mathbf{D}$ es "exactamente como" $\mathbf{E}$ (aparte del factor $\epsilon_0$), excepto que su fuente es $\rho_f$ en lugar de $\rho$: "Para resolver problemas que involucran dieléctricos, simplemente olvídate de la carga ligada —calcula el campo como lo harías normalmente, solo llama al resultado $\mathbf{D}$ en lugar de $\mathbf{E}$". Este razonamiento es seductor, pero la conclusión es falsa; en particular, no existe una "ley de Coulomb" para \textbf{D}:
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{D}(\mathbf{r}) \neq \frac{1}{4\pi} \int \frac{\hat{\imath}}{\imath^2} \rho_f(\mathbf{r}') d\tau'.
+	\end{equation}
+	
+	\esp
+	
+	El paralelismo entre \textbf{E} y \textbf{D} es más sutil que eso. Pues la divergencia por sí sola es insuficiente para determinar un campo vectorial; es necesario conocer también el rotacional. Uno tiende a olvidar esto en el caso de los campos electrostáticos porque el rotacional de \textbf{E} siempre es cero. Pero el rotacional de \textbf{D} \textit{no} siempre es cero.
+	
+	\esp
+	
+	\begin{equation}
+		\nabla \times \mathbf{D} = \epsilon_0(\nabla \times \mathbf{E}) + (\nabla \times \mathbf{P}) = \nabla \times \mathbf{P}
+	\end{equation}
+	
+	\esp
+	
+	y no hay razón, en general, para suponer que el rotacional de \textbf{P} se anula. A veces lo hace, como en el Ej. 4.4 y el Prob. 4.15, pero más a menudo no es así. El electreto de barra del Prob. 4.11 es un caso puntual: aquí no hay carga libre en ninguna parte, por lo que si realmente creyeras que la única fuente de \textbf{D} es $\rho_f$, te verías obligado a concluir que $\mathbf{D} = \mathbf{0}$ en todas partes, y por lo tanto que $\mathbf{E} = (-1/\epsilon_0)\mathbf{P}$ dentro del electreto y $\mathbf{E} = \mathbf{0}$ fuera, lo cual es obviamente incorrecto. (Te dejo a ti encontrar el lugar donde $\nabla \times \mathbf{P} \neq \mathbf{0}$ en este problema). Debido a que $\nabla \times \mathbf{D} \neq \mathbf{0}$, además, \textbf{D} no puede expresarse como el gradiente de un escalar —no existe un "potencial" para \textbf{D}.
+	
+	\esp
+	
+	\textit{Consejo:} Cuando se le pida calcular el desplazamiento eléctrico, primero busque simetría. Si el problema exhibe simetría esférica, cilíndrica o plana, entonces puede obtener \textbf{D} directamente de la Ec. 4.23 mediante los métodos habituales de la ley de Gauss. (Evidentemente, en tales casos $\nabla \times \mathbf{P}$ es automáticamente cero, pero como la simetría por sí sola dicta la respuesta, no estás realmente obligado a preocuparte por el rotacional). Si la simetría requerida está ausente, tendrás que pensar en otro enfoque y, en particular, no debes asumir que \textbf{D} está determinado exclusivamente por la carga libre.
 	
 	\esp
 	
 	\noindent \textbf{Comportamiento de $\vec{D}$ cuando paso de un medio a otro}:
+	
+	\esp
+	
+	Las condiciones de contorno electrostáticas de la Secc. 2.3.5 pueden reformularse en términos de \textbf{D}. La ecuación 4.23 nos indica la discontinuidad en la componente perpendicular a una interfaz:
+	
+	\esp
+	
+	\begin{equation}
+		D_{\text{arriba}}^{\perp} - D_{\text{abajo}}^{\perp} = \sigma_f
+	\end{equation}
+	
+	\esp
+	
+	\noindent mientras que la Ec. 4.25 da la discontinuidad en las componentes paralelas:
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{D}_{\text{arriba}}^{\parallel} - \mathbf{D}_{\text{abajo}}^{\parallel} = \mathbf{P}_{\text{arriba}}^{\parallel} - \mathbf{P}_{\text{abajo}}^{\parallel}
+	\end{equation}
+	
+	\esp
+	
+	En presencia de dieléctricos, estas son a veces más útiles que las correspondientes condiciones de contorno para \textbf{E} (Ecs. 2.31 y 2.32):
+	
+	\esp
+	
+	\begin{equation}
+		E_{\text{arriba}}^{\perp} - E_{\text{abajo}}^{\perp} = \frac{1}{\epsilon_0} \sigma
+	\end{equation}
+	
+	\esp
+	
+	\noindent y
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{E}_{\text{arriba}}^{\parallel} - \mathbf{E}_{\text{abajo}}^{\parallel} = \mathbf{0}
+	\end{equation}
+	
+	\esp
 	
 	\begin{figure}[H]
 		\centering
@@ -556,7 +622,7 @@
 	
 	\esp
 	
-	\noindent \textbf{Problema 4.15} Una corteza esférica gruesa (radio interior $a$, radio exterior $b$) está hecha de material dieléctrico con una polarización ''congelad''.
+	\noindent \textbf{Problema 4.15} Una corteza esférica gruesa (radio interior $a$, radio exterior $b$) está hecha de material dieléctrico con una polarización ''congelada''.
 	
 	\esp
 	
@@ -615,7 +681,7 @@
 	
 	\esp
 	
-	Para $a < r < b$, $Q_{enc} = \left( \frac{-k}{a} \right) (4\pi a^2) + \int_{a}^{r} \left( \frac{-k}{\bar{r}^2} \right) 4\pi\bar{r}^2 d\bar{r} = -4\pi ka - 4\pi k(r - a) = -4\pi kr$; por lo tanto $\boxed{\mathbf{E} = -(k/\epsilon_0 r) \hat{\mathbf{r}}.}$
+	Para $a < r < b$, $Q_{enc} = \left( \frac{-k}{a} \right) (4\pi a^2) + \int_{a}^{r} \left( \frac{-k}{\bar{r}^2} \right) 4\pi\bar{r}^2 d\bar{r} = -4\pi ka - 4\pi k(r - a) = -4\pi kr$; por lo tanto $\mathbf{E} = -(k/\epsilon_0 r) \hat{\mathbf{r}}.$
 	
 	\esp
 	
@@ -641,17 +707,74 @@
 	
 	\esp
 	
-	$\boxed{\mathbf{E} = \mathbf{0}}$ (para $r < a$ y $r > b$); 
+	$\mathbf{E} = \mathbf{0}$ (para $r < a$ y $r > b$); 
 	
 	\esp
 	
-	$\boxed{\mathbf{E} = -(k/\epsilon_0 r) \hat{\mathbf{r}}}$ (para $a < r < b$).
+	$\mathbf{E} = -(k/\epsilon_0 r) \hat{\mathbf{r}}$ (para $a < r < b$).
 	
+	\section{Diélectricos lineales}
+
+	En las Secc. 4.2 y 4.3 no nos comprometimos con la causa de $\mathbf{P}$; solo tratamos los efectos de la polarización. De la discusión cualitativa de la Secc. 4.1, sin embargo, sabemos que la polarización de un dieléctrico ordinariamente resulta de un campo eléctrico, que alinea los dipolos atómicos o moleculares. Para muchas sustancias, de hecho, la polarización es proporcional al campo, siempre que $\mathbf{E}$ no sea demasiado intenso:
 	
 	\esp
 	
-	\noindent \rule{5cm}{0.4pt} \\ \footnotesize $^6$La polarización cae abruptamente a cero fuera del material, por lo que su derivada es una función delta (ver Prob. 1.46). La carga ligada superficial es precisamente este término; en este sentido, en realidad está \textit{incluida} en $\rho_b$, pero normalmente preferimos tratarla por separado como $\sigma_b$.
+	\begin{equation}
+		\mathbf{P} = \epsilon_0 \chi_e \mathbf{E}
+		\label{eq:pol}
+	\end{equation}
 	
+	\esp
+	
+	La constante de proporcionalidad, $\chi_e$, se denomina la \textbf{susceptibilidad eléctrica} del medio (se ha extraído un factor de $\epsilon_0$ para hacer que $\chi_e$ sea adimensional). El valor de $\chi_e$ depende de la estructura microscópica de la sustancia en cuestión (y también de las condiciones externas como la temperatura). Llamaré a los materiales que obedecen la Ec. 4.30 \textbf{dieléctricos lineales}.
+	
+	\esp
+	
+	Observe que $\mathbf{E}$ en la Ec. 4.30 es el campo \textbf{total}; puede deberse en parte a las cargas libres y en parte a la polarización misma. Si, por ejemplo, colocamos una pieza de dieléctrico en un campo externo $\mathbf{E}_0$, no podemos calcular $\mathbf{P}$ directamente de la Ec. 4.30; el campo externo polarizará el material, y esta polarización producirá su propio campo, el cual contribuye al campo total, y este a su vez modifica la polarización, el cual... Salir de este regreso al infinito no siempre es fácil. Verá algunos ejemplos en un momento. El enfoque más simple es comenzar con el desplazamiento, al menos en aquellos casos donde $\mathbf{D}$ puede deducirse directamente de la distribución de carga libre.
+	
+	\esp
+	
+	\noindent En medios lineales tenemos
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{D} = \epsilon_0 \mathbf{E} + \mathbf{P} = \epsilon_0 \mathbf{E} + \epsilon_0 \chi_e \mathbf{E} = \epsilon_0(1 + \chi_e)\mathbf{E}
+	\end{equation}
+	
+	\esp
+	
+	\noindent así que $\mathbf{D}$ también es proporcional a $\mathbf{E}$:
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{D} = \epsilon \mathbf{E}
+	\end{equation}
+	
+	\esp
+	
+	\noindent donde
+	
+	\esp
+	
+	\begin{equation}
+		\epsilon \equiv \epsilon_0(1 + \chi_e)
+	\end{equation}
+	
+	\esp
+	
+	Esta nueva constante $\epsilon$ se llama la \textbf{permitividad} del material. (En el vacío, donde no hay materia que polarizar, la susceptibilidad es cero y la permitividad es $\epsilon_0$. Por eso $\epsilon_0$ se llama la \textbf{permitividad del espacio libre}. No me gusta el término, porque sugiere que el vacío es solo un tipo especial de dieléctrico lineal, en el cual la permitividad resulta tener el valor $8.85 \times 10^{-12} \text{ C}^2/\text{N}\cdot\text{m}^2$). Si se elimina un factor de $\epsilon_0$, la cantidad adimensional restante
+	
+	\esp
+	
+	\begin{equation}
+		\epsilon_r \equiv 1 + \chi_e = \frac{\epsilon}{\epsilon_0}
+	\end{equation}
+	
+	\esp
+	
+	se llama la \textbf{permitividad relativa}, o \textbf{constante dieléctrica}, del material. (Observe que $\epsilon_r$ es mayor que 1 para todos los materiales ordinarios). Por supuesto, la permitividad y la constante dieléctrica no transmiten ninguna información que no estuviera ya disponible en la susceptibilidad, ni hay nada esencialmente nuevo en la Ec. 4.32; toda la física de los dieléctricos lineales está contenida en la Ec. (\ref{eq:pol}).
 
 	\printbibliography[title={Bibliografía}]
 \end{document}
