@@ -775,6 +775,396 @@
 	\esp
 	
 	se llama la \textbf{permitividad relativa}, o \textbf{constante dieléctrica}, del material. (Observe que $\epsilon_r$ es mayor que 1 para todos los materiales ordinarios). Por supuesto, la permitividad y la constante dieléctrica no transmiten ninguna información que no estuviera ya disponible en la susceptibilidad, ni hay nada esencialmente nuevo en la Ec. 4.32; toda la física de los dieléctricos lineales está contenida en la Ec. (\ref{eq:pol}).
+	
+	\esp
+	
+	En un dieléctrico lineal (homogéneo e isótropo), la densidad de carga ligada ($\rho_b$) es proporcional a la densidad de carga libre ($\rho_f$):
+	
+	\esp
+	
+	\begin{equation}
+		\rho_b = -\nabla \cdot \mathbf{P} = -\nabla \cdot \left(\epsilon_0 \frac{\chi_e}{\epsilon} \mathbf{D}\right) = - \left( \frac{\chi_e}{1 + \chi_e} \right) \rho_f
+	\end{equation}
+	
+	\esp
+	
+	Podrías suponer que los dieléctricos lineales escapan del defecto en el paralelismo entre $\mathbf{E}$ y $\mathbf{D}$. Dado que $\mathbf{P}$ y $\mathbf{D}$ son ahora proporcionales a $\mathbf{E}$, ¿no se deduce que sus rotacionales, al igual que el de $\mathbf{E}$, deben anularse? Desafortunadamente, no; pues la integral de línea de $\mathbf{P}$ alrededor de una trayectoria cerrada que cruza la frontera entre un tipo de material y otro no tiene por qué ser cero, aunque la integral de línea de $\mathbf{E}$ alrededor del mismo lazo deba serlo. La razón es que el factor de proporcionalidad $\epsilon_0 \chi_e$ es diferente en los dos lados. Por ejemplo, en la interfaz entre un dieléctrico polarizado y el vacío (Fig. 4.21), $\mathbf{P}$ es cero en un lado pero no en el otro. Alrededor de este lazo $\oint \mathbf{P} \cdot d\mathbf{l} \neq 0$, y por lo tanto, por el teorema de Stokes, el rotacional de $\mathbf{P}$ no puede anularse en todas partes dentro del lazo (de hecho, es infinito en la frontera).
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/421.png}
+	\end{figure}
+	
+	\esp
+	
+	Por supuesto, si el espacio está completamente lleno de un dieléctrico lineal homogéneo, entonces esta objeción es nula; en esta circunstancia bastante especial
+	
+	\esp
+	
+	\begin{equation*}
+		\nabla \cdot \mathbf{D} = \rho_f \quad \text{y} \quad \nabla \times \mathbf{D} = \mathbf{0},
+	\end{equation*}
+	
+	\esp
+	
+	por lo que $\mathbf{D}$ puede hallarse a partir de la carga libre exactamente como si el dieléctrico no estuviera allí:
+	
+	\esp
+	
+	\begin{equation*}
+		\mathbf{D} = \epsilon_0 \mathbf{E}_{\text{vac}},
+	\end{equation*}
+	
+	\esp
+	
+	donde $\mathbf{E}_{\text{vac}}$ es el campo que la misma distribución de carga libre produciría en ausencia de cualquier dieléctrico. De acuerdo con las Ecs. 4.32 y 4.34, por lo tanto,
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{E} = \frac{1}{\epsilon} \mathbf{D} = \frac{1}{\epsilon_r} \mathbf{E}_{\text{vac}}
+	\end{equation}
+	
+	\esp
+	
+	\textbf{Conclusión:} Cuando todo el espacio está lleno de un dieléctrico lineal homogéneo, el campo en todas partes simplemente se reduce por un factor de uno sobre la constante dieléctrica. (En realidad, no es necesario que el dieléctrico llene todo el espacio: en regiones donde el campo es cero de todos modos, difícilmente importa si el dieléctrico está presente o no, ya que allí no hay polarización en ningún caso).
+	
+	\esp
+	
+	Por ejemplo, si una carga libre $q$ está incrustada en un dieléctrico grande, el campo que produce es
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{E} = \frac{1}{4\pi\epsilon} \frac{q}{r^2} \hat{\mathbf{r}}
+	\end{equation}
+	
+	\esp
+	
+	(esto es $\epsilon$, no $\epsilon_0$), y la fuerza que ejerce sobre las cargas cercanas se reduce en consecuencia. Pero no es que haya algo malo con la ley de Coulomb: más bien, la polarización del medio ''apantalla" parcialmente la carga, rodeándola con carga ligada del signo opuesto (Fig. 4.22).
+	
+	\esp
+	
+	\begin{nota}
+		Esto es que la carga superficial del dipolo ''reduce'' la carga libre, entonces el campo creado es menor.
+	\end{nota}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.4\textwidth]{IMG/422.png}
+	\end{figure}
+	
+	\esp
+	
+	\noindent \textbf{Ejemplo 4.5.} Una esfera metálica de radio $a$ lleva una carga $Q$ (Fig. 4.20). Está rodeada, hasta un radio $b$, por un material dieléctrico lineal de permitividad $\epsilon$. Encuentre el potencial en el centro (relativo al infinito).
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.4\textwidth]{IMG/45.png}
+	\end{figure}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/45mine.png}
+	\end{figure}
+	
+	\esp
+	
+	\noindent \textbf{Solución} \\
+	Para calcular $V$, necesitamos conocer $\mathbf{E}$: para hallar $\mathbf{E}$, podríamos intentar primero localizar la carga ligada; podríamos obtener la carga ligada a partir de $\mathbf{P}$, pero no podemos calcular $\mathbf{P}$ a menos que ya conozcamos $\mathbf{E}$ (Ec. 4.30). Parece que estamos en un aprieto. Lo que sí conocemos es la carga \textit{libre} $Q$, y afortunadamente la disposición tiene simetría esférica, así que comencemos calculando $\mathbf{D}$ usando la Ec. 4.23:
+	
+	\esp
+	
+	\begin{equation*}
+		\mathbf{D} = \frac{Q}{4\pi r^2} \hat{\mathbf{r}}, \quad \text{para todos los puntos } r > a.
+	\end{equation*}
+	
+	\esp
+	
+	(Dentro de la esfera metálica, por supuesto, $\mathbf{E} = \mathbf{P} = \mathbf{D} = \mathbf{0}$). Una vez que conocemos $\mathbf{D}$, es una cuestión trivial obtener $\mathbf{E}$ usando la Ec. 4.32:
+	
+	\esp
+	
+	\begin{equation*}
+		\mathbf{E} = \begin{cases} \frac{Q}{4\pi \epsilon r^2} \hat{\mathbf{r}}, & \text{para } a < r < b, \\ \frac{Q}{4\pi \epsilon_0 r^2} \hat{\mathbf{r}}, & \text{para } r > b. \end{cases}
+	\end{equation*}
+	
+	\esp
+	
+	\noindent El potencial en el centro es, por lo tanto,
+	
+	\esp
+	
+	\begin{align*}
+		V &= -\int_{\infty}^0 \mathbf{E} \cdot d\mathbf{l} = -\int_{\infty}^b \left( \frac{Q}{4\pi \epsilon_0 r^2} \right) dr - \int_b^a \left( \frac{Q}{4\pi \epsilon r^2} \right) dr - \int_a^0 (0) dr \\
+		&= \frac{Q}{4\pi} \left( \frac{1}{\epsilon_0 b} + \frac{1}{\epsilon a} - \frac{1}{\epsilon b} \right).
+	\end{align*}
+	
+	\esp
+	
+	Como resulta, no fue necesario para nosotros calcular la polarización o la carga ligada explícitamente, aunque esto puede hacerse fácilmente:
+	
+	\esp
+	
+	\begin{equation*}
+		\mathbf{P} = \epsilon_0 \chi_e \mathbf{E} = \frac{\epsilon_0 \chi_e Q}{4\pi \epsilon r^2} \hat{\mathbf{r}},
+	\end{equation*}
+	
+	\esp
+	
+	\noindent en el dieléctrico, y por lo tanto
+	
+	\esp
+	
+	\begin{equation*}
+		\rho_b = -\nabla \cdot \mathbf{P} = 0,
+	\end{equation*}
+	
+	\esp
+	
+	\noindent mientras que
+	
+	\esp
+	
+	\begin{equation*}
+		\sigma_b = \mathbf{P} \cdot \hat{\mathbf{n}} = \begin{cases} \frac{\epsilon_0 \chi_e Q}{4\pi \epsilon b^2}, & \text{en la superficie exterior,} \\ \frac{-\epsilon_0 \chi_e Q}{4\pi \epsilon a^2}, & \text{en la superficie interior.} \end{cases}
+	\end{equation*}
+	
+	\esp
+	
+	Observe que la carga ligada superficial en $a$ es \textit{negativa} ($\hat{\mathbf{n}}$ apunta hacia afuera \textit{respecto al dieléctrico}, que es $-\hat{\mathbf{r}}$ en $a$ pero $+\hat{\mathbf{r}}$ en $b$). Esto es natural, ya que la carga en la esfera metálica atrae su opuesto en todas las moléculas del dieléctrico. Es esta capa de carga negativa la que reduce el campo, dentro del dieléctrico, de $1/4\pi\epsilon_0 (Q/r^2) \hat{\mathbf{r}}$ a $1/4\pi\epsilon (Q/r^2) \hat{\mathbf{r}}$. En este sentido, un dieléctrico es más bien como un conductor imperfecto: en una corteza \textit{conductora}, la carga superficial inducida se cancelaría para anular el campo de $Q$ \textit{completamente} en la región $a < r < b$; el dieléctrico hace lo mejor que puede, pero la cancelación es solo parcial.
+	
+	\esp
+	
+	\noindent \textbf{Ejemplo 4.6.} Un condensador de placas paralelas (Fig. 4.23) se llena con material aislante de constante dieléctrica $\epsilon_r$. ¿Qué efecto tiene esto en su capacitancia?
+	
+	\esp
+	
+	\noindent \textbf{Solución} \\
+	Dado que el campo está confinado al espacio entre las placas, el dieléctrico reducirá $\mathbf{E}$, y por lo tanto también la diferencia de potencial $V$, por un factor de $1/\epsilon_r$. En consecuencia, la capacitancia $C = Q/V$ se \textit{incrementa por un factor de la constante dieléctrica},
+	
+	\esp
+	
+	\begin{equation}
+		C = \epsilon_r C_{\text{vac}} \tag{4.37}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Esta es, de hecho, una forma común de potenciar un condensador.
+	
+	\esp
+	
+	\noindent \textbf{Problema 4.18.} El espacio entre las placas de un condensador de placas paralelas (Fig. 4.24) se llena con dos láminas de material dieléctrico lineal. Cada lámina tiene un espesor $a$, de modo que la distancia total entre las placas es $2a$. La lámina 1 tiene una constante dieléctrica de 2, y la lámina 2 tiene una constante dieléctrica de 1.5. La densidad de carga libre en la placa superior es $\sigma$ y en la placa inferior es $-\sigma$.
+	
+	\esp
+	
+	\begin{enumerate}
+		\item[(a)] Halle el desplazamiento eléctrico $\mathbf{D}$ en cada lámina.
+		
+		\esp
+		
+		\item[(b)] Halle el campo eléctrico $\mathbf{E}$ en cada lámina.
+		
+		\esp
+		
+		\item[(c)] Halle la polarización $\mathbf{P}$ en cada lámina.
+		
+		\esp
+		
+		\item[(d)] Halle la diferencia de potencial entre las placas.
+		
+		\esp
+		
+		\item[(e)] Halle la ubicación y cantidad de toda la carga ligada.
+		
+		\esp
+		
+		\item[(f)] Ahora que conoce toda la carga (libre y ligada), recalcule el campo en cada lámina y confirme su respuesta al inciso (b).
+	\end{enumerate}
+
+	\esp
+	
+	\begin{nota}
+		Recordemos que para poder aplicar la ecuación de Laplace necesitamos que en el interior no haya cargas, total. Uno puede llegar a plantearse que en el interior puede haber $\rho_b$, pero con la relación que obtuvimos entre $\rho_b$ y $\rho_f$, podemos concluir que como el interior no hay carga libre, tampoco habrá carga ligada, y por ende se puede aplicar la ecuación de Laplace
+	\end{nota}
+	
+	\esp
+	
+	Este ejercicio se puede resolver usando la ecuación de Laplace. Debido a la simetría del problema, se reduce a un problema unidimensional, cuya solución es $V(z)=Az+B$ para cada región. Luego se aplica condiciones de contorno, que serían
+	
+	\esp
+	
+	\begin{enumerate}
+		\item Continuidad del potencial $\implies \quad V_1(a)=V_2(a), \quad V_1(0)=0, \quad V_2(2a)=V_0$ 
+		\item Discontinuidad de la normal de campo eléctrico en la superficie de separación de ambos regiones $\implies \quad (\vec{E}_1-\vec{E}_2)\cdot \hat{n} = \sigma_{b1} + \sigma_{b2}$
+	\end{enumerate} 
+	
+	\esp
+	
+	\noindent Otra forma más sencilla sería aplicando el vector desplazamiento.
+	
+	\esp
+
+	(a) Aplique $\int \mathbf{D} \cdot d\mathbf{a} = Q_{f_{enc}}$ a la superficie gaussiana mostrada. $DA = \sigma A \Rightarrow \boxed{D = \sigma.}$ (Nota: $\mathbf{D} = \mathbf{0}$ dentro de la placa metálica). Esto es cierto en ambas láminas; $\mathbf{D}$ apunta hacia \textit{abajo}.
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/ej418.png}
+	\end{figure}
+	
+	\esp
+	
+	(b) $\mathbf{D} = \epsilon \mathbf{E} \Rightarrow E = \sigma/\epsilon_1$ en la lámina 1, $E = \sigma/\epsilon_2$ en la lámina 2. Pero $\epsilon = \epsilon_0 \epsilon_r$, por lo que $\epsilon_1 = 2\epsilon_0$; $\epsilon_2 = \frac{3}{2}\epsilon_0$. $\boxed{E_1 = \sigma/2\epsilon_0,}$ $\boxed{E_2 = 2\sigma/3\epsilon_0.}$
+	
+	\esp
+	
+	(c) $\mathbf{P} = \epsilon_0 \chi_e \mathbf{E}$, por lo que $P = \epsilon_0 \chi_e \sigma / (\epsilon_0 \epsilon_r) = (\chi_e / \epsilon_r)\sigma$; $\chi_e = \epsilon_r - 1 \Rightarrow P = (1 - \epsilon_r^{-1})\sigma$. $\boxed{P_1 = \sigma/2,}$ $\boxed{P_2 = \sigma/3.}$
+	
+	\esp
+	
+	(d) $V = E_1 a + E_2 a = (\sigma a / 6\epsilon_0)(3 + 4) = \boxed{7\sigma a / 6\epsilon_0.}$
+	
+	\esp
+	
+	(e) $\rho_b = 0$; $\begin{cases} \sigma_b = +P_1 \text{ en la parte inferior de la lámina (1)} = \sigma/2, \\ \sigma_b = -P_1 \text{ en la parte superior de la lámina (1)} = -\sigma/2; \end{cases}$ $\begin{cases} \sigma_b = +P_2 \text{ en la parte inferior de la lámina (2)} = \sigma/3, \\ \sigma_b = -P_2 \text{ en la parte superior de la lámina (2)} = -\sigma/3. \end{cases}$
+	
+	\esp
+	
+	(f) En la lámina 1: $\begin{cases} \text{carga superficial total arriba: } \sigma - (\sigma/2) = \sigma/2, \\ \text{carga superficial total abajo: } (\sigma/2) - (\sigma/3) + (\sigma/3) - \sigma = -\sigma/2, \end{cases} \Rightarrow E_1 = \frac{\sigma}{2\epsilon_0}. \ \checkmark$
+	
+	\esp
+	
+	En la lámina 2: $\begin{cases} \text{carga superficial total arriba: } \sigma - (\sigma/2) + (\sigma/2) - (\sigma/3) = 2\sigma/3, \\ \text{carga superficial total abajo: } (\sigma/3) - \sigma = -2\sigma/3, \end{cases} \Rightarrow E_2 = \frac{2\sigma}{3\epsilon_0}. \ \checkmark$
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/ej4182.png}
+	\end{figure}
+	
+	\esp
+	
+	\begin{nota}
+		Si calculasemos la capacitancia, obtendríamos lo equivalente a dos capacitores en serie.
+	\end{nota}
+	
+	\esp
+	
+	\noindent \textbf{Problema 4.19.} Suponga que tiene suficiente material dieléctrico lineal, de constante dieléctrica $\epsilon_r$, para llenar hasta la \textit{mitad} un condensador de placas paralelas (Fig. 4.25).
+	
+	\esp
+	
+	¿En qué fracción aumenta la capacitancia cuando se distribuye el material como en la Fig. 4.25(a)? ¿Y en la Fig. 4.25(b)? Para una diferencia de potencial $V$ dada entre las placas, halle $\mathbf{E}$, $\mathbf{D}$ y $\mathbf{P}$ en cada región, así como la carga libre y ligada en todas las superficies, para ambos casos.
+	
+	\esp
+	
+	Al igual que el ejercicio anterior, podríamos resolver el ejercicio usando la ecuación de Laplace. La solución sería la misma que el ejercicio anterior $V=Az+B$. Lo que cambia son las condiciones de contorno. Para el potencial es la misma, pero el campo eléctrico ahora sería el paralelo a la superficie de separación, entonces $\vec{E}_{\parallel 1} - \vec{E}_{\parallel 2}=0$, la más sencilla de esta última condición es que ambos campos son iguales.
+	
+	\esp
+	
+	\begin{nota}
+		La consecuencia de que ambos campos sean iguales es que las cargas libres no se distribuyan uniformemente en las placas, habrá más carga libre en la superficie en contacto con el material dieléctrico. Otra forma de darnos cuenta es que en ambas regiones tenemos que tener la misma diferencia de potencial, lo que implica el mismo campo eléctrico total, usando la relación entre el vector desplazamiento, $D=\epsilon E$, podemos ver que debido a que ambas regiones son de diferentes materiales, por ende, diferentes $\epsilon$, sabiendo que el vector desplazamiento es únicamente debido a las fuentes libres, podemos ver que en las superficies de la placa de ambas regiones tienen diferentes cargas libres. 
+	\end{nota}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/ej419.png}
+	\end{figure}
+	
+	\esp
+	
+	Otra forma sería aplicar má sencilla sería aplicar el vector desplazamiento.
+	
+	\esp
+	
+	Sin dieléctrico, $C_0 = A\epsilon_0/d$ (Ec. 2.54).
+	
+	\esp
+	
+	En la configuración (a), con $+\sigma$ en la placa superior y $-\sigma$ en la inferior, $D = \sigma$ entre las placas.
+	$E = \sigma/\epsilon_0$ (en aire) y $E = \sigma/\epsilon$ (en el dieléctrico). Entonces $V = \frac{\sigma}{\epsilon_0} \frac{d}{2} + \frac{\sigma}{\epsilon} \frac{d}{2} = \frac{Qd}{2\epsilon_0 A} \left( 1 + \frac{\epsilon_0}{\epsilon} \right)$.
+	
+	\esp
+	
+	$C_a = \frac{Q}{V} = \frac{\epsilon_0 A}{d} \left( \frac{2}{1+1/\epsilon_r} \right) \implies \boxed{\frac{C_a}{C_0} = \frac{2\epsilon_r}{1 + \epsilon_r}.}$
+	
+	\esp
+	
+	En la configuración (b), con una diferencia de potencial $V$: $E = V/d$, por lo que $\sigma = \epsilon_0 E = \epsilon_0 V/d$ (en aire).
+	$P = \epsilon_0 \chi_e E = \epsilon_0 \chi_e V/d$ (en el dieléctrico), así que $\sigma_b = -\epsilon_0 \chi_e V/d$ (en la superficie superior del dieléctrico).
+	$\sigma_{tot} = \epsilon_0 V/d = \sigma_f + \sigma_b = \sigma_f - \epsilon_0 \chi_e V/d$, por lo que $\sigma_f = \epsilon_0 V(1 + \chi_e)/d = \epsilon_0 \epsilon_r V/d$ (en la placa superior sobre el dieléctrico).
+	
+	\esp
+	
+	$\implies C_b = \frac{Q}{V} = \frac{1}{V} \left( \sigma \frac{A}{2} + \sigma_f \frac{A}{2} \right) = \frac{A}{2V} \left( \epsilon_0 \frac{V}{d} + \epsilon_0 \frac{V}{d} \epsilon_r \right) = \frac{A \epsilon_0}{d} \left( \frac{1 + \epsilon_r}{2} \right). \boxed{\frac{C_b}{C_0} = \frac{1 + \epsilon_r}{2}.}$
+	
+	\esp
+	
+	[¿Cuál es mayor? $\frac{C_b}{C_0} - \frac{C_a}{C_0} = \frac{1+\epsilon_r}{2} - \frac{2\epsilon_r}{1+\epsilon_r} = \frac{(1+\epsilon_r)^2-4\epsilon_r}{2(1+\epsilon_r)} = \frac{1+2\epsilon_r+\epsilon_r^2-4\epsilon_r}{2(1+\epsilon_r)} = \frac{(1-\epsilon_r)^2}{2(1+\epsilon_r)} > 0$. Por lo tanto, $C_b > C_a$.]
+	
+	\esp
+	
+	Si el eje $x$ apunta hacia abajo:
+	
+	\esp
+	
+	\begin{tabular}{|l||c|c|c|}
+		\hline
+		& $\mathbf{E}$ & $\mathbf{D}$ & $\mathbf{P}$ \\ \hline \hline
+		(a) aire & $\frac{2\epsilon_r}{(\epsilon_r+1)} \frac{V}{d} \hat{x}$ & $\frac{2\epsilon_r}{(\epsilon_r+1)} \frac{\epsilon_0 V}{d} \hat{x}$ & 0 \\ \hline
+		(a) dieléctrico & $\frac{2}{(\epsilon_r+1)} \frac{V}{d} \hat{x}$ & $\frac{2\epsilon_r}{(\epsilon_r+1)} \frac{\epsilon_0 V}{d} \hat{x}$ & $\frac{2(\epsilon_r-1)}{(\epsilon_r+1)} \frac{\epsilon_0 V}{d} \hat{x}$ \\ \hline
+		(b) aire & $\frac{V}{d} \hat{x}$ & $\frac{\epsilon_0 V}{d} \hat{x}$ & 0 \\ \hline
+		(b) dieléctrico & $\frac{V}{d} \hat{x}$ & $\epsilon_r \frac{\epsilon_0 V}{d} \hat{x}$ & $(\epsilon_r - 1) \frac{\epsilon_0 V}{d} \hat{x}$ \\ \hline
+	\end{tabular}
+	
+	\esp
+	
+	\begin{tabular}{|l||c|c|}
+		\hline
+		& $\sigma_b$ (superficie sup.) & $\sigma_f$ (placa superior) \\ \hline \hline
+		(a) & $-\frac{2(\epsilon_r-1)}{(\epsilon_r+1)} \frac{\epsilon_0 V}{d}$ & $\frac{2\epsilon_r}{(\epsilon_r+1)} \frac{\epsilon_0 V}{d}$ \\ \hline
+		(b) & $-(\epsilon_r - 1) \frac{\epsilon_0 V}{d}$ & $\epsilon_r \frac{\epsilon_0 V}{d}$ (izq); $\frac{\epsilon_0 V}{d}$ (der) \\ \hline
+	\end{tabular}
+	
+	\esp
+	
+	\begin{nota}
+		En la configuración b, la capacitancia sería la equivalente a dos capacitores en paralelo.
+	\end{nota}
+	
+	\esp	
+	
+	\textbf{Problema 4.22} Un cilindro muy largo de material dieléctrico lineal se coloca en un campo eléctrico $\mathbf{E}_0$ que, de no ser por el cilindro, sería uniforme. Halle el campo resultante dentro del cilindro. (El radio es $a$, la susceptibilidad es $\chi_e$, y el eje del cilindro es perpendicular a $\mathbf{E}_0$).
+	
+	\esp
+	
+	Al igual que los ejercicios anteriores, se puede resolver mediante la ecuación de Laplace. La ecuación de Laplace usando coordenadas cilíndricas y teniendo en cuenta la simetría en el eje z. (s es la coordenada radial). Usando separación de coordenadas $V(s, \theta)=Y(s)\Phi(\phi)$
+	
+	\esp
+	
+	\begin{equation*}
+		\frac{1}{s} \frac{\partial}{\partial s} \left( s \frac{\partial V}{\partial s} \right) + \frac{1}{s^2} \frac{\partial^2 V}{\partial \phi^2} + \underset{= 0}{\underline{\frac{\partial^2 V}{\partial z^2}}} = 0
+	\end{equation*}
+
+	\esp
+
+	\textbf{HAY QUE TERMINAR LO DE ABAJO}
+
+	De la misma forma que para el caso esférico. $V(s\phi)= a_0 + b_0\ln S + \sum_{k=1}^\infty s^k (a_k \cos k\phi + b_k \sen k\phi) + \sum_{k=1}^\infty s^{-k} (c_k \cos k\phi + d_k \sen k\phi)$. El potencial en el interior no puede ser infinito, entonces $b_0=0$, en el exterior tampoco entonces $b_0$. El potencial exterior $s\rightarrow \infty$ tiene que ser igual al potencial del campo eléctrico externo. $V_{ex} = a_0 + º$
 
 	\printbibliography[title={Bibliografía}]
 \end{document}
