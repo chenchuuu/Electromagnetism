@@ -1162,9 +1162,492 @@
 
 	\esp
 
-	\textbf{HAY QUE TERMINAR LO DE ABAJO}
+	De la misma forma que para el caso esférico. $V(s\phi)= a_0 + b_0\ln S + \sum_{k=1}^\infty s^k (a_k \cos k\phi + b_k \sen k\phi) + \sum_{k=1}^\infty s^{-k} (c_k \cos k\phi + d_k \sen k\phi)$. Las condiciones de contornos son las siguientes:
+	
+	\begin{enumerate}
+		\item No hay singularidad en $s=0$
+		\item Cuando $s\rightarrow\infty \implies \vec{E}\rightarrow\vec{E}_0$
+		\item $V_{in}(s=R)=V_{ext}(s=R)$
+		\item $(\vec{D}_{in}-\vec{D}_{ext})\cdot \hat{n} = \sigma_f = 0 \implies -\epsilon \frac{\partial V_{in}}{\partial n}=-\epsilon_0\frac{\partial V_{ext}}{\partial n}$ 
+	\end{enumerate}
+	
+	
+	Solución general: $V(s, \phi) = a_0 + b_0 \ln s + \sum_{k=1}^{\infty} s^k (a_k \cos k\phi + b_k \sin k\phi) + \sum_{k=1}^{\infty} s^{-k} (c_k \cos k\phi + d_k \sin k\phi)$
+	
+	\esp
+	
+	\noindent Aplica condiciones:
+	
+	\esp
+	
+	\noindent $s \to 0 \implies V \neq \infty \implies V_{in}(s, \phi) = a_0 + \sum_{k=1}^{\infty} s^k (a_k \cos k\phi + b_k \sin k\phi)$
+	
+	\esp
+	
+	escogemos $a_0 = 0$.
+	
+	\esp
+		
+	\noindent $s \to \infty, \vec{E} \to E_0 \hat{z}, V_{ext} \to V_0 \implies V_{ext}(s, \phi) = -E_0 s \cos \phi + \sum_{k=1}^{\infty} s^{-k} (c_k \cos k\phi + d_k \sin k\phi)$
+	
+	\esp
+	
+	\noindent $\sum_{k=1}^{\infty} R^k (a_k \cos k\phi + b_k \sin k\phi) = -E_0 R \cos \phi + \sum_{k=1}^{\infty} R^{-k} (c_k \cos k\phi + d_k \sin k\phi) \to \text{igualo componente a componente}$
+	
+	\esp
+	
+	\noindent $k=1$:
+	
+	\begin{equation}
+		R a_1 \cos \phi = -E_0 R \cos \phi + R^{-1} c_1 \cos \phi \implies R a_1 = -E_0 R + R^{-1} c_1
+	\end{equation}
+	
+	\esp
+	
+	\noindent $k > 1$:
+	
+	\begin{equation}
+		\begin{aligned}
+			R^k a_k &= R^{-k} c_k \quad \cos k\phi \implies c_k = R^{2k} a_k \\
+			R^k b_k &= R^{-k} d_k \quad \sin k\phi \implies d_k = R^{2k} b_k
+		\end{aligned}
+	\end{equation}
+	
+	\esp
+	
+	\begin{equation}
+		\epsilon \left( - \frac{\partial V}{\partial n} \right)_{in} = \epsilon_0 \left( - \frac{\partial V}{\partial n} \right)_{ext}
+	\end{equation}
+	
+	\esp
+	
+	\noindent $\frac{\partial V}{\partial n} = (\nabla V) \cdot \hat{n} = \left[ \frac{\partial V}{\partial s} \hat{s} + \frac{1}{s} \frac{\partial V}{\partial \phi} \hat{\phi} + \dots \right] \cdot \hat{s} = \frac{\partial V}{\partial s}$
+	
+	\esp
+	
+	\begin{equation}
+		-\epsilon \left( \frac{\partial V_{in}}{\partial s} \right) = -\epsilon_0 \left( \frac{\partial V_{ext}}{\partial s} \right) \quad \text{con } \epsilon = \epsilon_0 \epsilon_r
+	\end{equation}
+	
+	\esp
+	
+	\noindent $-\epsilon \left( \sum_{k=1}^{\infty} k s^{k-1} (a_k \cos k\phi + b_k \sin k\phi) \right) \bigg|_{s=R} = -\epsilon_0 \left[ -E_0 \cos \phi - \sum_{k=1}^{\infty} (k) s^{-(k+1)} R^{2k} (c_k \cos k\phi + d_k \sin k\phi) \right] \bigg|_{s=R}$
+	
+	\esp
+	
+	\begin{equation}
+		\left.
+		\begin{aligned}
+			b_k &= 0 \quad \forall k \\
+			a_k &= 0 \quad \forall k > 1 \\
+			a_1 &= -E_0 + c_1/R^2 \\
+			\epsilon_r a_1 &= -E_0 - c_1/R^2
+		\end{aligned}
+		\right\}
+		\implies
+		\begin{aligned}
+			V_{in} &= -\frac{2 E_0}{1 + \epsilon_r} s \cdot \cos \phi \implies \vec{E}_{in} = \frac{2 E_0}{1 + \epsilon_r} \hat{x} \\
+			V_{ext} &= -E_0 s \cos \phi + E_0 \frac{R^2}{s} \frac{\epsilon_r - 1}{\epsilon_r + 1} \cos \phi
+		\end{aligned}
+	\end{equation}
+	
+	\esp
+	
+	\noindent \textbf{Ejemplo 4.8.} Suponga que toda la región por debajo del plano $z = 0$ en la Fig. 4.28 está llena de un material dieléctrico lineal uniforme de susceptibilidad $\chi_e$. Calcule la fuerza sobre una carga puntual $q$ situada a una distancia $d$ por encima del origen.
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/ejemplo418.png}
+	\end{figure}
+	
+	\esp
+	
+	\noindent \textbf{Solución}
+	
+	\esp
+	
+	La carga ligada superficial en el plano $xy$ es de signo opuesto a $q$, por lo que la fuerza será atractiva. (En vista de la Ec. 4.39, no hay carga ligada volumétrica). Calculemos primero $\sigma_b$, utilizando las Ecs. 4.11 y 4.30.
+	
+	\esp
+	
+	\begin{equation}
+		\sigma_b = \mathbf{P} \cdot \hat{\mathbf{n}} = P_z = \epsilon_0 \chi_e E_z,
+	\end{equation}
+	
+	\esp
+	
+	\noindent donde $E_z$ es la componente $z$ del campo total justo dentro del dieléctrico, en $z = 0$. Este campo se debe en parte a $q$ y en parte a la propia carga ligada. Según la ley de Coulomb, la contribución de la primera es
+	
+	\esp
+	
+	\begin{equation}
+		-\frac{1}{4\pi\epsilon_0} \frac{q}{(r^2 + d^2)} \cos \theta = -\frac{1}{4\pi\epsilon_0} \frac{qd}{(r^2 + d^2)^{3/2}},
+	\end{equation}
+	
+	\esp
+	
+	\noindent donde $r = \sqrt{x^2 + y^2}$ es la distancia desde el origen. La componente $z$ del campo de la carga ligada, por su parte, es $-\sigma_b/2\epsilon_0$. Por lo tanto,
+	
+	\esp
+	
+	\begin{equation}
+		\sigma_b = \epsilon_0 \chi_e \left[ -\frac{1}{4\pi\epsilon_0} \frac{qd}{(r^2 + d^2)^{3/2}} - \frac{\sigma_b}{2\epsilon_0} \right],
+	\end{equation}
+	
+	\esp
+	
+	\noindent la cual podemos resolver para $\sigma_b$:
+	
+	\esp
+	
+	\begin{equation}
+		\sigma_b = -\frac{1}{2\pi} \left( \frac{\chi_e}{\chi_e + 2} \right) \frac{qd}{(r^2 + d^2)^{3/2}}.
+	\end{equation}
+	
+	\esp
+	
+	\noindent Aparte del factor $\chi_e/(\chi_e + 2)$, esta es exactamente la misma carga inducida sobre un plano \textit{conductor} infinito bajo circunstancias similares (Ec. 3.10). Evidentemente, la carga ligada \textit{total} es
+	
+	\esp
+	
+	\begin{equation}
+		q_b = -\left( \frac{\chi_e}{\chi_e + 2} \right) q.
+	\end{equation}
+	
+	\esp
+	
+	Podríamos, por supuesto, obtener el campo de $\sigma_b$ por integración directa
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{E} = \frac{1}{4\pi\epsilon_0} \int \left( \frac{\hat{\vec{\imath}}}{r^2} \right) \sigma_b \, da.
+	\end{equation}
+	
+	\esp
+	
+	\noindent Pero, como en el caso del plano conductor, hay una solución más elegante mediante el método de las imágenes. De hecho, si reemplazamos el dieléctrico por una sola carga puntual $q_b$ en la posición de la imagen $(0, 0, -d)$, tenemos
+	
+	\esp
+	
+	\begin{equation}
+		V = \frac{1}{4\pi\epsilon_0} \left[ \frac{q}{\sqrt{x^2 + y^2 + (z - d)^2}} + \frac{q_b}{\sqrt{x^2 + y^2 + (z + d)^2}} \right],
+	\end{equation}
+	
+	\esp
+	
+	\noindent en la región $z > 0$. Mientras tanto, una carga $(q + q_b)$ en $(0, 0, d)$ produce el potencial
+	
+	\esp
+	
+	\begin{equation}
+		V = \frac{1}{4\pi\epsilon_0} \left[ \frac{q + q_b}{\sqrt{x^2 + y^2 + (z - d)^2}} \right],
+	\end{equation}
+	
+	\esp
+	
+	\noindent para la región $z < 0$. Tomadas en conjunto, las Ecs. 4.52 y 4.53 constituyen una función que satisface la ecuación de Poisson con una carga puntual $q$ en $(0, 0, d)$, que tiende a cero en el infinito, que es continua en la frontera $z = 0$, y cuya derivada normal exhibe la discontinuidad apropiada para una carga superficial $\sigma_b$ en $z = 0$:
+	
+	\esp
+	
+	\begin{equation}
+		-\epsilon_0 \left( \left. \frac{\partial V}{\partial z} \right|_{z=0^+} - \left. \frac{\partial V}{\partial z} \right|_{z=0^-} \right) = -\frac{1}{2\pi} \left( \frac{\chi_e}{\chi_e + 2} \right) \frac{qd}{(x^2 + y^2 + d^2)^{3/2}}.
+	\end{equation}
+	
+	\esp
+	
+	\noindent En consecuencia, este es el potencial correcto para nuestro problema. En particular, la fuerza sobre $q$ es:
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{F} = \frac{1}{4\pi\epsilon_0} \frac{qq_b}{(2d)^2} \hat{\mathbf{z}} = -\frac{1}{4\pi\epsilon_0} \left( \frac{\chi_e}{\chi_e + 2} \right) \frac{q^2}{4d^2} \hat{\mathbf{z}}.
+	\end{equation}
+	
+	\esp
+	
+	\noindent No pretendo haber proporcionado una \textit{motivación} convincente para las Ecs. 4.52 y 4.53; como todas las soluciones de imágenes, esta debe su justificación al hecho de que \textit{funciona}: resuelve la ecuación de Poisson y cumple con las condiciones de contorno. Aun así, descubrir una solución por imágenes no es totalmente una cuestión de adivinanza. Hay al menos dos "reglas del juego": (1) Nunca debes colocar una carga imagen en la región donde estás calculando el potencial. (Por lo tanto, la Ec. 4.52 da el potencial para $z > 0$, pero esta carga imagen $q_b$ está en $z = -d$; cuando pasamos a la región $z < 0$ (Ec. 4.53), la carga imagen $(q + q_b)$ está en $z = +d$). (2) Las cargas imagen deben sumar el total correcto en cada región. (Así fue como supe que debía usar $q_b$ para dar cuenta de la carga en la región $z \leq 0$, y $(q + q_b)$ para cubrir la región $z \geq 0$).
+	
+	\subsubsection{Energía en un sistema dieléctrico}
+	
+	Suponga que el material dieléctrico está fijo en su posición, y traemos la carga libre, poco a poco. A medida que $\rho_f$ aumenta en una cantidad $\Delta \rho_f$, la polarización cambiará y con ella la distribución de carga ligada; pero estamos interesados únicamente en el trabajo realizado sobre la carga libre incremental:
+	
+	\esp
+	
+	\begin{equation}
+		\Delta W = \int (\Delta \rho_f) V \, d\tau.
+	\end{equation}
+	
+	\esp
+	
+	\noindent Dado que $\nabla \cdot \mathbf{D} = \rho_f$, $\Delta \rho_f = \nabla \cdot (\Delta \mathbf{D})$, donde $\Delta \mathbf{D}$ es el cambio resultante en $\mathbf{D}$, por lo que
+	
+	\esp
+	
+	\begin{equation}
+		\Delta W = \int [\nabla \cdot (\Delta \mathbf{D})] V \, d\tau.
+	\end{equation}
+	
+	\esp
+	
+	\noindent Ahora bien,
+	
+	\esp
+	
+	\begin{equation}
+		\nabla \cdot [(\Delta \mathbf{D})V] = [\nabla \cdot (\Delta \mathbf{D})]V + \Delta \mathbf{D} \cdot (\nabla V),
+	\end{equation}
+	
+	\esp
+	
+	\noindent y por lo tanto (integrando por partes):
+	
+	\esp
+	
+	\begin{equation}
+		\Delta W = \int \nabla \cdot [(\Delta \mathbf{D})V] \, d\tau + \int (\Delta \mathbf{D}) \cdot \mathbf{E} \, d\tau.
+	\end{equation}
+	
+	\esp
+	
+	\noindent El teorema de la divergencia convierte el primer término en una integral de superficie, la cual se anula si integramos sobre todo el espacio. Por lo tanto, el trabajo realizado es igual a
+	
+	\esp
+	
+	\begin{equation}
+		\Delta W = \int (\Delta \mathbf{D}) \cdot \mathbf{E} \, d\tau.
+	\end{equation}
+	
+	\esp
+	
+	\noindent Hasta aquí, esto se aplica a \textit{cualquier} material. Ahora, si el medio es un dieléctrico lineal, entonces $\mathbf{D} = \epsilon \mathbf{E}$, por lo que
+	
+	\esp
+	
+	\begin{equation}
+		\frac{1}{2} \Delta (\mathbf{D} \cdot \mathbf{E}) = \frac{1}{2} \Delta (\epsilon E^2) = \epsilon (\Delta \mathbf{E}) \cdot \mathbf{E} = (\Delta \mathbf{D}) \cdot \mathbf{E}
+	\end{equation}
+	
+	\esp
+	
+	\noindent (para incrementos infinitesimales). Así pues,
+	
+	\esp
+	
+	\begin{equation}
+		\Delta W = \Delta \left( \frac{1}{2} \int \mathbf{D} \cdot \mathbf{E} \, d\tau \right).
+	\end{equation}
+	
+	\esp
+	
+	\noindent El trabajo total realizado, entonces, a medida que acumulamos la carga libre desde cero hasta la configuración final, es
+	
+	\esp
+	
+	\begin{equation}
+		W = \frac{1}{2} \int \mathbf{D} \cdot \mathbf{E} \, d\tau,
+	\end{equation}
+	
+	\esp
+	
+	\noindent como se anticipó.
 
-	De la misma forma que para el caso esférico. $V(s\phi)= a_0 + b_0\ln S + \sum_{k=1}^\infty s^k (a_k \cos k\phi + b_k \sen k\phi) + \sum_{k=1}^\infty s^{-k} (c_k \cos k\phi + d_k \sen k\phi)$. El potencial en el interior no puede ser infinito, entonces $b_0=0$, en el exterior tampoco entonces $b_0$. El potencial exterior $s\rightarrow \infty$ tiene que ser igual al potencial del campo eléctrico externo. $V_{ex} = a_0 + º$
+	\esp
+	
+	Puede que le resulte desconcertante que la Ec. 4.55, la cual derivamos de manera bastante general en el Capítulo 2, no parezca aplicarse en presencia de dieléctricos, donde es reemplazada por la Ec. 4.58. El punto no es que una u otra de estas ecuaciones esté mal, sino más bien que abordan cuestiones algo diferentes. La distinción es sutil, así que volvamos justo al principio: ¿A qué nos referimos con "la energía de un sistema"? Respuesta: Es el trabajo requerido para ensamblar el sistema. Muy bien—pero cuando hay dieléctricos involucrados, hay dos formas bastante diferentes en las que uno podría interpretar este proceso:
+	
+	\esp
+	
+	\begin{enumerate}
+		\item Traemos todas las cargas (libres \textit{y} ligadas), una por una, con pinzas, y pegamos cada una en su ubicación final adecuada. Si esto es lo que quiere decir con "ensamblar el sistema", entonces la Ec. 4.55 es su fórmula para la energía almacenada. Note, sin embargo, que esto \textit{no} incluirá el trabajo involucrado en estirar y retorcer las moléculas del dieléctrico (si imaginamos las cargas positivas y negativas como unidas por diminutos resortes, no incluye la energía del resorte, $\frac{1}{2}kx^2$, asociada con la polarización de cada molécula).$^{18}$
+		
+		\esp
+		
+		\item Con el dieléctrico no polarizado en su lugar, traemos las cargas \textit{libres}, una por una, permitiendo que el dieléctrico responda como mejor le parezca. Si esto es lo que quiere decir con "ensamblar el sistema" (y ordinariamente lo es, ya que la carga libre es lo que realmente movemos), entonces la Ec. 4.58 es la fórmula que desea. En este caso, la energía del "resorte" \textit{está} incluida, aunque sea indirectamente, porque la fuerza que debe aplicar a la carga libre depende de la disposición de la carga ligada; a medida que mueve la carga libre, está estirando automáticamente esos "resortes".
+	\end{enumerate}
+	
+	\esp
+	
+	\noindent \textbf{Ejemplo 4.9.} Una esfera de radio $R$ está llena de un material con constante dieléctrica $\epsilon_r$ y una carga libre uniformemente distribuida $\rho_f$. ¿Cuál es la energía de esta configuración?
+	
+	\esp
+	
+	\noindent \textbf{Solución}
+	
+	\esp
+	
+	\noindent A partir de la ley de Gauss (en la forma de la Ec. 4.23), el desplazamiento es
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{D}(r) = \begin{cases} \dfrac{\rho_f}{3} \mathbf{r} & (r < R), \\ \dfrac{\rho_f}{3} \dfrac{R^3}{r^2} \hat{\mathbf{r}} & (r > R). \end{cases}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Así que el campo eléctrico es
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{E}(r) = \begin{cases} \dfrac{\rho_f}{3\epsilon_0\epsilon_r} \mathbf{r} & (r < R), \\ \dfrac{\rho_f}{3\epsilon_0} \dfrac{R^3}{r^2} \hat{\mathbf{r}} & (r > R). \end{cases}
+	\end{equation}
+	
+	\esp
+	
+	\noindent La energía puramente electrostática (Ec. 4.55) es
+	
+	\esp
+	
+	\begin{equation}
+		\begin{aligned}
+			W_1 &= \frac{\epsilon_0}{2} \left[ \left( \frac{\rho_f}{3\epsilon_0\epsilon_r} \right)^2 \int_0^R r^2 4\pi r^2 dr + \left( \frac{\rho_f}{3\epsilon_0} \right)^2 R^6 \int_R^\infty \frac{1}{r^4} 4\pi r^2 dr \right] \\
+			&= \frac{2\pi}{9\epsilon_0} \rho_f^2 R^5 \left( \frac{1}{5\epsilon_r^2} + 1 \right).
+		\end{aligned}
+	\end{equation}
+	
+	\esp
+	
+	Pero la energía \textit{total} (Ec. 4.58) es
+	
+	\esp
+	
+	\begin{equation}
+		\begin{aligned}
+			W_2 &= \frac{1}{2} \left[ \left( \frac{\rho_f}{3} \right) \left( \frac{\rho_f}{3\epsilon_0\epsilon_r} \right) \int_0^R r^2 4\pi r^2 dr + \left( \frac{\rho_f R^3}{3} \right) \left( \frac{\rho_f R^3}{3\epsilon_0} \right) \int_R^\infty \frac{1}{r^4} 4\pi r^2 dr \right] \\
+			&= \frac{2\pi}{9\epsilon_0} \rho_f^2 R^5 \left( \frac{1}{5\epsilon_r} + 1 \right).
+		\end{aligned}
+	\end{equation}
+	
+	\esp
+	
+	Observe que $W_1 < W_2$; eso se debe a que $W_1$ no incluye la energía involucrada en el estiramiento de las moléculas.
+	
+	\esp
+	
+	Comprobemos que $W_2$ es el trabajo realizado sobre la carga \textit{libre} al ensamblar el sistema. Comenzamos con la esfera dieléctrica (descargada y no polarizada) y traemos la carga libre en porciones infinitesimales ($dq$), llenando la esfera capa por capa. Cuando hemos alcanzado un radio $r'$, el campo eléctrico es
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{E}(r) = \begin{cases} \dfrac{\rho_f}{3\epsilon_0\epsilon_r} \mathbf{r} & (r < r'), \\ \dfrac{\rho_f}{3\epsilon_0\epsilon_r} \dfrac{r'^3}{r^2} \hat{\mathbf{r}} & (r' < r < R), \\ \dfrac{\rho_f}{3\epsilon_0} \dfrac{r'^3}{r^2} \hat{\mathbf{r}} & (r > R). \end{cases}
+	\end{equation}
+	
+	\esp
+	
+	El trabajo requerido para traer la siguiente $dq$ desde el infinito hasta $r'$ es
+	
+	\esp
+	
+	\begin{equation}
+		\begin{aligned}
+			dW &= -dq \left[ \int_\infty^R \mathbf{E} \cdot d\mathbf{l} + \int_R^{r'} \mathbf{E} \cdot d\mathbf{l} \right] \\
+			&= -dq \left[ \frac{\rho_f r'^3}{3\epsilon_0} \int_\infty^R \frac{1}{r^2} dr + \frac{\rho_f r'^3}{3\epsilon_0\epsilon_r} \int_R^{r'} \frac{1}{r^2} dr \right] \\
+			&= \frac{\rho_f r'^3}{3\epsilon_0} \left[ \frac{1}{R} + \frac{1}{\epsilon_r} \left( \frac{1}{r'} - \frac{1}{R} \right) \right] dq.
+		\end{aligned}
+	\end{equation}
+	
+	\esp
+	
+	Esto aumenta el radio ($r'$):
+	
+	\begin{equation}
+		dq = \rho_f 4\pi r'^2 dr',
+	\end{equation}
+	
+	\esp
+	
+	\noindent por lo que el trabajo \textit{total} realizado, al ir de $r' = 0$ a $r' = R$, es
+	
+	\esp
+	
+	\begin{equation}
+		\begin{aligned}
+			W &= \frac{4\pi \rho_f^2}{3\epsilon_0} \left[ \frac{1}{R} \left( 1 - \frac{1}{\epsilon_r} \right) \int_0^R r'^5 dr' + \frac{1}{\epsilon_r} \int_0^R r'^4 dr' \right] \\
+			&= \frac{2\pi}{9\epsilon_0} \rho_f^2 R^5 \left( \frac{1}{5\epsilon_r} + 1 \right) = W_2. \checkmark
+		\end{aligned}
+	\end{equation}
+	
+	\esp
+	
+	Evidentemente, la energía "almacenada en los resortes" es
+	
+	\esp
+	
+	\begin{equation}
+		W_{\text{spring}} = W_2 - W_1 = \frac{2\pi}{45\epsilon_0\epsilon_r^2} \rho_f^2 R^5 (\epsilon_r - 1).
+	\end{equation}
+	
+	\esp
+	
+	Me gustaría confirmar esto en un modelo explícito. Imagine el dieléctrico como una colección de diminutos protodipolos, cada uno consistente en $+q$ y $-q$ unidos a un resorte de constante $k$ y longitud de equilibrio 0, de modo que en ausencia de cualquier campo los extremos positivo y negativo coinciden. Un extremo de cada dipolo está fijo en su posición (como los núcleos en un sólido), pero el otro extremo es libre de moverse en respuesta a cualquier campo impuesto. Sea $d\tau$ el volumen asignado a cada protodipolo (el dipolo mismo puede ocupar solo una pequeña porción de este espacio).
+	
+	\esp
+	
+	Con el campo encendido, la fuerza eléctrica en el extremo libre se equilibra con la fuerza del resorte;$^{19}$ las cargas se separan una distancia $d$: $qE = kd$. En nuestro caso
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{E} = \frac{\rho_f}{3\epsilon_0\epsilon_r} \mathbf{r} .
+	\end{equation}
+	
+	\esp
+	
+	El momento dipolo resultante es $p = qd$, y la polarización es $P = p/d\tau$, por lo que
+	
+	\esp
+	
+	\begin{equation}
+		k = \frac{\rho_f}{3\epsilon_0\epsilon_r d^2} Pr \, d\tau .
+	\end{equation}
+	
+	\esp
+	
+	La energía de este resorte en particular es
+	
+	\esp
+	
+	\begin{equation}
+		dW_{\text{spring}} = \frac{1}{2}kd^2 = \frac{\rho_f}{6\epsilon_0\epsilon_r} Pr \, d\tau ,
+	\end{equation}
+	
+	\esp
+	
+	\noindent y por lo tanto el total es
+	
+	\esp
+	
+	\begin{equation}
+		W_{\text{spring}} = \frac{\rho_f}{6\epsilon_0\epsilon_r} \int Pr \, d\tau .
+	\end{equation}
+	
+	\esp
+	
+	Ahora bien,
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{P} = \epsilon_0\chi_e \mathbf{E} = \epsilon_0\chi_e \frac{\rho_f}{3\epsilon_0\epsilon_r} \mathbf{r} = \frac{(\epsilon_r - 1)\rho_f}{3\epsilon_r} \mathbf{r} ,
+	\end{equation}
+	
+	\esp
+	
+	\noindent así que
+	
+	\esp
+	
+	\begin{equation}
+		W_{\text{spring}} = \frac{\rho_f}{6\epsilon_0\epsilon_r} \frac{(\epsilon_r - 1)\rho_f}{3\epsilon_r} 4\pi \int_0^R r^4 \, dr = \frac{2\pi}{45\epsilon_0\epsilon_r^2} \rho_f^2 R^5 (\epsilon_r - 1) ,
+	\end{equation}
+	
+	\esp
+	
+	\noindent y todo cuadra perfectamente.
 
 	\printbibliography[title={Bibliografía}]
 \end{document}
