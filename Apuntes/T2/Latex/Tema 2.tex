@@ -1648,6 +1648,154 @@
 	\esp
 	
 	\noindent y todo cuadra perfectamente.
+	
+	\esp
+	
+	\subsection{Fuerzas en dieléctricos}
+	
+	Al igual que un conductor es atraído hacia un campo eléctrico (Ec. 2.51), también lo es un dieléctrico —y esencialmente por la misma razón: la carga ligada tiende a acumularse cerca de la carga libre del signo opuesto. Pero el cálculo de las fuerzas sobre los dieléctricos puede ser sorprendentemente complicado. Considere, por ejemplo, el caso de una placa de material dieléctrico lineal, parcialmente insertada entre las placas de un condensador de placas paralelas (Fig. 4.30). 
+	
+	\esp
+	
+	Siempre hemos pretendido que el campo es uniforme dentro de un condensador de placas paralelas y cero fuera. Si esto fuera literalmente cierto, no habría ninguna fuerza neta sobre el dieléctrico en absoluto, ya que el campo en todas partes sería perpendicular a las placas. Sin embargo, en realidad existe un \textbf{campo de borde} (\textit{fringing field}) alrededor de los extremos, que para la mayoría de los propósitos puede ignorarse, pero que en este caso es responsable de todo el efecto. 
+	
+	\esp
+	
+	(De hecho, el campo \textit{no podría} terminar abruptamente en el borde del condensador, ya que si lo hiciera, la integral de línea de $\mathbf{E}$ alrededor del bucle cerrado que se muestra en la Fig. 4.31 no sería cero). Es este campo de borde no uniforme el que empuja al dieléctrico hacia el interior del condensador.
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/ejemplo433.png}
+	\end{figure}
+	
+	\esp
+	
+	Los campos de borde son notoriamente difíciles de calcular; por suerte, podemos evitar esto por completo mediante el siguiente método ingenioso.$^{20}$ Sea $W$ la energía del sistema—esto depende, por supuesto, de la cantidad de solapamiento. Si extraigo el dieléctrico una distancia infinitesimal $dx$, la energía cambia en una cantidad igual al trabajo realizado:
+	
+	\esp
+	
+	\begin{equation}
+		dW = F_{me} \, dx,
+	\end{equation}
+	
+	\esp
+	
+	\noindent donde $F_{me}$ es la fuerza que debo ejercer para contrarrestar la fuerza eléctrica $F$ sobre el dieléctrico: $F_{me} = -F$. Por lo tanto, la fuerza eléctrica sobre la placa es
+	
+	\esp
+	
+	\begin{equation}
+		F = -\frac{dW}{dx}.
+	\end{equation}
+	
+	\esp
+	
+	\noindent Ahora bien, la energía almacenada en el condensador es
+	
+	\esp
+	
+	\begin{equation}
+		W = \frac{1}{2}CV^2,
+	\end{equation}
+	
+	\esp
+	
+	\noindent y la capacitancia en este caso es
+	
+	\esp
+	
+	\begin{equation}
+		C = \frac{\epsilon_0 w}{d}(\epsilon_r l - \chi_e x),
+	\end{equation}
+	
+	\esp
+	
+	\noindent donde $l$ es la longitud de las placas (Fig. 4.30). Supongamos que la carga total en las placas ($Q = CV$) se mantiene constante mientras el dieléctrico se mueve. En términos de $Q$,
+	
+	\esp
+	
+	\begin{equation}
+		W = \frac{1}{2} \frac{Q^2}{C},
+	\end{equation}
+	
+	\esp
+	
+	así que
+	
+	\esp
+	
+	\begin{equation}
+		F = -\frac{dW}{dx} = \frac{1}{2} \frac{Q^2}{C^2} \frac{dC}{dx} = \frac{1}{2} V^2 \frac{dC}{dx} . \tag{4.64}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Pero
+	
+	\esp
+	
+	\begin{equation}
+		\frac{dC}{dx} = -\frac{\epsilon_0 \chi_e w}{d} ,
+	\end{equation}
+	
+	\esp
+	
+	\noindent y por ende
+	
+	\esp
+	
+	\begin{equation}
+		F = -\frac{\epsilon_0 \chi_e w}{2d} V^2 . \tag{4.65}
+	\end{equation}
+	
+	\esp
+	
+	\noindent (El signo menos indica que la fuerza está en la dirección $-x$; el dieléctrico es succionado \textit{hacia el interior} del condensador).
+	
+	\esp
+	
+	Es un error común usar la Ec. 4.61 (con $V$ constante), en lugar de la Ec. 4.63 (con $Q$ constante), al calcular la fuerza. Se obtiene entonces
+	
+	\esp
+	
+	\begin{equation*}
+		F = -\frac{1}{2} V^2 \frac{dC}{dx} ,
+	\end{equation*}
+	
+	\esp
+	
+	\noindent lo cual tiene el signo incorrecto. Es, por supuesto, \textit{posible} mantener el condensador a un potencial fijo, conectándolo a una batería. Pero en ese caso la \textit{batería también realiza un trabajo} a medida que el dieléctrico se mueve; en lugar de la Ec. 4.59, ahora tenemos
+	
+	\esp
+	
+	\begin{equation}
+		dW = F_{\text{me}} dx + V dQ , \tag{4.66}
+	\end{equation}
+	
+	\esp
+	
+	\noindent donde $V dQ$ es el trabajo realizado por la batería. Se deduce que
+	
+	\esp
+	
+	\begin{equation}
+		F = -\frac{dW}{dx} + V \frac{dQ}{dx} = -\frac{1}{2} V^2 \frac{dC}{dx} + V^2 \frac{dC}{dx} = \frac{1}{2} V^2 \frac{dC}{dx} , \tag{4.67}
+	\end{equation}
+	
+	\esp
+	
+	\noindent lo mismo que antes (Ec. 4.64), con el signo \textit{correcto}.
+	
+	\esp
+	
+	Por favor, comprenda: la fuerza sobre el dieléctrico no puede depender de si se planea mantener $Q$ constante o $V$ constante —está determinada enteramente por la distribución de carga, libre y ligada. Es más sencillo \textit{calcular} la fuerza asumiendo $Q$ constante, porque entonces no hay que preocuparse por el trabajo realizado por la batería; pero si insiste, puede hacerse correctamente de ambas maneras.
+	
+	\esp
+	
+	¡Note que pudimos determinar la fuerza \textit{sin saber nada sobre los campos de borde} que son, en última instancia, responsables de ella! Por supuesto, está implícito en toda la estructura de la electrostática que $\nabla \times \mathbf{E} = 0$, y por ende que los campos de borde deben estar presentes; no estamos obteniendo algo a cambio de nada —solo estamos explotando ingeniosamente la consistencia interna de la teoría. La energía almacenada en los propios campos de borde (que no se tuvo en cuenta en esta derivación) permanece constante mientras la placa se mueve; lo que \textit{sí} cambia es el pozo de energía \textit{dentro} del condensador, donde el campo es agradable y uniforme.
+	
 
 	\printbibliography[title={Bibliografía}]
 \end{document}
