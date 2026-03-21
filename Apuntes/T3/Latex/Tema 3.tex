@@ -354,6 +354,202 @@
 	\esp
 	
 	\noindent \textbf{EJERCICIO 3.37 apartado B HECHO EN RAW}
+	
+	\subsection{Fuerzas y pares de fuerzas sobre dipolos magnéticos}
+	
+	Un dipolo magnético experimenta un torque en un campo magnético, tal como lo hace un dipolo eléctrico en un campo eléctrico. Calculemos el torque sobre una espira de corriente rectangular en un campo uniforme $\mathbf{B}$. (Dado que cualquier espira de corriente puede construirse a partir de rectángulos infinitesimales, con todos los lados ``internos'' cancelándose, como se indica en la Fig. 6.1, no hay pérdida real de generalidad aquí; pero si prefiere empezar desde cero con una forma arbitraria, vea el Prob. 6.2). Centre la espira en el origen e inclínela un ángulo $\theta$ desde el eje $z$ hacia el eje $y$ (Fig. 6.2). 
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{IMG/fig61.png}
+	\end{figure}
+	
+	\esp
+	
+	Sea $\mathbf{B}$ apuntando en la dirección $z$. Las fuerzas sobre los dos lados inclinados se cancelan (tienden a \textit{estirar} la espira, pero no la hacen \textit{rotar}). Las fuerzas en los lados ``horizontales'' son igualmente iguales y opuestas (por lo que la \textit{fuerza} neta sobre la espira es cero), pero sí generan un torque:
+	
+	\esp
+	
+	\begin{equation*}
+		\mathbf{N} = aF \sin \theta \, \mathbf{\hat{x}}.
+	\end{equation*}
+	
+	\esp
+	
+	La magnitud de la fuerza en cada uno de estos segmentos es
+	
+	\esp
+	
+	\begin{equation*}
+		F = IbB,
+	\end{equation*}
+	
+	\esp
+	
+	\noindent y por lo tanto
+	
+	\esp
+	
+	\begin{equation*}
+		\mathbf{N} = IabB \sin \theta \, \mathbf{\hat{x}} = mB \sin \theta \, \mathbf{\hat{x}},
+	\end{equation*}
+	
+	\esp
+	
+	\noindent o
+	
+	\esp
+	
+	\begin{equation}
+		\boxed{\mathbf{N} = \mathbf{m} \times \mathbf{B}} \tag{6.1}
+	\end{equation}
+	
+	\esp
+	
+	donde $m = Iab$ es el momento dipolar magnético de la espira. La Ecuación 6.1 da el torque sobre cualquier distribución de corriente localizada, en presencia de un campo \textit{uniforme}; en un campo \textit{no uniforme} es el torque exacto (respecto al centro) para un dipolo \textit{perfecto} de tamaño infinitesimal.
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/fig62.png}
+	\end{figure}
 
+	\esp
+	
+	Note que la Ec. 6.1 es idéntica en forma al análogo eléctrico, la Ec. 4.4: $\mathbf{N} = \mathbf{p} \times \mathbf{E}$. En particular, el torque tiene nuevamente una dirección tal que alinea el dipolo \textit{paralelo} al campo. Es este torque el que explica el \textbf{paramagnetismo}. Dado que cada electrón constituye un dipolo magnético (imagínelo, si lo desea, como una pequeña esfera de carga en rotación), se podría esperar que el paramagnetismo fuera un fenómeno universal. En realidad, la mecánica cuántica (específicamente, el principio de exclusión de Pauli) tiende a agrupar a los electrones dentro de un átomo dado en pares con espines opuestos, y esto efectivamente neutraliza el torque sobre la combinación. Como resultado, el paramagnetismo ocurre con mayor frecuencia en átomos o moléculas con un número impar de electrones, donde el miembro ``extra'' desapareado está sujeto al torque magnético. Incluso aquí, la alineación está lejos de ser completa, ya que las colisiones térmicas aleatorias tienden a destruir el orden.
+	
+	\esp
+	
+	En un campo uniforme, la \textit{fuerza} neta sobre una espira de corriente es cero:
+	
+	\esp
+	
+	\begin{equation*}
+		\mathbf{F} = I \oint (d\mathbf{l} \times \mathbf{B}) = I \left( \oint d\mathbf{l} \right) \times \mathbf{B} = \mathbf{0};
+	\end{equation*}
+	
+	\esp
+	
+	\noindent la constante $\mathbf{B}$ sale de la integral, y el desplazamiento neto $\oint d\mathbf{l}$ alrededor de una espira cerrada se anula. En un campo \textit{no uniforme} este ya no es el caso. Por ejemplo, suponga que un anillo de alambre circular de radio $R$, que transporta una corriente $I$, está suspendido sobre un solenoide corto en la región de ``borde'' (Fig. 6.3). Aquí $\mathbf{B}$ tiene una componente radial, y existe una fuerza neta hacia abajo sobre la espira (Fig. 6.4):
+	
+	\esp
+	
+	\begin{equation}
+		F = 2\pi I R B \cos \theta. \tag{6.2}
+	\end{equation}
+	
+	\esp
+	
+	Para una espira \textit{infinitesimal}, con momento dipolar $\mathbf{m}$, en un campo $\mathbf{B}$, la fuerza es
+	
+	\esp
+	
+	\begin{equation}
+		\boxed{\mathbf{F} = \nabla (\mathbf{m} \cdot \mathbf{B})} \tag{6.3}
+	\end{equation}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/fig6364.png}
+	\end{figure}
+	
+	\subsection{Explicación del comportamiento diamagnético de la materia}
+	
+	Los electrones no solo tienen \textit{spin}; también orbitan alrededor del núcleo —por simplicidad, supongamos que la órbita es un círculo de radio $R$ (Fig. 6.9). Aunque técnicamente este movimiento orbital no constituye una corriente estacionaria, en la práctica el periodo $T = 2\pi R/v$ es tan corto que, a menos que parpadees terriblemente rápido, va a parecer una corriente estacionaria:
+	
+	\esp
+	
+	\begin{equation*}
+		I = \frac{-e}{T} = -\frac{ev}{2\pi R}.
+	\end{equation*}
+	
+	\esp
+	
+	(El signo menos se debe a la carga negativa del electrón). En consecuencia, el momento dipolar orbital ($I\pi R^2$) es
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{m} = -\frac{1}{2} ev R \mathbf{\hat{z}} \tag{6.4}
+	\end{equation}
+	
+	\esp
+	
+	Al igual que cualquier otro dipolo magnético, este está sujeto a un torque ($\mathbf{m} \times \mathbf{B}$) cuando se enciende un campo magnético. Pero es mucho más difícil inclinar la órbita completa de lo que es inclinar el espín, por lo que la contribución orbital al paramagnetismo es pequeña. Existe, sin embargo, un efecto más significativo en el movimiento orbital: el electrón \textbf{se acelera o se frena}, dependiendo de la orientación de $\mathbf{B}$. Mientras que la aceleración centrípeta $v^2/R$ es ordinariamente mantenida solo por fuerzas eléctricas,$^2$
+	
+	\esp
+	
+	\begin{equation}
+		\frac{1}{4\pi\epsilon_0} \frac{e^2}{R^2} = m_e \frac{v^2}{R} \tag{6.5}
+	\end{equation}
+	
+	\esp
+	
+	en presencia de un campo magnético hay una fuerza adicional, $-e(\mathbf{v} \times \mathbf{B})$. En aras del argumento, digamos que $\mathbf{B}$ es perpendicular al plano de la órbita, como se muestra en la Fig. 6.10; entonces
+	
+	\esp
+	
+	\begin{equation}
+		\frac{1}{4\pi\epsilon_0} \frac{e^2}{R^2} + e \bar{v} B = m_e \frac{\bar{v}^2}{R} \tag{6.6}
+	\end{equation}
+	
+	\esp
+	
+	Bajo estas condiciones, la nueva velocidad $\bar{v}$ es \textbf{mayor} que $v$:
+	
+	\esp
+	
+	\begin{equation*}
+		e \bar{v} B = \frac{m_e}{R} (\bar{v}^2 - v^2) = \frac{m_e}{R} (\bar{v} + v)(\bar{v} - v)
+	\end{equation*}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/fig69.png}
+	\end{figure}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/fig610.png}
+	\end{figure}
+	
+	\esp
+	
+	o, asumiendo que el cambio $\Delta v = \bar{v} - v$ es pequeño,
+	
+	\esp
+	
+	\begin{equation}
+		\Delta v = \frac{eRB}{2m_e}. \tag{6.7}
+	\end{equation}
+	
+	\esp
+	
+	Cuando se enciende el campo $\mathbf{B}$, el electrón se acelera.$^3$ 
+	Un cambio en la velocidad orbital significa un cambio en el momento dipolar (Ec. 6.4):
+	
+	\esp
+	
+	\begin{equation}
+		\Delta \mathbf{m} = -\frac{1}{2} e(\Delta v)R \mathbf{\hat{z}} = -\frac{e^2 R^2}{4m_e} \mathbf{B}. \tag{6.8}
+	\end{equation}
+	
+	\esp
+	
+	Observe que \textit{el cambio en} $\mathbf{m}$ \textit{es opuesto a la dirección de} $\mathbf{B}$. (Un electrón girando en el otro sentido tendría un momento dipolar apuntando hacia arriba, pero dicha órbita se vería frenada por el campo, por lo que el \textit{cambio} sigue siendo opuesto a $\mathbf{B}$). Ordinariamente, las órbitas de los electrones están orientadas al azar y los momentos dipolares orbitales se cancelan entre sí. Pero en presencia de un campo magnético, cada átomo adquiere un pequeño momento dipolar ``extra'', y estos incrementos son todos \textit{antiparalelos} al campo. Este es el mecanismo responsable del \textbf{diamagnetismo}. Es un fenómeno universal que afecta a todos los átomos. Sin embargo, suele ser mucho más débil que el paramagnetismo y, por lo tanto, se observa principalmente en átomos con números \textit{pares} de electrones, donde el paramagnetismo suele estar ausente.
+	
+	\esp
+	
+	Al derivar la Ec. 6.8, asumí que la órbita permanece circular, con su radio original $R$. No puedo ofrecer una justificación para esto en esta etapa. Si el átomo está estacionario mientras se enciende el campo, entonces mi suposición puede demostrarse —esto no es \textit{magnetostática}, sin embargo, y los detalles deberán esperar al Capítulo 7 (ver Prob. 7.52). Si el átomo se mueve hacia el interior del campo, la situación es enormemente más complicada. Pero no importa; solo intento dar una explicación cualitativa del diamagnetismo. Asuma, si lo prefiere, que la velocidad permanece igual mientras el \textit{radio} cambia —la fórmula (Ec. 6.8) se ve alterada (por un factor de 2), pero la conclusión cualitativa no se ve afectada. La verdad es que este modelo clásico es fundamentalmente defectuoso (el diamagnetismo es en realidad un fenómeno \textit{cuántico}), por lo que no tiene mucho sentido refinar los detalles. Lo que \textit{es} importante es el hecho empírico de que en los materiales diamagnéticos los momentos dipolares inducidos apuntan en dirección opuesta al campo magnético.
+	
 	\printbibliography[title={Bibliografía}]
 \end{document}
