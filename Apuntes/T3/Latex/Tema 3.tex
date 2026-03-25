@@ -403,7 +403,7 @@
 	\esp
 	
 	\begin{equation}
-		\boxed{\mathbf{N} = \mathbf{m} \times \mathbf{B}} \tag{6.1}
+		\mathbf{N} = \mathbf{m} \times \mathbf{B} \tag{6.1}
 	\end{equation}
 	
 	\esp
@@ -448,7 +448,7 @@
 	\esp
 	
 	\begin{equation}
-		\boxed{\mathbf{F} = \nabla (\mathbf{m} \cdot \mathbf{B})} \tag{6.3}
+		\mathbf{F} = \nabla (\mathbf{m} \cdot \mathbf{B}) \tag{6.3}
 	\end{equation}
 	
 	\esp
@@ -519,7 +519,7 @@
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.7\textwidth]{IMG/fig610.png}
+		\includegraphics[width=0.5\textwidth]{IMG/fig610.png}
 	\end{figure}
 	
 	\esp
@@ -550,6 +550,279 @@
 	\esp
 	
 	Al derivar la Ec. 6.8, asumí que la órbita permanece circular, con su radio original $R$. No puedo ofrecer una justificación para esto en esta etapa. Si el átomo está estacionario mientras se enciende el campo, entonces mi suposición puede demostrarse —esto no es \textit{magnetostática}, sin embargo, y los detalles deberán esperar al Capítulo 7 (ver Prob. 7.52). Si el átomo se mueve hacia el interior del campo, la situación es enormemente más complicada. Pero no importa; solo intento dar una explicación cualitativa del diamagnetismo. Asuma, si lo prefiere, que la velocidad permanece igual mientras el \textit{radio} cambia —la fórmula (Ec. 6.8) se ve alterada (por un factor de 2), pero la conclusión cualitativa no se ve afectada. La verdad es que este modelo clásico es fundamentalmente defectuoso (el diamagnetismo es en realidad un fenómeno \textit{cuántico}), por lo que no tiene mucho sentido refinar los detalles. Lo que \textit{es} importante es el hecho empírico de que en los materiales diamagnéticos los momentos dipolares inducidos apuntan en dirección opuesta al campo magnético.
+	
+	\esp
+	
+	\noindent \textbf{RESUMEN DE CARACTERÍSTICAS DE MATERIALES PARAMAGNÉTICOS Y DIAMAGNÉTICOS EN RAW}
+	
+	\section{Corrientes ligadas}
+	
+	Supongamos que tenemos una pieza de material magnetizado; se da el momento dipolar magnético por unidad de volumen, $\mathbf{M}$. ¿Qué campo produce este objeto? Bueno, el potencial vectorial de un único dipolo $\mathbf{m}$ viene dado por la Ec. 5.85:
+	
+	\begin{equation}
+		\mathbf{A}(\mathbf{r}) = \frac{\mu_0}{4\pi} \frac{\mathbf{m} \times \hat{\boldsymbol{r}}}{r^2}. \tag{6.10}
+	\end{equation}
+	
+	En el objeto magnetizado, cada elemento de volumen $d\tau'$ porta un momento dipolar $\mathbf{M} d\tau'$, por lo que el potencial vectorial total es (Fig. 6.11)
+	
+	\begin{equation}
+		\mathbf{A}(\mathbf{r}) = \frac{\mu_0}{4\pi} \int \frac{\mathbf{M}(\mathbf{r}') \times \hat{\boldsymbol{r}}}{r^2} d\tau'. \tag{6.11}
+	\end{equation}
+	
+	Eso lo \textit{logra}, en principio. Pero, como en el caso eléctrico (Sec. 4.2.1), la integral puede expresarse de una forma más ilustrativa explotando la identidad
+	
+	\begin{equation*}
+		\nabla' \frac{1}{r} = \frac{\hat{\boldsymbol{r}}}{r^2}.
+	\end{equation*}
+	
+	Con esto,
+	
+	\begin{equation*}
+		\mathbf{A}(\mathbf{r}) = \frac{\mu_0}{4\pi} \int \left[ \mathbf{M}(\mathbf{r}') \times \left( \nabla' \frac{1}{r} \right) \right] d\tau'.
+	\end{equation*}
+	
+	Integrando por partes, utilizando la regla del producto 7, se obtiene
+	
+	\begin{equation*}
+		\mathbf{A}(\mathbf{r}) = \frac{\mu_0}{4\pi} \left\{ \int \frac{1}{r} [\nabla' \times \mathbf{M}(\mathbf{r}')] d\tau' - \int \nabla' \times \left[ \frac{\mathbf{M}(\mathbf{r}')}{r} \right] d\tau' \right\}.
+	\end{equation*}
+	
+	\esp
+	
+	El Problema 1.61(b) nos invita a expresar esto último como una integral de superficie,
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{A}(\mathbf{r}) = \frac{\mu_0}{4\pi} \int \frac{1}{r} [\nabla' \times \mathbf{M}(\mathbf{r}')] d\tau' + \frac{\mu_0}{4\pi} \oint \frac{1}{r} [\mathbf{M}(\mathbf{r}') \times d\mathbf{a}']. \tag{6.12}
+	\end{equation}
+	
+	\esp
+	
+	El primer término se parece exactamente al potencial de una corriente de volumen,
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{J}_b = \nabla \times \mathbf{M}, \tag{6.13}
+	\end{equation}
+	
+	\esp
+	
+	mientras que el segundo se parece al potencial de una corriente de superficie,
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{K}_b = \mathbf{M} \times \hat{\mathbf{n}}, \tag{6.14}
+	\end{equation}
+	
+	\esp
+	
+	donde $\hat{\mathbf{n}}$ es el vector unitario normal. Con estas definiciones,
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{A}(\mathbf{r}) = \frac{\mu_0}{4\pi} \int_{\mathcal{V}} \frac{\mathbf{J}_b(\mathbf{r}')}{r} d\tau' + \frac{\mu_0}{4\pi} \oint_{\mathcal{S}} \frac{\mathbf{K}_b(\mathbf{r}')}{r} da'. \tag{6.15}
+	\end{equation}
+	
+	\esp
+	
+	Lo que esto significa es que el potencial (y por lo tanto también el campo) de un objeto magnetizado es el mismo que el que produciría una corriente de volumen $\mathbf{J}_b = \nabla \times \mathbf{M}$ a través de todo el material, más una corriente de superficie $\mathbf{K}_b = \mathbf{M} \times \hat{\mathbf{n}}$, en la frontera. En lugar de integrar las contribuciones de todos los dipolos infinitesimales, utilizando la Ec. 6.11, primero determinamos las \textbf{corrientes de ligadura}, y luego hallamos el campo que \textit{ellas} producen, de la misma manera que calcularíamos el campo de cualquier otra corriente de volumen y de superficie. Note el paralelismo sorprendente con el caso eléctrico: allí el campo de un objeto polarizado era el mismo que el de una carga de volumen ligada $\rho_b = -\nabla \cdot \mathbf{P}$ más una carga de superficie ligada $\sigma_b = \mathbf{P} \cdot \hat{\mathbf{n}}$.
+	
+	\esp
+	
+	\noindent \textbf{Ejemplo 6.1.} Hallar el campo magnético de una esfera uniformemente magnetizada.
+	
+	\esp
+	
+	\noindent \textbf{Solución} \\
+	Al elegir el eje $z$ a lo largo de la dirección de $\mathbf{M}$ (Fig. 6.12), tenemos:
+	
+	\begin{equation*}
+		\mathbf{J}_b = \nabla \times \mathbf{M} = \mathbf{0}, \quad \mathbf{K}_b = \mathbf{M} \times \hat{\mathbf{n}} = M \sin \theta \hat{\boldsymbol{\phi}}.
+	\end{equation*}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.4\textwidth]{IMG/fig612.png}
+	\end{figure}
+	
+	\esp
+	
+	Ahora bien, una corteza esférica en rotación, con una carga superficial uniforme $\sigma$, corresponde a una densidad de corriente superficial:
+	
+	\begin{equation*}
+		\mathbf{K} = \sigma \mathbf{v} = \sigma \omega R \sin \theta \hat{\boldsymbol{\phi}}.
+	\end{equation*}
+	
+	Se deduce, por lo tanto, que el campo de una esfera uniformemente magnetizada es idéntico al campo de una corteza esférica giratoria, con la identificación $\sigma R \omega \to \mathbf{M}$. Remitiéndome al Ej. 5.11, concluyo que:
+	
+	\begin{equation}
+		\mathbf{B} = \frac{2}{3} \mu_0 \mathbf{M}, \tag{6.16}
+	\end{equation}
+	
+	dentro de la esfera, mientras que el campo en el exterior es el mismo que el de un dipolo perfecto:
+	
+	\begin{equation*}
+		\mathbf{m} = \frac{4}{3} \pi R^3 \mathbf{M}.
+	\end{equation*}
+	
+	Note que el campo interno es \textit{uniforme}, al igual que el campo eléctrico dentro de una esfera uniformemente polarizada (Ec. 4.14), aunque las \textit{fórmulas} actuales para los dos casos son curiosamente diferentes ($2/3$ en lugar de $-1/3$).$^6$ Los campos externos también son análogos: dipolo puro en ambos casos.
+	
+	\subsection{Interpretación física de las corrientes ligadas}
+	
+	En la última sección, encontramos que el campo de un objeto magnetizado es idéntico al campo que produciría una cierta distribución de corrientes "ligadas", $\mathbf{J}_b$ y $\mathbf{K}_b$. Quiero mostrarles cómo surgen físicamente estas corrientes ligadas. Este será un argumento heurístico; la derivación rigurosa ya se ha dado. La Figura 6.15 representa una lámina delgada de material uniformemente magnetizado, con los dipolos representados por diminutos bucles de corriente. Note que todas las corrientes "internas" se cancelan: cada vez que hay una que va hacia la derecha, hay una contigua que va hacia la izquierda. Sin embargo, en el borde no hay \textit{ningún bucle adyacente que realice la cancelación}. El conjunto, entonces, es equivalente a una única cinta de corriente $I$ que fluye alrededor de la frontera (Fig. 6.16).
+	
+	¿Cuál es esta corriente en términos de $\mathbf{M}$? Digamos que cada uno de los diminutos bucles tiene un área $a$ y un espesor $t$ (Fig. 6.17). En términos de la magnetización $M$, su momento dipolar
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{IMG/fig615616.png}
+	\end{figure}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.3\textwidth]{IMG/fig617.png}
+	\end{figure}
+	
+	\esp
+	
+	es $m = Mat$. En términos de la corriente circulante $I$, sin embargo, $m = Ia$. Por lo tanto, $I = Mt$, de modo que la corriente de superficie es $K_b = I/t = M$. Usando el vector unitario $\hat{\mathbf{n}}$ dirigido hacia afuera (Fig. 6.16), la dirección de $\mathbf{K}_b$ se indica convenientemente mediante el producto vectorial:
+	
+	\esp
+	
+	\begin{equation*}
+		\mathbf{K}_b = \mathbf{M} \times \hat{\mathbf{n}}.
+	\end{equation*}
+	
+	\esp
+	
+	(Esta expresión también registra el hecho de que \textit{no} hay corriente en la superficie superior o inferior de la lámina; aquí $\mathbf{M}$ es paralelo a $\hat{\mathbf{n}}$, por lo que el producto vectorial desaparece).
+	
+	Esta corriente de superficie ligada es exactamente lo que obtuvimos en la Sec. 6.2.1. Es un \textit{tipo} peculiar de corriente, en el sentido de que ninguna carga individual realiza todo el recorrido; por el contrario, cada carga se mueve solo en un diminuto bucle dentro de un solo átomo. No obstante, el efecto neto es una corriente macroscópica que fluye sobre la superficie del objeto magnetizado. La llamamos corriente "ligada" para recordarnos que cada carga está unida a un átomo en particular, pero es una corriente perfectamente genuina y produce un campo magnético de la misma manera que lo hace cualquier otra corriente.
+	
+	Cuando la magnetización \textit{no} es uniforme, las corrientes internas ya no se cancelan. La Figura 6.18(a) muestra dos trozos adyacentes de material magnetizado, con una flecha más grande en el de la derecha, lo que sugiere una mayor magnetización en ese punto. En la superficie donde se unen, hay una corriente neta en la dirección $x$, dada por:
+	
+	\esp
+	
+	\begin{equation*}
+		I_x = [M_z(y + dy) - M_z(y)] dz = \frac{\partial M_z}{\partial y} dy dz.
+	\end{equation*}
+	
+	\esp
+	
+	La densidad de corriente de volumen correspondiente es, por tanto:
+	
+	\esp
+	
+	\begin{equation*}
+		(J_b)_x = \frac{\partial M_z}{\partial y}.
+	\end{equation*}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/fig618.png}
+	\end{figure}
+	
+	\esp
+	
+	Del mismo modo, una magnetización no uniforme en la dirección $y$ contribuiría con una cantidad $-\partial M_y / \partial z$ (Fig. 6.18(b)), por lo que
+	
+	\esp
+	
+	\begin{equation*}
+		(J_b)_x = \frac{\partial M_z}{\partial y} - \frac{\partial M_y}{\partial z}.
+	\end{equation*}
+	
+	\esp
+	
+	En general, entonces,
+	
+	\esp
+	
+	\begin{equation*}
+		\mathbf{J}_b = \nabla \times \mathbf{M},
+	\end{equation*}
+	
+	\esp
+	
+	consistente, de nuevo, con el resultado de la Sec. 6.2.1. Incidentalmente, como cualquier otra corriente estacionaria, $\mathbf{J}_b$ debería obedecer la ley de conservación 5.33:
+	
+	\esp
+	
+	\begin{equation*}
+		\nabla \cdot \mathbf{J}_b = 0.
+	\end{equation*}
+	
+	\esp
+	
+	¿Lo hace? Sí, puesto que la divergencia de un rotacional es siempre cero.
+	
+	\subsection{Campo magnético dentro de la materia}
+	
+	Al igual que el campo eléctrico, el campo magnético \textit{microscópico} real dentro de la materia fluctúa violentamente de un punto a otro y de un instante a otro. Cuando hablamos de «el» campo magnético en la materia, nos referimos al campo \textit{macroscópico}: el promedio sobre regiones lo suficientemente grandes como para contener muchos átomos. (La magnetización $\mathbf{M}$ se «suaviza» en el mismo sentido). Es este campo macroscópico el que se obtiene cuando los métodos de la Sec. 6.2.1 se aplican a puntos dentro del material magnetizado, como puedes demostrar por ti mismo en el siguiente problema.
+	
+	\esp
+	\hrule
+	\esp
+	
+	\noindent \textbf{Problema 6.11} En la Sec. 6.2.1, comenzamos con el potencial de un dipolo \textit{perfecto} (Ec. 6.10), mientras que de \textit{hecho} estamos tratando con dipolos \textit{físicos}. Demuestre, mediante el método de la Sec. 4.2.3, que, no obstante, obtenemos el campo macroscópico correcto.
+	
+	\section{Campo auxiliar H}
+	
+	En la Sec. 6.2, encontramos que el efecto de la magnetización es establecer corrientes de ligadura $\mathbf{J}_b = \nabla \times \mathbf{M}$ dentro del material y $\mathbf{K}_b = \mathbf{M} \times \hat{\mathbf{n}}$ en la superficie. El campo debido a la magnetización del medio es simplemente el campo producido por estas corrientes de ligadura. Ahora estamos listos para juntar todo: el campo atribuible a las corrientes de ligadura, más el campo debido a todo lo demás —a lo cual llamaré la \textbf{corriente libre}. La corriente libre podría fluir a través de cables incrustados en la sustancia magnetizada o, si esta última es un conductor, a través del material mismo. En cualquier caso, la corriente total se puede escribir como
+	
+	\begin{equation}
+		\mathbf{J} = \mathbf{J}_b + \mathbf{J}_f \tag{6.17}
+	\end{equation}
+	
+	No hay física nueva en la Ec. 6.17; es simplemente una \textit{conveniencia} separar la corriente en estas dos partes, porque llegaron allí por medios muy diferentes: la
+	
+	\esp
+	
+	corriente libre está ahí porque alguien conectó un cable a una batería —implica el transporte real de carga; la corriente de ligadura está ahí debido a la magnetización —resulta de la conspiración de muchos dipolos atómicos alineados.
+	
+	En vista de las Ecs. 6.13 y 6.17, la ley de Ampère se puede escribir como
+	
+	\begin{equation*}
+		\frac{1}{\mu_0} (\nabla \times \mathbf{B}) = \mathbf{J} = \mathbf{J}_f + \mathbf{J}_b = \mathbf{J}_f + (\nabla \times \mathbf{M}).
+	\end{equation*}
+	
+	o, agrupando los dos rotacionales:
+	
+	\begin{equation*}
+		\nabla \times \left( \frac{1}{\mu_0} \mathbf{B} - \mathbf{M} \right) = \mathbf{J}_f.
+	\end{equation*}
+	
+	La cantidad entre paréntesis se designa con la letra $\mathbf{H}$:
+	
+	\begin{equation}
+		\mathbf{H} \equiv \frac{1}{\mu_0} \mathbf{B} - \mathbf{M} \tag{6.18}
+	\end{equation}
+	
+	En términos de $\mathbf{H}$, entonces, la ley de Ampère dice:
+	
+	\begin{equation}
+		\nabla \times \mathbf{H} = \mathbf{J}_f \tag{6.19}
+	\end{equation}
+	
+	o, en forma integral,
+	
+	\begin{equation}
+		\oint \mathbf{H} \cdot d\mathbf{l} = I_{f_{enc}} \tag{6.20}
+	\end{equation}
+	
+	donde $I_{f_{enc}}$ es la corriente \textit{libre} total que pasa a través del bucle amperiano. $\mathbf{H}$ juega un papel en magnetostática análogo a $\mathbf{D}$ en electrostática: así como $\mathbf{D}$ nos permitió escribir la ley de \textit{Gauss} en términos de la \textit{carga} libre solamente, $\mathbf{H}$ nos permite expresar la ley de \textit{Ampère} en términos de la \textit{corriente} libre solamente —y la corriente libre es lo que controlamos directamente. La corriente de ligadura, al igual que la carga de ligadura, simplemente «acompaña el proceso» —el material se magnetiza, y esto resulta en corrientes de ligadura; no podemos encenderlas o apagarlas independientemente, como podemos con las corrientes libres. Al aplicar la Ec. 6.20, todo lo que necesitamos nos debe preocupar es la corriente \textit{libre}, la cual conocemos porque nosotros la \textit{pusimos} allí. En particular, cuando la simetría lo permite, podemos calcular $\mathbf{H}$ inmediatamente a partir de la Ec. 6.20 por los métodos usuales de la ley de Ampère.
 	
 	\printbibliography[title={Bibliografía}]
 \end{document}
