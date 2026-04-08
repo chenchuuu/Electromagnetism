@@ -786,11 +786,9 @@
 		\mathbf{J} = \mathbf{J}_b + \mathbf{J}_f \tag{6.17}
 	\end{equation}
 	
-	No hay física nueva en la Ec. 6.17; es simplemente una \textit{conveniencia} separar la corriente en estas dos partes, porque llegaron allí por medios muy diferentes: la
+	No hay física nueva en la Ec. 6.17; es simplemente una \textit{conveniencia} separar la corriente en estas dos partes, porque llegaron allí por medios muy diferentes: la corriente libre está ahí porque alguien conectó un cable a una batería —implica el transporte real de carga; la corriente de ligadura está ahí debido a la magnetización —resulta de la conspiración de muchos dipolos atómicos alineados.
 	
 	\esp
-	
-	corriente libre está ahí porque alguien conectó un cable a una batería —implica el transporte real de carga; la corriente de ligadura está ahí debido a la magnetización —resulta de la conspiración de muchos dipolos atómicos alineados.
 	
 	En vista de las Ecs. 6.13 y 6.17, la ley de Ampère se puede escribir como
 	
@@ -798,31 +796,201 @@
 		\frac{1}{\mu_0} (\nabla \times \mathbf{B}) = \mathbf{J} = \mathbf{J}_f + \mathbf{J}_b = \mathbf{J}_f + (\nabla \times \mathbf{M}).
 	\end{equation*}
 	
-	o, agrupando los dos rotacionales:
+	\noindent o, agrupando los dos rotacionales:
 	
 	\begin{equation*}
 		\nabla \times \left( \frac{1}{\mu_0} \mathbf{B} - \mathbf{M} \right) = \mathbf{J}_f.
 	\end{equation*}
 	
-	La cantidad entre paréntesis se designa con la letra $\mathbf{H}$:
+	\noindent La cantidad entre paréntesis se designa con la letra $\mathbf{H}$:
 	
 	\begin{equation}
 		\mathbf{H} \equiv \frac{1}{\mu_0} \mathbf{B} - \mathbf{M} \tag{6.18}
 	\end{equation}
 	
-	En términos de $\mathbf{H}$, entonces, la ley de Ampère dice:
+	\noindent En términos de $\mathbf{H}$, entonces, la ley de Ampère dice:
 	
 	\begin{equation}
 		\nabla \times \mathbf{H} = \mathbf{J}_f \tag{6.19}
 	\end{equation}
 	
-	o, en forma integral,
+	\noindent o, en forma integral,
 	
 	\begin{equation}
 		\oint \mathbf{H} \cdot d\mathbf{l} = I_{f_{enc}} \tag{6.20}
 	\end{equation}
 	
 	donde $I_{f_{enc}}$ es la corriente \textit{libre} total que pasa a través del bucle amperiano. $\mathbf{H}$ juega un papel en magnetostática análogo a $\mathbf{D}$ en electrostática: así como $\mathbf{D}$ nos permitió escribir la ley de \textit{Gauss} en términos de la \textit{carga} libre solamente, $\mathbf{H}$ nos permite expresar la ley de \textit{Ampère} en términos de la \textit{corriente} libre solamente —y la corriente libre es lo que controlamos directamente. La corriente de ligadura, al igual que la carga de ligadura, simplemente «acompaña el proceso» —el material se magnetiza, y esto resulta en corrientes de ligadura; no podemos encenderlas o apagarlas independientemente, como podemos con las corrientes libres. Al aplicar la Ec. 6.20, todo lo que necesitamos nos debe preocupar es la corriente \textit{libre}, la cual conocemos porque nosotros la \textit{pusimos} allí. En particular, cuando la simetría lo permite, podemos calcular $\mathbf{H}$ inmediatamente a partir de la Ec. 6.20 por los métodos usuales de la ley de Ampère.
+	
+	\esp
+	
+	\noindent \textbf{Ver ejemplo 6.2}
+	
+	\esp
+	
+	\subsection{Un paralelo engañoso}
+
+	La ecuación 6.19 se parece exactamente a la ley de Ampère original (Ec. 5.56), excepto que la corriente \textit{total} es reemplazada por la corriente \textit{libre}, y $\mathbf{B}$ es reemplazado por $\mu_0\mathbf{H}$. Al igual que en el caso de $\mathbf{D}$, sin embargo, debo advertirles que no lean demasiado en esta correspondencia. \textit{No} dice que $\mu_0\mathbf{H}$ sea «exactamente como $\mathbf{B}$, solo que su fuente es $\mathbf{J}_f$ en lugar de $\mathbf{J}$». Pues el rotacional por sí solo no determina un campo vectorial —también se debe conocer la divergencia. Y mientras que $\nabla \cdot \mathbf{B} = 0$, la divergencia de $\mathbf{H}$ \textit{no} es, en general, cero. De hecho, a partir de la Ec. 6.18
+	
+	\begin{equation}
+		\nabla \cdot \mathbf{H} = -\nabla \cdot \mathbf{M}. \tag{6.23}
+	\end{equation}
+	
+	Solo cuando la divergencia de $\mathbf{M}$ se anula es fiel el paralelo entre $\mathbf{B}$ y $\mu_0\mathbf{H}$.
+	
+	Si creen que estoy siendo pedante, consideren el ejemplo de la barra imantada —un cilindro corto de hierro que porta una magnetización uniforme permanente $\mathbf{M}$ paralela a su eje. (Ver Problemas 6.9 y 6.14). En este caso no hay corriente libre en ninguna parte, y una aplicación ingenua de la Ec. 6.20 podría llevarles a suponer que $\mathbf{H} = \mathbf{0}$, y por lo tanto que $\mathbf{B} = \mu_0\mathbf{M}$ dentro del imán y $\mathbf{B} = \mathbf{0}$ fuera, lo cual es un absurdo. Es muy cierto que el \textit{rotacional} de $\mathbf{H}$ se anula en todas partes, pero la divergencia no. (¿Pueden ver dónde $\nabla \cdot \mathbf{M} \neq 0$?) \textit{Consejo:} Cuando se les pida encontrar $\mathbf{B}$ o $\mathbf{H}$ en un problema que involucre materiales magnéticos, primero busquen la simetría. Si el problema exhibe simetría cilíndrica, plana, solenoidal o toroidal, entonces pueden obtener $\mathbf{H}$ directamente de la Ec. 6.20 mediante los métodos usuales de la ley de Ampère. (Evidentemente, en tales casos $\nabla \cdot \mathbf{M}$ es automáticamente cero, ya que la corriente libre por sí sola determina la respuesta). Si la simetría necesaria está ausente, tendrán que pensar en otro enfoque y, en particular, \textit{no} deben asumir que $\mathbf{H}$ es cero solo porque no haya una corriente libre a la vista.
+	
+	\subsection{Condiciones de contorno}
+	
+	Las condiciones de contorno magnetostáticas de la Sec. 5.4.2 pueden reescribirse en términos de $\mathbf{H}$ y la corriente \textit{libre}. A partir de la Ec. 6.23 se deduce que
+	
+	\begin{equation}
+		H_{\text{arriba}}^{\perp} - H_{\text{abajo}}^{\perp} = -(M_{\text{arriba}}^{\perp} - M_{\text{abajo}}^{\perp}), \tag{6.24}
+	\end{equation}
+	
+	\noindent mientras que la Ec. 6.19 dice
+	
+	\begin{equation}
+		\mathbf{H}_{\text{arriba}}^{\parallel} - \mathbf{H}_{\text{abajo}}^{\parallel} = \mathbf{K}_f \times \hat{\mathbf{n}}. \tag{6.25}
+	\end{equation}
+	
+	En presencia de materiales, estas son a veces más útiles que las condiciones de contorno correspondientes para $\mathbf{B}$ (Ecs. 5.74 y 5.76):
+	
+	\begin{equation}
+		B_{\text{arriba}}^{\perp} - B_{\text{abajo}}^{\perp} = 0, \tag{6.26}
+	\end{equation}
+	
+	\noindent y
+	
+	\begin{equation}
+		\mathbf{B}_{\text{arriba}}^{\parallel} - \mathbf{B}_{\text{abajo}}^{\parallel} = \mu_0(\mathbf{K} \times \hat{\mathbf{n}}). \tag{6.27}
+	\end{equation}
+	
+	\noindent Quizás desee comprobarlas para el Ej. 6.2 o el Prob. 6.14.
+	
+	\section{Medios lineales}
+	
+	En materiales paramagnéticos y diamagnéticos, la magnetización es sostenida por el campo; cuando se retira $\mathbf{B}$, $\mathbf{M}$ desaparece. De hecho, para la mayoría de las sustancias la magnetización es \textit{proporcional} al campo, siempre que el campo no sea demasiado fuerte. Por consistencia notacional con el caso eléctrico (Ec. 4.30), \textit{debería} expresar la proporcionalidad así:
+	
+	\begin{equation}
+		\mathbf{M} = \frac{1}{\mu_0} \chi_m \mathbf{B} \quad (\text{¡incorrecto!}). \tag{6.28}
+	\end{equation}
+	
+	\noindent Pero la costumbre dicta que se escriba en términos de $\mathbf{H}$, en lugar de $\mathbf{B}$:
+	
+	\begin{equation}
+		\boxed{\mathbf{M} = \chi_m \mathbf{H}}. \tag{6.29}
+	\end{equation}
+	
+	La constante de proporcionalidad $\chi_m$ se llama \textbf{susceptibilidad magnética}; es una cantidad adimensional que varía de una sustancia a otra —positiva para paramagnetos y negativa para diamagnetos. Los valores típicos rondan los $10^{-5}$ (ver Tabla 6.1).
+	
+	\esp
+	
+	Los materiales que obedecen la Ec. 6.29 se denominan \textbf{medios lineales}. En vista de la Ec. 6.18,
+	
+	\begin{equation}
+		\mathbf{B} = \mu_0(\mathbf{H} + \mathbf{M}) = \mu_0(1 + \chi_m)\mathbf{H}. \tag{6.30}
+	\end{equation}
+	
+	\noindent para medios lineales. Por lo tanto, $\mathbf{B}$ \textit{también} es proporcional a $\mathbf{H}$: $^8$
+	
+	\begin{equation}
+		\mathbf{B} = \mu \mathbf{H}, \tag{6.31}
+	\end{equation}
+	
+	\noindent donde
+	
+	\begin{equation}
+		\mu \equiv \mu_0(1 + \chi_m). \tag{6.32}
+	\end{equation}
+	
+	$\mu$ se denomina la \textbf{permeabilidad} del material. $^9$ En el vacío, donde no hay materia para magnetizar, la susceptibilidad $\chi_m$ se anula, y la permeabilidad es $\mu_0$. Por eso $\mu_0$ se llama la \textbf{permeabilidad del espacio libre}.
+	
+	\esp
+	
+	\noindent \textbf{Mirar ejercicios resueltos en RAW}
+	
+	\esp
+	
+	\noindent \textbf{MIRAR EL PROBLEMA 6.9}
+	
+	\esp
+	
+	\section{Ferromagnético}
+	
+	En un medio lineal, el alineamiento de los dipolos atómicos se mantiene mediante un campo magnético impuesto desde el exterior. Los ferromagnetos —los cuales son enfáticamente \textit{no} lineales— no requieren campos externos para sostener la magnetización; el alineamiento está «congelado». Al igual que el paramagnetismo, el ferromagnetismo involucra los dipolos magnéticos asociados con los espines de electrones desapareados. La nueva característica, que hace que el ferromagnetismo sea tan diferente del paramagnetismo, es la interacción entre dipolos cercanos: En un ferromagneto, \textit{a cada dipolo le «gusta» apuntar en la misma dirección que sus vecinos.} La razón de esta preferencia es esencialmente mecánico-cuántica, y no intentaré explicarla aquí; basta con saber que la correlación es tan fuerte como para alinear virtualmente el 100\% de los espines de los electrones desapareados. Si pudieras de alguna manera ampliar un trozo de hierro y «ver» los dipolos individuales como pequeñas flechas, se vería algo como la Fig. 6.25, con todos los espines apuntando en la misma dirección.
+	
+	Pero si eso es cierto, ¿por qué no cada llave inglesa y clavo es un potente imán? La respuesta es que el alineamiento ocurre en parches relativamente pequeños, llamados \textbf{dominios}. Cada dominio contiene miles de millones de dipolos, todos alineados (estos dominios son realmente visibles bajo un microscopio, usando técnicas de grabado adecuadas —ver Fig. 6.26), pero los dominios \textit{en sí mismos} están orientados al azar. La llave inglesa doméstica contiene un número enorme de dominios, y sus campos magnéticos se cancelan, por lo que la llave en su conjunto no está magnetizada. (En realidad, la orientación de los dominios no es \textit{completamente} aleatoria; dentro de un cristal dado, puede haber cierto alineamiento preferencial a lo largo de los ejes del cristal. Pero habrá tantos dominios apuntando en un sentido como en el otro, por lo que todavía no hay magnetización a gran escala. Además, los cristales mismos están orientados al azar dentro de cualquier trozo de metal de tamaño considerable).
+	
+	¿Cómo se produciría, entonces, un \textbf{imán permanente}, como los que venden en las jugueterías? Si colocas un trozo de hierro en un campo magnético fuerte, el torque $\mathbf{N} = \mathbf{m} \times \mathbf{B}$ tiende a alinear los dipolos paralelos al campo. Dado que les gusta permanecer paralelos a sus vecinos, la mayoría de los dipolos resistirán este torque. Sin embargo, 
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/fig625.png}
+	\end{figure}
+	
+	\esp
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/fig626.png}
+	\end{figure}
+	
+	\esp
+	
+	en el \textit{límite} entre dos dominios, hay vecinos en \textit{competencia}, y el torque inclinará la balanza hacia el lado del dominio que esté más cerca de ser paralelo al campo; este dominio ganará algunos «conversos», a expensas del orientado de forma menos favorable. El efecto neto del campo magnético, entonces, es \textit{desplazar los límites de los dominios}. Los dominios paralelos al campo crecen y los otros se encogen. Si el campo es lo suficientemente fuerte, un dominio toma el control por completo, y se dice que el hierro está \textbf{saturado}.
+	
+	\esp
+	
+	Resulta que este proceso (el desplazamiento de los límites de los dominios en respuesta a un campo externo) no es completamente reversible: cuando se apaga el campo, habrá \textit{cierto} retorno a dominios orientados al azar, pero está lejos de ser completo; permanece una preponderancia de dominios en la dirección original. Ahora tienes un imán permanente.
+	
+	\esp
+	
+	Una forma sencilla de lograr esto, en la práctica, es enrollar una bobina de alambre alrededor del objeto que se desea magnetizar (Fig. 6.27). Haz circular una corriente $I$ a través de la bobina; esto proporciona el campo magnético externo. A medida que aumentas la corriente, el campo aumenta, los límites de los dominios se mueven y la magnetización crece. Finalmente, alcanzas el punto de saturación, con todos los dipolos alineados, y un aumento adicional de la corriente no tiene efecto sobre $\mathbf{M}$ (Fig. 6.28, punto $b$).
+	
+	\esp
+	
+	Ahora supón que \textit{reduces} la corriente. En lugar de desandar el camino de vuelta a $M = 0$, solo hay un retorno parcial a dominios orientados al azar; $M$ disminuye, pero incluso con la corriente cortada hay cierta magnetización residual (punto $c$). La llave inglesa es ahora un imán permanente. Si quieres eliminar la magnetización restante, tendrás que hacer circular una corriente en sentido inverso a través de la bobina (una $I$ negativa). Ahora el campo externo apunta a la derecha, y a medida que aumentas $I$ (negativamente),
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{IMG/fig627.png}
+	\end{figure}
+	
+	\esp
+	
+	$M$ cae a cero (punto $d$). Si aumentas $I$ aún más, pronto alcanzas la saturación en la otra dirección —todos los dipolos apuntan ahora hacia la \textit{derecha} ($e$). En esta etapa, al apagar la corriente, la llave quedará con una magnetización permanente hacia la derecha (punto $f$). Para completar la historia, vuelve a encender $I$ en sentido positivo: $M$ vuelve a cero (punto $g$) y, finalmente, al punto de saturación hacia adelante ($b$).
+	
+	\esp
+	
+	El camino que hemos trazado se llama \textbf{ciclo de histéresis}. Observa que la magnetización de la llave depende no solo del campo aplicado (es decir, de $I$), sino también de su "historia" magnética previa.$^{12}$ Por ejemplo, en tres momentos diferentes de nuestro experimento la corriente fue cero ($a$, $c$ y $f$), pero la magnetización fue diferente para cada uno de ellos. En realidad, es costumbre dibujar los ciclos de histéresis como gráficas de $B$ frente a $H$, en lugar de $M$ frente a $I$. (Si nuestra bobina se aproxima a un solenoide largo, con $n$ vueltas por unidad de longitud, entonces $H = nI$, por lo que $H$ e $I$ son proporcionales. Mientras tanto, $\mathbf{B} = \mu_0(\mathbf{H} + \mathbf{M})$, pero en la práctica $M$ es enorme en comparación con $H$, por lo que, a todos los efectos, $\mathbf{B}$ es proporcional a $\mathbf{M}$).
+	
+	\esp
+	
+	Para que las unidades sean consistentes (teslas), he graficado $(\mu_0 H)$ horizontalmente (Fig. 6.29); observa, sin embargo, que la escala vertical es $10^4$ veces mayor que la horizontal. En términos generales, $\mu_0 \mathbf{H}$ es el campo que nuestra bobina \textit{habría} producido en ausencia de hierro; $\mathbf{B}$ es lo que \textit{realmente} obtuvimos y, comparado con $\mu_0 \mathbf{H}$, es gigantesco. Un poco de corriente rinde mucho cuando se tienen materiales ferromagnéticos
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/fig628.png}
+	\end{figure}
+	
+	\esp
+	
+	por el alrededor. Por eso, cualquiera que quiera fabricar un electroimán potente enrollará la bobina alrededor de un núcleo de hierro. No se necesita gran cosa de un campo externo para mover los límites de los dominios, y cuando se hace eso, se tiene a todos los dipolos del hierro trabajando a favor de uno.
+	
+	\esp
+	
+	Un último punto sobre el ferromagnetismo: Todo se deriva, recordemos, del hecho de que los dipolos dentro de un dominio determinado se alinean paralelos entre sí. Los movimientos térmicos aleatorios compiten con este ordenamiento, pero mientras la temperatura no sea demasiado alta, no pueden mover a los dipolos fuera de su línea. No es sorprendente, sin embargo, que las temperaturas \textit{muy} elevadas destruyan la alineación. Lo que \textit{sí} es sorprendente es que esto ocurra a una temperatura precisa ($770^{\circ}$ C, para el hierro). Por debajo de esta temperatura (llamada el \textbf{punto de Curie}), el hierro es ferromagnético; por encima, es paramagnético. El punto de Curie es más bien como el punto de ebullición o el punto de congelación en el sentido de que no hay una transición \textit{gradual} del comportamiento ferromagnético al paramagnético, como tampoco la hay entre el agua y el hielo. Estos cambios abruptos en las propiedades de una sustancia, que ocurren a temperaturas nítidamente definidas, se conocen en mecánica estadística como \textbf{transiciones de fase}.
+	
+	\esp
+	
+	\noindent \textbf{Mirar ejercicio 6.10 en RAW}
 	
 	\printbibliography[title={Bibliografía}]
 \end{document}
