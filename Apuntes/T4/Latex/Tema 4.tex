@@ -1,0 +1,720 @@
+\documentclass[12pt,a4paper]{report}
+
+% --- Paquetes de Idioma y Codificación ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+
+% --- Diseño de Página ---
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=3cm, right=3cm}
+
+% --- Matemáticas y Símbolos ---
+\usepackage{amsmath, amssymb, amsthm}
+
+% --- Colores y Cajas ---
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+
+% Caption
+
+\usepackage{caption}
+
+% Gráficos
+
+\usepackage{graphicx}
+
+% Espaciadora
+
+\newcommand{\esp}{\vspace{0.5cm}}
+
+% promedio
+
+\newcommand{\prom}[1]{\left\langle #1 \right\rangle}
+
+% ket
+
+\newcommand{\ket}[1]{| #1 \rangle}
+
+% bra
+
+\newcommand{\bra}[1]{\langle #1 |}
+
+% braket
+
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+
+% Bibliografía
+
+\usepackage[style=apa, backend=biber]{biblatex} % Estilo APA
+\addbibresource{biblio.bib} % Nombre de tu archivo .bib
+
+% Configuración de cajas personalizadas
+\newtcolorbox{importante}{
+	colback=red!5!white,
+	colframe=red!75!black,
+	title=Importante,
+	fonttitle=\bfseries
+}
+
+\newtcolorbox{nota}{
+	colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Nota,
+	fonttitle=\bfseries
+}
+
+% Definición de la caja de bibliografía
+\newtcolorbox{bibliografia}{
+	colback=gray!5!white,
+	colframe=gray!75!black,
+	title=Bibliografías útiles,
+	fonttitle=\bfseries,
+	breakable
+}
+
+% Socrative para óptica 2
+
+\newtcolorbox{Socrative}{
+	colback=orange!5!white,
+	colframe=orange!75!black,
+	title=Socrative,
+	fonttitle=\bfseries,
+	breakable
+}
+
+% Float
+
+\usepackage{float}
+
+% --- Hipervínculos ---
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+
+% --- Datos del Documento ---
+\title{Electromagnetismo}
+\author{Chengyu Jin}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\tableofcontents
+	\newpage
+	
+	\chapter{Capítulo}
+	
+	\section{Ley de Ohm}
+	
+	Para hacer que una corriente fluya, tienes que \textit{empujar} las cargas. Qué tan \textit{rápido} se mueven, en respuesta a un empuje determinado, depende de la naturaleza del material. Para la mayoría de las sustancias, la densidad de corriente $\mathbf{J}$ es proporcional a la \textit{fuerza por unidad de carga}, $\mathbf{f}$:
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{J} = \sigma \mathbf{f} \tag{7.1}
+	\end{equation}
+	
+	\esp
+	
+	El factor de proporcionalidad $\sigma$ (no confundir con la carga superficial) es una constante empírica que varía de un material a otro; se llama \textbf{conductividad} del medio. De hecho, los manuales suelen enumerar el \textit{recíproco} de $\sigma$, llamado \textbf{resistividad}: $\rho = 1/\sigma$ (no confundir con la densidad de carga; lo siento, pero se nos están acabando las letras griegas y esta es la notación estándar). Algunos valores típicos se enumeran en la Tabla 7.1. Nótese que incluso los \textit{aislantes} conducen ligeramente, aunque la conductividad de un metal es astronómicamente mayor; de hecho, para la mayoría de los propósitos, los metales pueden considerarse \textbf{conductores perfectos}, con $\sigma = \infty$, mientras que para los aislantes podemos pretender que $\sigma = 0$.
+	
+	\esp
+	
+	En principio, la fuerza que impulsa las cargas para producir la corriente podría ser cualquier cosa: química, gravitacional o hormigas entrenadas con arneses diminutos. Para \textit{nuestros} propósitos, sin embargo, suele ser una fuerza electromagnética la que hace el trabajo. En este caso, la Ec. 7.1 se convierte en:
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{J} = \sigma (\mathbf{E} + \mathbf{v} \times \mathbf{B}) \tag{7.2}
+	\end{equation}
+	
+	\esp
+	
+	Ordinariamente, la velocidad de las cargas es lo suficientemente pequeña como para que el segundo término pueda ignorarse:
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{J} = \sigma \mathbf{E} \tag{7.3}
+	\end{equation}
+	
+	\esp
+	
+	(Sin embargo, en plasmas, por ejemplo, la contribución magnética a $\mathbf{f}$ puede ser significativa). La Ecuación 7.3 se conoce como \textbf{ley de Ohm}, aunque la física detrás de ella está realmente contenida en la Ec. 7.1, de la cual la 7.3 es solo un caso especial.
+	
+	\esp
+	
+	Lo sé: estás confundido porque dije que $\mathbf{E} = \mathbf{0}$ dentro de un conductor (Sec. 2.5.1). Pero eso es para cargas \textit{estacionarias} ($\mathbf{J} = \mathbf{0}$). Además, para conductores \textit{perfectos}, $\mathbf{E} = \mathbf{J}/\sigma = \mathbf{0}$ incluso si la corriente \textit{está} fluyendo. En la práctica, los metales son tan buenos conductores que el campo eléctrico requerido para impulsar la corriente en ellos es despreciable.
+	
+	\esp
+	
+	\begin{center}
+		\textbf{TABLA 7.1 Resistividades, en ohm-metros (todos los valores son para 1 atm, 20$^\circ$ C)}
+	\end{center}
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{ll|ll}
+			\hline
+			\textbf{Material} & \textbf{Resistividad} & \textbf{Material} & \textbf{Resistividad} \\ \hline
+			\textit{Conductores:} & & \textit{Semiconductores:} & \\
+			Plata & $1.59 \times 10^{-8}$ & Agua de mar & 0.2 \\
+			Cobre & $1.68 \times 10^{-8}$ & Germanio & 0.46 \\
+			Oro & $2.21 \times 10^{-8}$ & Diamante & 2.7 \\
+			Aluminio & $2.65 \times 10^{-8}$ & Silicio & 2500 \\
+			Hierro & $9.61 \times 10^{-8}$ & \textit{Aislantes:} & \\
+			Mercurio & $9.61 \times 10^{-7}$ & Agua (pura) & $8.3 \times 10^3$ \\
+			Nicromo & $1.08 \times 10^{-6}$ & Vidrio & $10^{10} - 10^{14}$ \\
+			Manganeso & $1.44 \times 10^{-6}$ & Caucho & $10^{13} - 10^{15}$ \\
+			Grafito & $1.6 \times 10^{-5}$ & Teflón & $10^{22} - 10^{24}$ \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\esp
+	
+	\textbf{Ejemplo 7.1.} Una resistencia cilíndrica de área de sección transversal $A$ y longitud $L$ está hecha de un material con conductividad $\sigma$. Si estipulamos que el potencial es constante en cada extremo, y la diferencia de potencial entre los extremos es $V$, ¿qué corriente fluye?
+	
+	\esp
+	
+	\textbf{Solución}
+	Resulta que el campo eléctrico es \textit{uniforme} dentro del cable. De la Ec. 7.3 se deduce que la densidad de corriente también es uniforme, por lo tanto:
+	
+	\esp
+	
+	\begin{equation}
+		I = JA = \sigma EA = \sigma \frac{V}{L} A = \frac{\sigma A}{L} V
+	\end{equation}
+	
+	\esp
+	
+	\noindent\textbf{PROBLEMA 7.1 EN RAW}
+	
+	\esp
+	
+	No supongo que haya ninguna fórmula en física más familiar que la ley de Ohm y, sin embargo, no es realmente una ley verdadera, en el sentido de la de Coulomb o la de Ampère; más bien, es una "regla empírica" que se aplica bastante bien a muchas sustancias. No vas a ganar un premio Nobel por encontrar una excepción. De hecho, cuando te detienes a pensarlo, es un poco sorprendente que la ley de Ohm \textit{alguna vez} se cumpla. Después de todo, un campo dado $\mathbf{E}$ produce una fuerza $q\mathbf{E}$ (sobre una carga $q$), y según la segunda ley de Newton, la carga debería acelerar. Pero si las cargas están \textit{acelerando}, ¿por qué la corriente no \textit{aumenta} con el tiempo, creciendo más y más cuanto más tiempo se deje el campo encendido? La ley de Ohm implica, por el contrario, que un campo constante produce una \textit{corriente} constante, lo que sugiere una \textit{velocidad} constante. ¿No es eso una contradicción con la ley de Newton?
+	
+	\esp
+	
+	No, porque estamos olvidando las frecuentes colisiones que los electrones realizan mientras atraviesan el cable. Es un poco como esto: Supón que estás conduciendo por una calle con una señal de stop en cada intersección, de modo que, aunque aceleras constantemente en el tramo intermedio, te ves obligado a empezar de nuevo con cada manzana. Tu velocidad \textit{promedio} es entonces constante, a pesar del hecho de que (salvo por las paradas bruscas periódicas) siempre estás acelerando. Si la longitud de una manzana es $\lambda$ y tu aceleración es $a$, el tiempo que tardas en recorrer una manzana es:
+	
+	\esp
+	
+	\begin{equation}
+		t = \sqrt{\frac{2\lambda}{a}},
+	\end{equation}
+	
+	\esp
+	
+	y por lo tanto tu velocidad promedio es:
+	
+	\esp
+	
+	\begin{equation}
+		v_{\text{ave}} = \frac{1}{2} at = \sqrt{\frac{\lambda a}{2}}.
+	\end{equation}
+	
+	\esp
+	
+	¡Pero espera! ¡Eso tampoco es bueno! Dice que la velocidad es proporcional a la \textit{raíz cuadrada} de la aceleración, y por lo tanto que la corriente debería ser proporcional a la raíz cuadrada del campo. Hay otro giro en la historia: En la práctica, las cargas ya se están moviendo muy rápido debido a su energía térmica. Pero las velocidades térmicas tienen direcciones aleatorias y su promedio es cero. La \textbf{velocidad de deriva} (*drift velocity*) que nos interesa es un pequeño extra adicional. Así que el tiempo entre colisiones es en realidad mucho más corto de lo que supusimos; si asumimos, en aras del argumento, que todas las cargas recorren la misma distancia $\lambda$ entre colisiones, entonces:
+	
+	\esp
+	
+	\begin{equation}
+		t = \frac{\lambda}{v_{\text{thermal}}},
+	\end{equation}
+	
+	\esp
+	
+	y por lo tanto:
+	
+	\esp
+	
+	\begin{equation}
+		v_{\text{ave}} = \frac{1}{2} at = \frac{a\lambda}{2v_{\text{thermal}}}.
+	\end{equation}
+	
+	\esp
+	
+	Si hay $n$ moléculas por unidad de volumen, y $f$ electrones libres por molécula, cada uno con carga $q$ y masa $m$, la densidad de corriente es:
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{J} = n f q \mathbf{v}_{\text{ave}} = \frac{n f q \lambda}{2v_{\text{thermal}}} \frac{\mathbf{F}}{m} = \left( \frac{n f \lambda q^2}{2 m v_{\text{thermal}}} \right) \mathbf{E}. \tag{7.6}
+	\end{equation}
+	
+	\esp
+	
+	No pretendo que el término entre paréntesis sea una fórmula precisa para la conductividad, pero indica los ingredientes básicos, y predice correctamente que la conductividad es proporcional a la densidad de las cargas en movimiento y (ordinariamente) disminuye al aumentar la temperatura.
+	
+	\esp
+	
+	Como resultado de todas las colisiones, el trabajo realizado por la fuerza eléctrica se convierte en calor en el resistor. Dado que el trabajo realizado por unidad de carga es $V$ y la carga que fluye por unidad de tiempo es $I$, la potencia entregada es:
+	
+	\esp
+	
+	\begin{equation}
+		\fbox{$P = VI = I^2 R.$} \tag{7.7}
+	\end{equation}
+	
+	\esp
+	
+	Esta es la \textbf{ley de calentamiento de Joule}. Con $I$ en amperios y $R$ en ohmios, $P$ resulta en vatios (joules por segundo).
+	
+	\section{Fuerza Electromotriz}
+	
+	Si piensas en un circuito eléctrico típico —una batería conectada a una bombilla, por ejemplo (Fig. 7.7)— surge una pregunta desconcertante: En la práctica, la \textit{corriente es la misma en todo el lazo}; ¿por qué ocurre esto, cuando la única fuerza impulsora obvia está dentro de la batería? A simple vista, uno podría esperar una gran corriente en la batería y ninguna en absoluto en la lámpara. ¿Quién está "empujando" en el resto del circuito, y cómo sucede que este empuje es exactamente el adecuado para producir la misma corriente en cada segmento? Además, dado que las cargas en un cable típico se mueven (literalmente) a \textit{paso de caracol}, ¿por qué no tarda media hora la corriente en llegar a la bombilla? ¿Cómo saben todas las cargas empezar a moverse en el mismo instante?
+	
+	\esp
+	
+	\textit{Respuesta}: Si la corriente \textit{no} fuera la misma en todo el recorrido (por ejemplo, durante el primer microsegundo después de cerrar el interruptor), entonces la carga se estaría acumulando en alguna parte, y —aquí está el punto crucial— el campo eléctrico de esta carga acumulada tendría una dirección tal que nivelaría el flujo. Supongamos, por ejemplo, que la corriente que \textit{entra} en el codo de la Fig. 7.8 es mayor que la corriente que \textit{sale}. Entonces la carga se amontona en la "rodilla", y esto produce un campo que apunta \textit{hacia afuera} del pliegue. Este campo se \textit{opone} a la corriente que entra (frenándola) y \textit{promueve} la corriente que sale (acelerándola) hasta que estas corrientes son iguales, momento en el cual no hay más acumulación de carga y se establece el equilibrio. Es un sistema hermoso, que se autocorrige automáticamente para mantener la corriente uniforme, y lo hace tan rápido que, en la práctica, se puede asumir con seguridad que la corriente es la misma en todo el circuito.
+	
+	\esp
+	
+	Realmente hay \textbf{dos} fuerzas involucradas en impulsar la corriente por un circuito: la \textit{fuente}, $\mathbf{f}_s$, que ordinariamente está confinada a una porción del lazo (una batería, por ejemplo), y una fuerza \textit{electrostática}, que sirve para suavizar el flujo y comunicar la influencia de la fuente a partes distantes del circuito:
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{f} = \mathbf{f}_s + \mathbf{E}. \tag{7.8}
+	\end{equation}
+	
+	\esp
+	
+	El agente físico responsable de $\mathbf{f}_s$ puede ser muchas cosas diferentes: en una batería es una fuerza química; en un cristal piezoeléctrico la presión mecánica se convierte en un impulso eléctrico; en un termopar es un gradiente de temperatura; y en un generador de Van de Graaff los electrones son cargados literalmente en una cinta transportadora. Cualquiera que sea el \textit{mecanismo}, su efecto neto está determinado por la integral de línea de $\mathbf{f}$ alrededor del circuito:
+	
+	\esp
+	
+	\begin{equation}
+		\fbox{$\mathcal{E} = \oint \mathbf{f} \cdot d\mathbf{l} = \oint \mathbf{f}_s \cdot d\mathbf{l}.$} \tag{7.9}
+	\end{equation}
+	
+	\esp
+	
+	(Dado que $\oint \mathbf{E} \cdot d\mathbf{l} = 0$ para campos electrostáticos, no importa si usas $\mathbf{f}$ o $\mathbf{f}_s$). $\mathcal{E}$ se llama la \textbf{fuerza electromotriz}, o \textbf{fem}, del circuito. Es un término desafortunado, ya que esto no es una \textit{fuerza} en absoluto —es la \textit{integral de una fuerza por unidad de carga}.
+	
+	\esp
+	
+	Dentro de una fuente ideal de fem (una batería sin resistencia, por ejemplo), la fuerza \textit{neta} sobre las cargas es \textit{cero}, por lo que $\mathbf{E} = -\mathbf{f}_s$. La diferencia de potencial entre los terminales ($a$ y $b$) es por lo tanto:
+	
+	\esp
+	
+	\begin{equation}
+		V = -\int_a^b \mathbf{E} \cdot d\mathbf{l} = \int_a^b \mathbf{f}_s \cdot d\mathbf{l} = \oint \mathbf{f}_s \cdot d\mathbf{l} = \mathcal{E} \tag{7.10}
+	\end{equation}
+	
+	\esp
+	
+	La función de una batería, entonces, es establecer y mantener una diferencia de voltaje igual a la fuerza electromotriz. El campo electrostático resultante impulsa la corriente por el resto del circuito (nótese, sin embargo, que \textit{dentro} de la batería $\mathbf{f}_s$ impulsa la corriente en la dirección \textit{opuesta} a $\mathbf{E}$).
+	
+	\section{FEM móvil}
+	
+	(El signo menos da cuenta del hecho de que $dx/dt$ es negativo). Pero esto es precisamente la fem (Ec. 7.11); evidentemente, la fem generada en la espira es menos la tasa de cambio del flujo a través de la espira:
+	
+	\esp
+	
+	\begin{equation}
+		\fbox{$\mathcal{E} = -\frac{d\Phi}{dt}.$} \tag{7.13}
+	\end{equation}
+	
+	\esp
+	
+	Esta es la \textbf{regla del flujo} para la fem de movimiento.
+	
+	\esp
+	
+	Aparte de su encantadora simplicidad, la regla del flujo tiene la virtud de aplicarse a espiras \textit{no rectangulares} que se mueven en direcciones \textit{arbitrarias} a través de campos magnéticos \textit{no uniformes}; de hecho, la espira ni siquiera necesita mantener una forma fija.
+	
+	\esp
+	
+	Hay una ambigüedad de signo en la definición de fem (Ec. 7.9): ¿En qué \textit{sentido} de la espira se supone que debes integrar? Hay una ambigüedad compensatoria en la definición de \textit{flujo} (Ec. 7.12): ¿Cuál es la dirección positiva para $d\mathbf{a}$? Al aplicar la regla del flujo, la consistencia de los signos se rige (como siempre) por tu mano derecha: si tus dedos definen la dirección positiva alrededor de la espira, entonces tu pulgar indica la dirección de $d\mathbf{a}$. Si la fem resulta negativa, significa que la corriente fluirá en la dirección negativa alrededor del circuito.
+	
+	\esp
+	
+	La regla del flujo es un atajo ingenioso para calcular fems de movimiento. No contiene física nueva —solo la ley de la fuerza de Lorentz. Pero puede conducir a errores o ambigüedades si no se tiene cuidado. La regla del flujo asume que se tiene una sola espira de cable —esta puede moverse, rotar, estirarse o deformarse (continuamente), pero hay que tener cuidado con los interruptores, contactos deslizantes o conductores extendidos que permitan una variedad de trayectorias para la corriente. Una "paradoja de la regla del flujo" estándar involucra el circuito de la Figura 7.14. Cuando el interruptor se mueve (de $a$ a $b$), el flujo a través del circuito se duplica, pero no hay fem de movimiento (ningún conductor se mueve a través de un campo magnético) y el amperímetro ($A$) no registra corriente.
+	
+	\section{Ley de Faraday}
+	
+	En 1831, Michael Faraday informó sobre una serie de experimentos que pueden caracterizarse de la siguiente manera:
+	
+	\textbf{Experimento 1.} Tiró de una espira de cable hacia la derecha a través de un campo magnético (Fig. 7.21a). Una corriente fluyó por la espira.
+	
+	\textbf{Experimento 2.} Movió el \textit{imán} hacia la \textit{izquierda}, manteniendo la espira quieta (Fig. 7.21b). Una corriente fluyó por la espira.
+	
+	\textbf{Experimento 3.} Con tanto la espira como el imán en reposo (Fig. 7.21c), cambió la \textit{intensidad} del campo (usó un electroimán y varió la corriente en la bobina). Una vez más, fluyó corriente por la espira.
+	
+	\esp
+	
+	El primer experimento, por supuesto, es un caso directo de fem de movimiento según la regla del flujo: $\mathcal{E} = -d\Phi/dt$. No creo que te sorprenda saber que exactamente la misma fem surge en el Experimento 2; todo lo que realmente importa es el movimiento \textit{relativo} del imán y la espira. Pero Faraday no sabía nada de relatividad, y en electrodinámica clásica esta simple reciprocidad es una coincidencia notable. Porque si la \textit{espira} se mueve, es una fuerza \textit{magnética} la que establece la fem; pero si la espira es \textit{estacionaria}, la fuerza \textit{no puede} ser magnética —las cargas estacionarias no experimentan fuerzas magnéticas. En ese caso, ¿qué es responsable? Bueno, los campos \textit{eléctricos} lo son, por supuesto; pero en este caso no parece haber ningún campo eléctrico a la vista. Faraday tuvo una inspiración ingeniosa:
+	
+	\esp
+	
+	\begin{center}
+		\fbox{\textbf{Un campo magnético cambiante induce un campo eléctrico.}}
+	\end{center}
+	
+	\esp
+	
+	Es este campo eléctrico inducido el que explica la fem en el Experimento 2. De hecho, la fem es nuevamente igual a la tasa de cambio del flujo:
+	
+	\esp
+	
+	\begin{equation}
+		\mathcal{E} = \oint \mathbf{E} \cdot d\mathbf{l} = -\frac{d\Phi}{dt}, \tag{7.14}
+	\end{equation}
+	
+	\esp
+	
+	entonces $\mathbf{E}$ se relaciona con el cambio en $\mathbf{B}$ por la ecuación:
+	
+	\esp
+	
+	\begin{equation}
+		\oint \mathbf{E} \cdot d\mathbf{l} = -\int \frac{\partial \mathbf{B}}{\partial t} \cdot d\mathbf{a}. \tag{7.15}
+	\end{equation}
+	
+	\esp
+	
+	Esta es la \textbf{ley de Faraday} en forma integral. Podemos convertirla a forma diferencial aplicando el teorema de Stokes:
+	
+	\esp
+	
+	\begin{equation}
+		\fbox{$\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}.$} \tag{7.16}
+	\end{equation}
+	
+	\esp
+	
+	Nótese que la ley de Faraday se reduce a la vieja regla $\oint \mathbf{E} \cdot d\mathbf{l} = 0$ en el caso estático ($\mathbf{B}$ constante). En el Experimento 3, el campo magnético cambia por razones totalmente diferentes, pero según la ley de Faraday se inducirá de nuevo un campo eléctrico, dando lugar a una fem $-d\Phi/dt$. De hecho, se pueden subsumir los tres casos en una especie de \textbf{regla del flujo universal}:
+	
+	\esp
+	
+	\begin{center}
+		\textbf{Siempre que (y por cualquier razón) el flujo magnético a través de una espira cambie, una fem}
+	\end{center}
+	
+	\begin{equation}
+		\mathcal{E} = -\frac{d\Phi}{dt} \tag{7.17}
+	\end{equation}
+	
+	\begin{center}
+		\textbf{aparecerá en la espira.}
+	\end{center}
+	
+	\esp
+	
+	Muchos llaman a esto "ley de Faraday". Quizás soy demasiado meticuloso, pero encuentro esto confuso. Hay realmente \textit{dos} mecanismos totalmente diferentes subyacentes a la Ec. 7.17. En el Experimento 1 es la fuerza de Lorentz ($\mathbf{v} \times \mathbf{B}$); en los otros dos es un \textit{campo eléctrico} inducido. Es asombroso que ambos procesos den la misma fórmula. De hecho, fue precisamente esta "coincidencia" la que llevó a Einstein a la \textbf{teoría especial de la relatividad}.
+	
+	\section{Inductancia}
+	
+	Supón que tienes dos espiras de cable, en reposo (Fig. 7.30). Si haces circular una corriente constante $I_1$ por la espira 1, esta produce un campo magnético $\mathbf{B}_1$. Algunas de las líneas de campo pasan
+	
+	\esp
+	
+	\begin{center}
+		\textit{[Figura 7.30: Líneas de campo B1 de la espira 1 pasando a través de la espira 2]} \\
+		\textit{[Figura 7.31: Elementos de línea dl1 y dl2 separados por una distancia r]}
+	\end{center}
+	
+	\esp
+	
+	a través de la espira 2; sea $\Phi_2$ el flujo de $\mathbf{B}_1$ a través de 2. Podrías tener dificultades para \textit{calcular} realmente $\mathbf{B}_1$, pero un vistazo a la ley de Biot-Savart,
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{B}_1 = \frac{\mu_0}{4\pi} I_1 \oint \frac{d\mathbf{l}_1 \times \hat{\imath}}{r^2},
+	\end{equation}
+	
+	\esp
+	
+	revela un hecho significativo sobre este campo: \textit{Es proporcional a la corriente $I_1$}. Por lo tanto, también lo es el flujo a través de la espira 2:
+	
+	\esp
+	
+	\begin{equation}
+		\Phi_2 = \int \mathbf{B}_1 \cdot d\mathbf{a}_2.
+	\end{equation}
+	
+	\esp
+	
+	\noindent Así,
+	
+	\esp
+	
+	\begin{equation}
+		\Phi_2 = M_{21} I_1, \tag{7.22}
+	\end{equation}
+	
+	\esp
+	
+	donde $M_{21}$ es la constante de proporcionalidad; se conoce como la \textbf{inductancia mutua} de las dos espiras.
+	
+	\esp
+	
+	Existe una fórmula elegante para la inductancia mutua, que puedes derivar expresando el flujo en términos del potencial vectorial e invocando el teorema de Stokes:
+	
+	\esp
+	
+	\begin{equation}
+		\Phi_2 = \int \mathbf{B}_1 \cdot d\mathbf{a}_2 = \int (\nabla \times \mathbf{A}_1) \cdot d\mathbf{a}_2 = \oint \mathbf{A}_1 \cdot d\mathbf{l}_2.
+	\end{equation}
+	
+	\esp
+	
+	\noindent Ahora, según la Ec. 5.66,
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{A}_1 = \frac{\mu_0 I_1}{4\pi} \oint \frac{d\mathbf{l}_1}{r},
+	\end{equation}
+	
+	\esp
+	
+	\noindent y por lo tanto
+	
+	\esp
+	
+	\begin{equation}
+		\Phi_2 = \frac{\mu_0 I_1}{4\pi} \oint \left( \oint \frac{d\mathbf{l}_1}{r} \right) \cdot d\mathbf{l}_2.
+	\end{equation}
+	
+	\esp
+	
+	\noindent Evidentemente,
+	
+	\esp
+	
+	\begin{equation}
+		M_{21} = \frac{\mu_0}{4\pi} \oint \oint \frac{d\mathbf{l}_1 \cdot d\mathbf{l}_2}{r}. \tag{7.23}
+	\end{equation}
+
+	\esp
+	
+	Esta es la \textbf{fórmula de Neumann}; involucra una integral de línea doble: una integración alrededor de la espira 1 y la otra alrededor de la espira 2 (Fig. 7.31). No es muy útil para cálculos prácticos, pero revela dos cosas importantes sobre la inductancia mutua:
+	
+	\esp
+	
+	\begin{enumerate}
+		\item $M_{21}$ es una cantidad puramente geométrica, que tiene que ver con los tamaños, formas y posiciones relativas de las dos espiras.
+		\item La integral en la Ec. 7.23 no cambia si intercambiamos los papeles de las espiras 1 y 2; de ello se deduce que:
+	\end{enumerate}
+	
+	\esp
+	
+	\begin{equation}
+		M_{21} = M_{12}. \tag{7.24}
+	\end{equation}
+	
+	\esp
+	
+	Esta es una conclusión asombrosa: Cualesquiera que sean las formas y posiciones de las espiras, el flujo a través de 2 cuando hacemos circular una corriente $I$ por 1 es idéntico al flujo a través de 1 cuando enviamos la misma corriente $I$ por 2. Podemos simplemente omitir los subíndices y llamarlos a ambos $M$.
+	
+	\esp
+	
+	Supón, ahora, que \textit{varías} la corriente en la espira 1. El flujo a través de la espira 2 variará en consecuencia, y la ley de Faraday dice que este flujo cambiante inducirá una fem en la espira 2:
+	
+	\esp
+	
+	\begin{equation}
+		\mathcal{E}_2 = -\frac{d\Phi_2}{dt} = -M \frac{dI_1}{dt}. \tag{7.25}
+	\end{equation}
+	
+	\esp
+	
+	(Al citar la Ec. 7.22 —que se basó en la ley de Biot-Savart— estoy asumiendo tácitamente que las corrientes cambian lo suficientemente lento como para que el sistema sea considerado \textit{cuasiestático}). Qué cosa tan notable: cada vez que cambias la corriente en la espira 1, una corriente inducida fluye en la espira 2 —¡aunque no haya cables que las conecten!
+	
+	\esp
+	
+	Pensándolo bien, una corriente cambiante no solo induce una fem en cualquier espira cercana, sino que también induce una fem en la \textit{propia} espira fuente (Fig. 7.33). Una vez más, el campo (y por lo tanto también el flujo) es proporcional a la corriente:
+	
+	\esp
+	
+	\begin{equation}
+		\Phi = LI. \tag{7.26}
+	\end{equation}
+	
+	\esp
+	
+	La constante de proporcionalidad $L$ se llama la \textbf{autoinductancia} (o simplemente la \textbf{inductancia}) de la espira. Al igual que con $M$, depende de la geometría (tamaño y forma) de la espira. Si la corriente cambia, la fem inducida en la espira es
+	
+	\esp
+	
+	\begin{equation}
+		\mathcal{E} = -L \frac{dI}{dt}. \tag{7.27}
+	\end{equation}
+	
+	\esp
+	
+	La inductancia se mide en \textbf{henrios} (H); un henrio es un voltio-segundo por amperio.
+	
+	\esp
+	
+	La inductancia (al igual que la capacitancia) es una cantidad intrínsecamente \textit{positiva}. La ley de Lenz, que se cumple mediante el signo menos en la Ec. 7.27, dicta que la fem tiene una dirección tal que se \textit{opone} a cualquier \textit{cambio} en la corriente. Por esta razón, se le llama \textbf{fuerza contraelectromotriz} (\textit{back emf}). Cada vez que intentas alterar la corriente en un cable, debes luchar contra esta fuerza contraelectromotriz. La inductancia desempeña en los circuitos eléctricos un papel similar al que la \textit{masa} desempeña en los sistemas mecánicos: cuanto mayor sea $L$, más difícil será cambiar la corriente, del mismo modo que cuanto mayor sea la masa, más difícil será cambiar la velocidad de un objeto.
+	
+	\esp
+	
+	\noindent \textbf{Ejercicio P7.23 en RAW}
+	
+	\esp
+	
+	\begin{nota}
+		$\rightarrow$ Escojo arbitrariamente la corriente para calcular el flujo en la espira. Esto me dará un flujo con un signo.
+		
+		\esp
+		
+		Ahora, con $M$ calculo el flujo que tiene el hilo. Si el flujo tiene el mismo signo que en la espira, coincide con el sentido, por lo anterior, tiene sentido positivo.
+	\end{nota}
+	
+	\section{Energía magnética}
+	
+	Se requiere una cierta cantidad de energía para iniciar el flujo de corriente en un circuito. No estoy hablando de la energía entregada a los resistores y convertida en calor —eso se pierde irremediablemente, en lo que respecta al circuito, y puede ser grande o pequeña, dependiendo de cuánto tiempo se deje circular la corriente. Lo que me concierne, más bien, es el trabajo que debes realizar \textit{contra la fuerza contraelectromotriz} para poner en marcha la corriente. Esta es una cantidad \textit{fija} y es \textit{recuperable}: se recupera cuando se apaga la corriente. Mientras tanto, representa energía latente en el circuito; como veremos en un momento, puede considerarse como energía almacenada en el campo magnético.
+	
+	\esp
+	
+	El trabajo realizado sobre una unidad de carga, contra la fuerza contraelectromotriz, en un viaje alrededor del circuito es $-\mathcal{E}$ (el signo menos registra el hecho de que este es el trabajo realizado \textit{por ti contra} la fem, no el trabajo realizado por la fem). La cantidad de carga por unidad de tiempo que pasa por el cable es $I$. Así que el trabajo total realizado por unidad de tiempo es
+	
+	\esp
+	
+	\begin{equation}
+		\frac{dW}{dt} = -\mathcal{E} I = L I \frac{dI}{dt}.
+	\end{equation}
+	
+	\esp
+	
+	Si comenzamos con una corriente cero y la aumentamos hasta un valor final $I$, el trabajo realizado (integrando la última ecuación sobre el tiempo) es
+	
+	\esp
+	
+	\begin{equation}
+		\fbox{$W = \frac{1}{2} L I^2.$} \tag{7.30}
+	\end{equation}
+	
+	\esp
+	
+	No depende de \textit{cuánto tiempo} nos tome arrancar la corriente, solo de la geometría de la espira (en la forma de $L$) y de la corriente final $I$. Existe una forma más elegante de escribir $W$, que tiene la ventaja de generalizarse fácilmente a corrientes superficiales y volumétricas. Recuerda que el flujo $\Phi$ a través de la espira es igual a $LI$ (Ec. 7.26). Por otro lado,
+	
+	\esp
+	
+	\begin{equation}
+		\Phi = \int \mathbf{B} \cdot d\mathbf{a} = \int (\nabla \times \mathbf{A}) \cdot d\mathbf{a} = \oint \mathbf{A} \cdot d\mathbf{l},
+	\end{equation}
+	
+	\esp
+	
+	donde la integral de línea es alrededor del perímetro de la espira. Por lo tanto,
+	
+	\esp
+	
+	\begin{equation}
+		LI = \oint \mathbf{A} \cdot d\mathbf{l},
+	\end{equation}
+	
+	\esp
+	
+	y por lo tanto
+	
+	\esp
+	
+	\begin{equation}
+		W = \frac{1}{2} I \oint \mathbf{A} \cdot d\mathbf{l} = \frac{1}{2} \oint (\mathbf{A} \cdot \mathbf{I}) dl. \tag{7.31}
+	\end{equation}
+	
+	\esp
+	
+	En esta forma, la generalización a corrientes volumétricas es obvia:
+	
+	\esp
+	
+	\begin{equation}
+		W = \frac{1}{2} \int_V (\mathbf{A} \cdot \mathbf{J}) d\tau. \tag{7.32}
+	\end{equation}
+	
+	\esp
+	
+	Pero podemos hacerlo aún mejor y expresar $W$ enteramente en términos del campo magnético. La ley de Ampère, $\nabla \times \mathbf{B} = \mu_0 \mathbf{J}$, nos permite eliminar $\mathbf{J}$:
+	
+	\esp
+	
+	\begin{equation}
+		W = \frac{1}{2\mu_0} \int \mathbf{A} \cdot (\nabla \times \mathbf{B}) d\tau. \tag{7.33}
+	\end{equation}
+	
+	\esp
+	
+	La integración por partes transfiere la derivada de $\mathbf{B}$ a $\mathbf{A}$; específicamente, la regla del producto 6 establece que
+	
+	\esp
+	
+	\begin{equation}
+		\nabla \cdot (\mathbf{A} \times \mathbf{B}) = \mathbf{B} \cdot (\nabla \times \mathbf{A}) - \mathbf{A} \cdot (\nabla \times \mathbf{B}),
+	\end{equation}
+	
+	\esp
+	
+	así que
+	
+	\esp
+	
+	\begin{equation}
+		\mathbf{A} \cdot (\nabla \times \mathbf{B}) = \mathbf{B} \cdot \mathbf{B} - \nabla \cdot (\mathbf{A} \times \mathbf{B}).
+	\end{equation}
+	
+	\esp
+	
+	Consecuentemente,
+	
+	\esp
+	
+	\begin{align}
+		W &= \frac{1}{2\mu_0} \left[ \int B^2 d\tau - \int \nabla \cdot (\mathbf{A} \times \mathbf{B}) d\tau \right] \nonumber \\
+		&= \frac{1}{2\mu_0} \left[ \int_V B^2 d\tau - \oint_S (\mathbf{A} \times \mathbf{B}) \cdot d\mathbf{a} \right], \tag{7.34}
+	\end{align}
+	
+	\esp
+	
+	donde $S$ es la superficie que limita el volumen $V$. Ahora, si acordamos integrar sobre \textit{todo} el espacio, entonces la integral de superficie se anula y nos quedamos con
+	
+	\esp
+	
+	\begin{equation}
+		\fbox{$W = \frac{1}{2\mu_0} \int_{\text{todo el espacio}} B^2 d\tau.$} \tag{7.35}
+	\end{equation}
+	
+	\esp
+	
+	En vista de este resultado, decimos que la energía está "almacenada en el campo magnético" en la cantidad $B^2 / 2\mu_0$ por unidad de volumen.
+	
+	\esp
+	
+	Podrías encontrar extraño que se requiera energía para establecer un campo magnético —después de todo, los campos magnéticos \textit{por sí mismos} no realizan trabajo. El punto es que producir un campo magnético donde previamente no había ninguno requiere \textit{cambiar} el campo, y un campo $\mathbf{B}$ cambiante, según Faraday, induce un campo \textit{eléctrico}. Este último, por supuesto, \textit{puede} realizar trabajo. Al principio no hay $\mathbf{E}$, y al final no hay $\mathbf{E}$: pero en el medio, mientras $\mathbf{B}$ se está estableciendo, \textit{hay} un $\mathbf{E}$, y es contra \textit{este} que se realiza el trabajo. (Ves ahora por qué no pude calcular la energía almacenada en un campo magnetostático allá en el Capítulo 5). A la luz de esto, es extraordinario lo similares que son las fórmulas de energía magnética a sus contrapartes electrostáticas:
+	
+	\esp
+	
+	\begin{equation}
+		W_{\text{elec}} = \frac{1}{2} \int (V \rho) \, d\tau = \frac{\epsilon_0}{2} \int E^2 \, d\tau. \tag{2.43 y 2.45}
+	\end{equation}
+	
+	\esp
+	
+	\begin{equation}
+		W_{\text{mag}} = \frac{1}{2} \int (\mathbf{A} \cdot \mathbf{J}) \, d\tau = \frac{1}{2\mu_0} \int B^2 \, d\tau. \tag{7.32 y 7.35}
+	\end{equation}
+	
+	\esp
+	
+	\noindent \textbf{Ejercicio 7.28 en RAW}
+	
+	\esp
+	
+	\noindent \textbf{Notas sobre los ejercicios 7.87-7.88 en PRADO, algunas notas en RAW}
+	
+	\printbibliography[title={Bibliografía}]
+\end{document}
