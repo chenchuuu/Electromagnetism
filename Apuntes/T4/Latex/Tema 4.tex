@@ -716,5 +716,350 @@
 	
 	\noindent \textbf{Notas sobre los ejercicios 7.87-7.88 en PRADO, algunas notas en RAW}
 	
+	\section{Ecuaciones de Maxwell}
+	
+	\noindent Hasta ahora, nos hemos encontrado con las siguientes leyes, que especifican la divergencia y el rotacional de los campos eléctrico y magnético:
+	
+	\begin{itemize}
+		\item[(i)] $\nabla \cdot \mathbf{E} = \frac{1}{\epsilon_0}\rho$ \hfill (Ley de Gauss)
+		\item[(ii)] $\nabla \cdot \mathbf{B} = 0$ \hfill (Sin nombre)
+		\item[(iii)] $\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}$ \hfill (Ley de Faraday)
+		\item[(iv)] $\nabla \times \mathbf{B} = \mu_0 \mathbf{J}$ \hfill (Ley de Ampère)
+	\end{itemize}
+	
+	\vspace{0.5cm}
+	\section*{7.3 Ecuaciones de Maxwell}
+	
+	Estas ecuaciones representan el estado de la teoría electromagnética a mediados del siglo XIX, cuando Maxwell comenzó su trabajo. No estaban escritas de una forma tan compacta en aquellos días, pero su contenido físico era familiar. Ahora bien, resulta que hay una \textbf{inconsistencia fatal} en estas fórmulas. Tiene que ver con la vieja regla de que la divergencia de un rotacional es siempre cero. Si aplicas la divergencia a la ecuación (iii), todo funciona:
+	
+	\begin{equation*}
+		\nabla \cdot (\nabla \times \mathbf{E}) = \nabla \cdot \left( -\frac{\partial \mathbf{B}}{\partial t} \right) = -\frac{\partial}{\partial t} (\nabla \cdot \mathbf{B})
+	\end{equation*}
+	
+	\noindent El lado izquierdo es cero porque la divergencia de un rotacional es cero; el lado derecho es cero en virtud de la ecuación (ii). Pero cuando haces lo mismo con la (iv), te metes en problemas:
+	
+	\begin{equation}
+		\nabla \cdot (\nabla \times \mathbf{B}) = \mu_0 (\nabla \cdot \mathbf{J}) \tag{7.36}
+	\end{equation}
+	
+	\noindent el lado izquierdo debe ser cero, pero el lado derecho, en general, \textit{no lo es}. Para corrientes estacionarias, la divergencia de $\mathbf{J}$ es cero, pero cuando vamos más allá de la magnetostática, la ley de Ampère no puede ser correcta.
+	
+	\vspace{0.4cm}
+	\noindent Hay otra forma de ver que la ley de Ampère está destinada a fallar para corrientes no estacionarias. Supongamos que estamos en el proceso de cargar un condensador. En forma integral, la ley de Ampère dice:
+	
+	\begin{equation*}
+		\oint \mathbf{B} \cdot d\mathbf{l} = \mu_0 I_{\text{enc}}
+	\end{equation*}
+	
+	\noindent Quiero aplicarla al lazo amperiano mostrado en el diagrama. ¿Cómo determino $I_{\text{enc}}$? Bueno, es la corriente total que pasa a través del lazo o, más precisamente, la corriente que atraviesa una superficie que tiene al lazo como su frontera. En este caso, la superficie más simple se encuentra en el plano del lazo —el cable perfora esta superficie, por lo que $I_{\text{enc}} = I$. Bien —pero ¿qué pasa si dibujo en su lugar la superficie con forma de globo? ¡Ninguna corriente pasa a través de esta superficie, y concluyo que $I_{\text{enc}} = 0$! Nunca tuvimos este problema en magnetostática porque el conflicto surge solo cuando la carga se está acumulando en alguna parte (en este caso, en las placas del condensador). Pero para corrientes \textit{no estacionarias} (como esta), "la corriente encerrada por el lazo" es una noción mal definida; depende enteramente de qué superficie se utilice. (Si esto te parece pedante —"obviamente uno debería usar la superficie plana"— recuerda que el lazo amperiano podría tener alguna forma contorsionada que ni siquiera descanse en un plano).
+	
+	\vspace{0.3cm}
+	
+	Por supuesto, no teníamos derecho a esperar que la ley de Ampère se cumpliera fuera de la magnetostática; después de todo, la derivamos de la ley de Biot-Savart. Sin embargo, en la época de Maxwell no había ninguna razón \textit{experimental} para dudar de que la ley de Ampère tuviera una validez más amplia. El fallo fue puramente teórico, y Maxwell lo solucionó mediante argumentos puramente teóricos.
+	
+	\subsection{Cómo Maxwell arregló la ley de Ampere}
+	
+	El problema está en el lado derecho de la Ec. 7.36, que \textit{debería} ser cero, pero \textit{no lo es}. Aplicando la ecuación de continuidad (5.29) y la ley de Gauss, el término infractor puede reescribirse como:
+	
+	\begin{equation*}
+		\nabla \cdot \mathbf{J} = -\frac{\partial \rho}{\partial t} = -\frac{\partial}{\partial t}(\epsilon_0 \nabla \cdot \mathbf{E}) = -\nabla \cdot \left( \epsilon_0 \frac{\partial \mathbf{E}}{\partial t} \right).
+	\end{equation*}
+	
+	Si combináramos $\epsilon_0(\partial \mathbf{E}/\partial t)$ con $\mathbf{J}$ en la ley de Ampère, sería justo lo necesario para eliminar la divergencia extra:
+	
+	\begin{equation}
+		\nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \mu_0 \epsilon_0 \frac{\partial \mathbf{E}}{\partial t}. \tag{7.37}
+	\end{equation}
+	
+	(Maxwell mismo tenía otras razones para querer añadir esta cantidad a la ley de Ampère. Para él, el rescate de la ecuación de continuidad fue un feliz dividendo más que un motivo primario. Pero hoy reconocemos este argumento como uno mucho más convincente que el de Maxwell, que se basaba en un modelo del éter ahora desacreditado).
+	
+	\vspace{0.3cm}
+	
+	Tal modificación no cambia nada en lo que respecta a la magnetostática: cuando $\mathbf{E}$ es constante, seguimos teniendo $\nabla \times \mathbf{B} = \mu_0 \mathbf{J}$. De hecho, el término de Maxwell es difícil de detectar en experimentos electromagnéticos ordinarios, donde debe competir por la atención con $\mathbf{J}$ —por eso Faraday y los demás nunca lo descubrieron en el laboratorio. Sin embargo, juega un papel crucial en la propagación de ondas electromagnéticas, como veremos en el Capítulo 9.
+	
+	\vspace{0.3cm}
+	
+	Aparte de curar el defecto en la ley de Ampère, el término de Maxwell tiene un cierto atractivo estético: así como un campo \textit{magnético} cambiante induce un campo \textit{eléctrico} (ley de Faraday), también:
+	
+	\esp
+	
+	\begin{center}
+		\fbox{\textbf{Un campo eléctrico cambiante induce un campo magnético.}}
+	\end{center}
+	
+	\esp
+	Por supuesto, no teníamos derecho a esperar que la ley de Ampère se cumpliera fuera de la magnetostática; después de todo, la derivamos de la ley de Biot-Savart. Sin embargo, en la época de Maxwell no había ninguna razón \textit{experimental} para dudar de que la ley de Ampère tuviera una validez más amplia. El fallo fue puramente teórico, y Maxwell lo solucionó mediante argumentos puramente teóricos.
+	
+	\vspace{0.5cm}
+	
+	\noindent Por supuesto, la conveniencia teórica y la consistencia estética son solo \textit{sugerentes} ---podría haber, después de todo, otras formas de retocar la ley de Ampère. La verdadera confirmación de la teoría de Maxwell llegó en 1888 con los experimentos de Hertz sobre ondas electromagnéticas.
+	
+	Maxwell llamó a su término extra la \textbf{corriente de desplazamiento}:
+	
+	\begin{equation}
+		\mathbf{J}_d \equiv \epsilon_0 \frac{\partial \mathbf{E}}{\partial t}. \tag{7.38}
+	\end{equation}
+	
+	\noindent (Es un nombre engañoso: $\epsilon_0 (\partial \mathbf{E} / \partial t)$ no tiene nada que ver con una corriente, excepto que se suma a $\mathbf{J}$ en la ley de Ampère). Veamos ahora cómo la corriente de desplazamiento resuelve la paradoja del condensador en carga (Fig. 7.43). Si las placas del condensador están muy cerca entre sí (no las \textit{dibujé} así, pero el cálculo es más sencillo si se asume esto), entonces el campo eléctrico entre ellas es:
+	
+	\begin{equation*}
+		E = \frac{1}{\epsilon_0} \sigma = \frac{1}{\epsilon_0} \frac{Q}{A},
+	\end{equation*}
+	
+	\noindent donde $Q$ es la carga en la placa y $A$ es su área. Por lo tanto, entre las placas:
+	
+	\begin{equation*}
+		\frac{\partial E}{\partial t} = \frac{1}{\epsilon_0 A} \frac{dQ}{dt} = \frac{1}{\epsilon_0 A} I.
+	\end{equation*}
+	
+	\noindent Ahora, la Ec. 7.37 dice, en forma integral,
+	
+	\begin{equation}
+		\oint \mathbf{B} \cdot d\mathbf{l} = \mu_0 I_{enc} + \mu_0 \epsilon_0 \int \left( \frac{\partial \mathbf{E}}{\partial t} \right) \cdot d\mathbf{a}. \tag{7.39}
+	\end{equation}
+	
+	\noindent Si elegimos la \textit{superficie plana}, entonces $E = 0$ e $I_{enc} = I$. Si, por otro lado, usamos la \textit{superficie en forma de globo}, entonces $I_{enc} = 0$, pero $\int (\partial \mathbf{E} / \partial t) \cdot d\mathbf{a} = I / \epsilon_0$. Así que obtenemos la misma respuesta para cualquiera de las dos superficies, aunque en el primer caso proviene de la corriente de conducción, y en el segundo de la corriente de desplazamiento.
+	
+	\subsection{Ecuación de Maxwell en la materia}
+	
+	Las ecuaciones de Maxwell en la forma 7.40 están completas y son correctas tal como están. Sin embargo, cuando se trabaja con materiales que están sujetos a polarización eléctrica y magnética, hay una manera más conveniente de escribirlas. Dentro de la materia polarizada habrá acumulaciones de carga y corriente ``ligadas'', sobre las cuales no se ejerce un control directo. Sería deseable reformular las ecuaciones de Maxwell para hacer referencia explícita solo a las cargas y corrientes ``libres''.
+	
+	Ya hemos aprendido, del caso estático, que una polarización eléctrica $\mathbf{P}$ produce una densidad de carga ligada
+	\begin{equation}
+		\rho_b = -\nabla \cdot \mathbf{P} \tag{7.47}
+	\end{equation}
+	(Ec. 4.12). Asimismo, una polarización magnética (o ``magnetización'') $\mathbf{M}$ resulta en una corriente ligada
+	\begin{equation}
+		\mathbf{J}_b = \nabla \times \mathbf{M} \tag{7.48}
+	\end{equation}
+	(Ec. 6.13). Solo hay una característica nueva a considerar en el caso no estático: cualquier \textit{cambio} en la polarización eléctrica implica un flujo de carga (ligada) (llamémoslo $\mathbf{J}_p$), que debe incluirse en la corriente total. Supongamos que examinamos un pequeño fragmento de material polarizado (Fig. 7.47). La polarización introduce una densidad de carga $\sigma_b = P$ en un extremo y $-\sigma_b$ en el otro (Ec. 4.11). Si $P$ ahora \textit{aumenta} un poco, la carga en cada extremo aumenta proporcionalmente, dando una corriente neta
+	\begin{equation*}
+		dI = \frac{\partial \sigma_b}{\partial t} da_{\perp} = \frac{\partial P}{\partial t} da_{\perp}.
+	\end{equation*}
+	La densidad de corriente, por lo tanto, es
+	\begin{equation}
+		\mathbf{J}_p = \frac{\partial \mathbf{P}}{\partial t}. \tag{7.49}
+	\end{equation}
+	
+	Esta \textbf{corriente de polarización} no tiene nada que ver con la corriente ligada $\mathbf{J}_b$. Esta última se asocia con la \textit{magnetización} del material e involucra el espín y el movimiento orbital de los electrones; $\mathbf{J}_p$, por el contrario, es el resultado del movimiento lineal de carga cuando cambia la polarización eléctrica. Si $\mathbf{P}$ apunta hacia la derecha y está aumentando, entonces cada carga positiva se mueve un poco hacia la derecha y cada carga negativa hacia la izquierda; el efecto acumulativo es la corriente de polarización $\mathbf{J}_p$. Deberíamos verificar que la Ec. 7.49 es consistente con la ecuación de continuidad:
+	\begin{equation*}
+		\nabla \cdot \mathbf{J}_p = \nabla \cdot \frac{\partial \mathbf{P}}{\partial t} = \frac{\partial}{\partial t} (\nabla \cdot \mathbf{P}) = -\frac{\partial \rho_b}{\partial t}.
+	\end{equation*}
+	
+	\esp
+	
+	Sí: La ecuación de continuidad \textit{se} cumple; de hecho, $\mathbf{J}_p$ es esencial para asegurar la conservación de la carga ligada. (Incidentalmente, un cambio en la \textit{magnetización} \textit{no} conduce a ninguna acumulación análoga de carga o corriente. La corriente ligada $\mathbf{J}_b = \nabla \times \mathbf{M}$ varía en respuesta a los cambios en $\mathbf{M}$, por supuesto, pero eso es todo).
+	
+	En vista de todo esto, la densidad de carga total puede separarse en dos partes:
+	\begin{equation}
+		\rho = \rho_f + \rho_b = \rho_f - \nabla \cdot \mathbf{P}, \tag{7.50}
+	\end{equation}
+	y la densidad de corriente en \textit{tres} partes:
+	\begin{equation}
+		\mathbf{J} = \mathbf{J}_f + \mathbf{J}_b + \mathbf{J}_p = \mathbf{J}_f + \nabla \times \mathbf{M} + \frac{\partial \mathbf{P}}{\partial t}. \tag{7.51}
+	\end{equation}
+	
+	La ley de Gauss ahora puede escribirse como
+	\begin{equation*}
+		\nabla \cdot \mathbf{E} = \frac{1}{\epsilon_0} (\rho_f - \nabla \cdot \mathbf{P}),
+	\end{equation*}
+	o
+	\begin{equation}
+		\nabla \cdot \mathbf{D} = \rho_f, \tag{7.52}
+	\end{equation}
+	donde, como en el caso estático,
+	\begin{equation}
+		\mathbf{D} \equiv \epsilon_0 \mathbf{E} + \mathbf{P}. \tag{7.53}
+	\end{equation}
+	
+	Mientras tanto, la ley de Ampère (con el término de Maxwell) se convierte en
+	\begin{equation*}
+		\nabla \times \mathbf{B} = \mu_0 \left( \mathbf{J}_f + \nabla \times \mathbf{M} + \frac{\partial \mathbf{P}}{\partial t} \right) + \mu_0 \epsilon_0 \frac{\partial \mathbf{E}}{\partial t},
+	\end{equation*}
+	o
+	\begin{equation}
+		\nabla \times \mathbf{H} = \mathbf{J}_f + \frac{\partial \mathbf{D}}{\partial t}, \tag{7.54}
+	\end{equation}
+	donde, como antes,
+	\begin{equation}
+		\mathbf{H} \equiv \frac{1}{\mu_0} \mathbf{B} - \mathbf{M}. \tag{7.55}
+	\end{equation}
+	
+	La ley de Faraday y $\nabla \cdot \mathbf{B} = 0$ no se ven afectadas por nuestra separación de carga y corriente en partes libres y ligadas, ya que no involucran a $\rho$ o $\mathbf{J}$.
+	
+	En términos de cargas y corrientes \textit{libres}, entonces, las ecuaciones de Maxwell se leen
+	\begin{equation}
+		\begin{array}{ll}
+			\text{(i) } \nabla \cdot \mathbf{D} = \rho_f, & \text{(iii) } \nabla \times \mathbf{E} = -\dfrac{\partial \mathbf{B}}{\partial t}, \\
+			\text{(ii) } \nabla \cdot \mathbf{B} = 0, & \text{(iv) } \nabla \times \mathbf{H} = \mathbf{J}_f + \dfrac{\partial \mathbf{D}}{\partial t}.
+		\end{array} \tag{7.56}
+	\end{equation}
+	
+	Algunas personas consideran estas como las ``verdaderas'' ecuaciones de Maxwell, pero por favor comprenda que de ninguna manera son más ``generales'' que la Ec. 7.40; simplemente reflejan una división conveniente de la carga y la corriente en partes libres y no libres. Y tienen un precio: las fórmulas resultantes son mucho más complicadas de lo que parecen a primera vista, ya que $\mathbf{P}$ y $\mathbf{M}$ son ellas mismas funciones de $\mathbf{E}$ y $\mathbf{B}$. Específicamente, en el caso de un \textit{medio lineal}, $\mathbf{P}$ es proporcional a $\mathbf{E}$ y $\mathbf{M}$ es proporcional a $\mathbf{B}$ (o $\mathbf{H}$); bajo estas circunstancias, $\mathbf{D}$ es proporcional a $\mathbf{E}$ y $\mathbf{H}$ es proporcional a $\mathbf{B}$:
+	\begin{equation}
+		\mathbf{D} = \epsilon \mathbf{E}, \quad \mathbf{H} = \frac{1}{\mu} \mathbf{B}, \tag{7.57}
+	\end{equation}
+	donde $\epsilon$ es la permitividad del material y $\mu$ es su permeabilidad. En el vacío, $\epsilon = \epsilon_0$ y $\mu = \mu_0$, de modo que $\mathbf{D} = \epsilon_0 \mathbf{E}$ y $\mathbf{H} = \frac{1}{\mu_0} \mathbf{B}$.
+	
+	\section{Condiciones de contorno}
+	
+	En general, los campos $\mathbf{E, B, D}$ y $\mathbf{H}$ serán discontinuos en una frontera entre dos medios diferentes, o en una superficie que lleve una densidad de carga $\sigma$ o una densidad de corriente $\mathbf{K}$. La forma explícita de estas discontinuidades puede deducirse de las ecuaciones de Maxwell (7.56), en su forma integral:
+	
+	\begin{itemize}
+		\item[(i)] $\displaystyle \oint_S \mathbf{D} \cdot d\mathbf{a} = Q_{f, enc}$
+		\item[(ii)] $\displaystyle \oint_S \mathbf{B} \cdot d\mathbf{a} = 0$
+		\item[(iii)] $\displaystyle \oint_{\mathcal{P}} \mathbf{E} \cdot d\mathbf{l} = -\frac{d}{dt} \int_S \mathbf{B} \cdot d\mathbf{a}$
+		\item[(iv)] $\displaystyle \oint_{\mathcal{P}} \mathbf{H} \cdot d\mathbf{l} = I_{f, enc} + \frac{d}{dt} \int_S \mathbf{D} \cdot d\mathbf{a}$
+	\end{itemize}
+	\vspace{-1.5em}
+	\begin{flushright}
+		$\left. \text{\rule{0pt}{4em}} \right\} \text{ sobre cualquier superficie cerrada } S.$ \\
+		$\left. \text{\rule{0pt}{4em}} \right\} \begin{array}{l} \text{ para cualquier superficie } S \\ \text{ limitada por el} \\ \text{ lazo cerrado } \mathcal{P}. \end{array}$
+	\end{flushright}
+	
+	Aplicando (i) a una pequeña caja de píldoras gaussiana, delgada como una oblea, que se extiende apenas ligeramente en el material a cada lado de la frontera (Fig. 7.48), obtenemos:
+	\begin{equation*}
+		\mathbf{D}_1 \cdot \mathbf{a} - \mathbf{D}_2 \cdot \mathbf{a} = \sigma_f a.
+	\end{equation*}
+	(La dirección positiva para $\mathbf{a}$ es \textit{desde 2 hacia 1}. El borde de la oblea no contribuye en nada en el límite cuando el espesor tiende a cero; como tampoco lo hace ninguna densidad de carga volumétrica). Por lo tanto, la componente de $\mathbf{D}$ que es perpendicular a la interfaz es discontinua en la cantidad:
+	\begin{equation}
+		D_1^{\perp} - D_2^{\perp} = \sigma_f. \tag{7.60}
+	\end{equation}
+	
+	Identical reasoning, aplicado a la ecuación (ii), produce:
+	\begin{equation}
+		B_1^{\perp} - B_2^{\perp} = 0. \tag{7.61}
+	\end{equation}
+	
+	Pasando a (iii), un lazo amperiano muy delgado que atraviesa la superficie da:
+	\begin{equation*}
+		\mathbf{E}_1 \cdot \mathbf{l} - \mathbf{E}_2 \cdot \mathbf{l} = -\frac{d}{dt} \int_S \mathbf{B} \cdot d\mathbf{a}.
+	\end{equation*}
+	Pero en el límite cuando el ancho del lazo tiende a cero, el flujo desaparece. (Ya he descartado la contribución de los dos extremos a $\oint \mathbf{E} \cdot d\mathbf{l}$, por las mismas razones). Por lo tanto,
+	\begin{equation}
+		\mathbf{E}_1^{\parallel} - \mathbf{E}_2^{\parallel} = \mathbf{0}. \tag{7.62}
+	\end{equation}
+	Es decir, las componentes de $\mathbf{E}$ \textit{paralelas} a la interfaz son continuas a través de la frontera. Del mismo modo, (iv) implica:
+	\begin{equation*}
+		\mathbf{H}_1 \cdot \mathbf{l} - \mathbf{H}_2 \cdot \mathbf{l} = I_{f, enc},
+	\end{equation*}
+	donde $I_{f, enc}$ es la corriente libre que pasa a través del lazo amperiano. Ninguna densidad de corriente volumétrica contribuirá (en el límite de ancho infinitesimal), pero una corriente \textit{superficial} sí puede. De hecho, si $\hat{\mathbf{n}}$ es un vector unitario perpendicular a la interfaz (apuntando de 2 hacia 1), de modo que $(\hat{\mathbf{n}} \times \mathbf{l})$ es normal al lazo amperiano (Fig. 7.49), entonces
+	\begin{equation*}
+		I_{f, enc} = \mathbf{K}_f \cdot (\hat{\mathbf{n}} \times \mathbf{l}) = (\mathbf{K}_f \times \hat{\mathbf{n}}) \cdot \mathbf{l}.
+	\end{equation*}
+	
+	\esp
+	
+	\noindent y por lo tanto
+	\begin{equation}
+		\mathbf{H}_1^{\parallel} - \mathbf{H}_2^{\parallel} = \mathbf{K}_f \times \hat{\mathbf{n}}. \tag{7.63}
+	\end{equation}
+	
+	Así, las componentes paralelas de $\mathbf{H}$ son discontinuas en una cantidad proporcional a la densidad de corriente superficial libre. Las ecuaciones 7.60--63 son las condiciones de contorno generales para la electrodinámica. En el caso de \textit{medios lineales}, pueden expresarse únicamente en términos de $\mathbf{E}$ y $\mathbf{B}$:
+	
+	\begin{equation}
+		\begin{array}{ll}
+			\text{(i) } \epsilon_1 E_1^{\perp} - \epsilon_2 E_2^{\perp} = \sigma_f, & \text{(iii) } \mathbf{E}_1^{\parallel} - \mathbf{E}_2^{\parallel} = \mathbf{0}, \\
+			\text{(ii) } B_1^{\perp} - B_2^{\perp} = 0, & \text{(iv) } \dfrac{1}{\mu_1} \mathbf{B}_1^{\parallel} - \dfrac{1}{\mu_2} \mathbf{B}_2^{\parallel} = \mathbf{K}_f \times \hat{\mathbf{n}}.
+		\end{array} \tag{7.64}
+	\end{equation}
+	
+	En particular, si no hay carga libre ni corriente libre en la interfaz, entonces:
+	
+	\begin{equation}
+		\begin{array}{ll}
+			\text{(i) } \epsilon_1 E_1^{\perp} - \epsilon_2 E_2^{\perp} = 0, & \text{(iii) } \mathbf{E}_1^{\parallel} - \mathbf{E}_2^{\parallel} = \mathbf{0}, \\
+			\text{(ii) } B_1^{\perp} - B_2^{\perp} = 0, & \text{(iv) } \dfrac{1}{\mu_1} \mathbf{B}_1^{\parallel} - \dfrac{1}{\mu_2} \mathbf{B}_2^{\parallel} = \mathbf{0}.
+		\end{array} \tag{7.65}
+	\end{equation}
+	
+	Como veremos en el Capítulo 9, estas ecuaciones son la base de la teoría de la reflexión y la refracción.
+	
+	\esp
+	
+	\section{Teorema de Poynting}
+	
+	En el Capítulo 2, encontramos que el trabajo necesario para montar una distribución de carga estática (contra la repulsión de Coulomb de cargas iguales) es (Ec. 2.45)
+	\begin{equation*}
+		W_e = \frac{\epsilon_0}{2} \int E^2 \, d\tau,
+	\end{equation*}
+	donde $\mathbf{E}$ es el campo eléctrico resultante. Del mismo modo, el trabajo requerido para poner en marcha las corrientes (contra la fem inducida) es (Ec. 7.35)
+	\begin{equation*}
+		W_m = \frac{1}{2\mu_0} \int B^2 \, d\tau,
+	\end{equation*}
+	donde $\mathbf{B}$ es el campo magnético resultante. Esto sugiere que la energía total almacenada en los campos electromagnéticos, por unidad de volumen, es
+	\begin{equation}
+		u = \frac{1}{2} \left( \epsilon_0 E^2 + \frac{1}{\mu_0} B^2 \right). \tag{8.5}
+	\end{equation}
+	
+	En esta sección confirmaré la Ec. 8.5 y desarrollaré la ley de conservación de la energía para la electrodinámica.
+	
+	Supongamos que tenemos alguna configuración de carga y corriente que, al tiempo $t$, produce los campos $\mathbf{E}$ y $\mathbf{B}$. En el instante siguiente, $dt$, las cargas se mueven un poco. \textit{Pregunta}: ¿Cuánto trabajo, $dW$, realizan las fuerzas electromagnéticas que actúan sobre estas cargas, en el intervalo $dt$? De acuerdo con la ley de fuerza de Lorentz, el trabajo realizado sobre una carga $q$ es
+	\begin{equation*}
+		\mathbf{F} \cdot d\mathbf{l} = q(\mathbf{E} + \mathbf{v} \times \mathbf{B}) \cdot \mathbf{v} \, dt = q\mathbf{E} \cdot \mathbf{v} \, dt.
+	\end{equation*}
+	En términos de las densidades de carga y corriente, $q \rightarrow \rho \, d\tau$ y $\rho\mathbf{v} \rightarrow \mathbf{J}$, por lo que la tasa a la que se realiza trabajo sobre todas las cargas en un volumen $\mathcal{V}$ es
+	\begin{equation}
+		\frac{dW}{dt} = \int_{\mathcal{V}} (\mathbf{E} \cdot \mathbf{J}) \, d\tau. \tag{8.6}
+	\end{equation}
+	
+	\esp
+	
+	Evidentemente $\mathbf{E} \cdot \mathbf{J}$ es el trabajo realizado por unidad de tiempo, por unidad de volumen ---es decir, la \textit{potencia} entregada por unidad de volumen. Podemos expresar esta cantidad en términos de los campos únicamente, usando la ley de Ampère-Maxwell para eliminar $\mathbf{J}$:
+	\begin{equation*}
+		\mathbf{E} \cdot \mathbf{J} = \frac{1}{\mu_0} \mathbf{E} \cdot (\nabla \times \mathbf{B}) - \epsilon_0 \mathbf{E} \cdot \frac{\partial \mathbf{E}}{\partial t}.
+	\end{equation*}
+	
+	De la regla del producto 6,
+	\begin{equation*}
+		\nabla \cdot (\mathbf{E} \times \mathbf{B}) = \mathbf{B} \cdot (\nabla \times \mathbf{E}) - \mathbf{E} \cdot (\nabla \times \mathbf{B}).
+	\end{equation*}
+	Invocando la ley de Faraday ($\nabla \times \mathbf{E} = -\partial \mathbf{B}/\partial t$), se sigue que
+	\begin{equation*}
+		\mathbf{E} \cdot (\nabla \times \mathbf{B}) = -\mathbf{B} \cdot \frac{\partial \mathbf{B}}{\partial t} - \nabla \cdot (\mathbf{E} \times \mathbf{B}).
+	\end{equation*}
+	
+	Mientras tanto,
+	\begin{equation}
+		\mathbf{B} \cdot \frac{\partial \mathbf{B}}{\partial t} = \frac{1}{2} \frac{\partial}{\partial t} (B^2), \quad \text{y} \quad \mathbf{E} \cdot \frac{\partial \mathbf{E}}{\partial t} = \frac{1}{2} \frac{\partial}{\partial t} (E^2), \tag{8.7}
+	\end{equation}
+	así que
+	\begin{equation}
+		\mathbf{E} \cdot \mathbf{J} = -\frac{1}{2} \frac{\partial}{\partial t} \left( \epsilon_0 E^2 + \frac{1}{\mu_0} B^2 \right) - \frac{1}{\mu_0} \nabla \cdot (\mathbf{E} \times \mathbf{B}). \tag{8.8}
+	\end{equation}
+	
+	Colocando esto en la Ec. 8.6, y aplicando el teorema de la divergencia al segundo término, tenemos
+	\begin{equation}
+		\frac{dW}{dt} = -\frac{d}{dt} \int_{\mathcal{V}} \frac{1}{2} \left( \epsilon_0 E^2 + \frac{1}{\mu_0} B^2 \right) d\tau - \frac{1}{\mu_0} \oint_{\mathcal{S}} (\mathbf{E} \times \mathbf{B}) \cdot d\mathbf{a}, \tag{8.9}
+	\end{equation}
+	donde $\mathcal{S}$ es la superficie que limita a $\mathcal{V}$. Este es el \textbf{teorema de Poynting}; es el ``teorema del trabajo-energía'' de la electrodinámica. La primera integral a la derecha es la energía total almacenada en los campos, $\int u \, d\tau$ (Ec. 8.5). El segundo término evidentemente representa la tasa a la cual la energía es transportada fuera de $\mathcal{V}$, a través de su superficie de contorno, por los campos electromagnéticos. El teorema de Poynting dice, entonces, que el \textit{trabajo realizado sobre las cargas por la fuerza electromagnética es igual a la disminución de la energía que permanece en los campos, menos la energía que fluyó hacia afuera a través de la superficie}.
+	
+	La \textit{energía por unidad de tiempo, por unidad de área}, transportada por los campos se llama el \textbf{vector de Poynting}:
+	\begin{equation}
+		\mathbf{S} \equiv \frac{1}{\mu_0} (\mathbf{E} \times \mathbf{B}). \tag{8.10}
+	\end{equation}
+	
+	Específicamente, $\mathbf{S} \cdot d\mathbf{a}$ es la energía por unidad de tiempo que cruza la superficie infinitesimal $d\mathbf{a}$ ---el flujo de energía (así que $\mathbf{S}$ es la \textbf{densidad de flujo de energía}).
+	
+	\esp
+	
+	Veremos muchas aplicaciones del vector de Poynting en los Capítulos 9 y 11, pero por el momento me interesa principalmente usarlo para expresar el teorema de Poynting de manera más compacta:
+	\begin{equation}
+		\frac{dW}{dt} = -\frac{d}{dt} \int_{\mathcal{V}} u \, d\tau - \oint_{\mathcal{S}} \mathbf{S} \cdot d\mathbf{a}. \tag{8.11}
+	\end{equation}
+	
+	¿Qué pasa si no se realiza trabajo sobre las cargas en $\mathcal{V}$? ---¿qué pasa si, por ejemplo, estamos en una región de espacio vacío, donde no hay carga? En ese caso $dW/dt = 0$, así que
+	\begin{equation*}
+		\int \frac{\partial u}{\partial t} \, d\tau = -\oint \mathbf{S} \cdot d\mathbf{a} = -\int (\nabla \cdot \mathbf{S}) \, d\tau,
+	\end{equation*}
+	y por lo tanto
+	\begin{equation}
+		\frac{\partial u}{\partial t} = -\nabla \cdot \mathbf{S}. \tag{8.12}
+	\end{equation}
+	
+	Esta es la ``ecuación de continuidad'' para la \textit{energía} ---$u$ (densidad de energía) juega el papel de $\rho$ (densidad de carga), y $\mathbf{S}$ toma la parte de $\mathbf{J}$ (densidad de corriente). Expresa la conservación local de la energía electromagnética.
+	
+	En \textit{general}, sin embargo, la energía electromagnética por sí sola \textit{no} se conserva (¡ni tampoco la energía de las cargas!). ¡Por supuesto que no! Los campos realizan trabajo sobre las cargas, y las cargas crean campos ---la energía se lanza de un lado a otro entre ellos. En la economía energética global, se deben incluir las contribuciones tanto de la materia como de los campos.
+	
 	\printbibliography[title={Bibliografía}]
 \end{document}
